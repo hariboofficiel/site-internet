@@ -1,114 +1,159 @@
 /* Reset simple */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: black;
-  color: #222;
+  background-color: #121212; /* un noir profond, moins agressif */
+  color: #222222;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
+/* Navbar */
 nav#navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
-  background: #f5f6fa ;
-  color: white;
-  padding: 10px 20px;
+  background-color: #2f3640; /* gris foncé */
+  color: #f5f6fa; /* clair */
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 999;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  font-weight: 600;
+  user-select: none;
 }
 
 nav#navbar ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 24px;
+  align-items: center;
 }
 
 nav#navbar a {
-  color: white;
+  color: #f5f6fa;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
 }
 
-nav#navbar a:hover {
+nav#navbar a:hover,
+nav#navbar a:focus {
   text-decoration: underline;
+  color: #718093; /* bleu-gris doux */
+  outline: none;
 }
 
 nav#navbar button {
-  background: #99aab5;
+  background-color: #718093; /* bleu-gris */
   border: none;
-  color: #222;
-  padding: 6px 12px;
-  border-radius: 5px;
+  color: #f5f6fa;
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
 }
 
-nav#navbar button:hover {
-  background: #677bc4;
-  color: white;
+nav#navbar button:hover,
+nav#navbar button:focus {
+  background-color: #4b6584; /* bleu plus foncé */
+  color: #dcdde1;
+  outline: none;
 }
 
+/* Main content */
 main#content {
   max-width: 900px;
-  margin: 90px auto 40px auto;
+  margin: 100px auto 40px auto; /* assez d’espace sous la navbar */
   padding: 0 20px;
+  color: #f5f6fa;
 }
 
+/* Sections */
 section {
-  background: white;
-  padding: 20px 25px;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 7px rgba(0,0,0,0.1);
+  background-color: #1e272e; /* gris très foncé */
+  padding: 24px 30px;
+  margin-bottom: 32px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  color: #dcdde1;
 }
 
 h1, h2, h3 {
-  color: black;
-  margin-bottom: 15px;
+  color: #f5f6fa;
+  margin-bottom: 18px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
+/* Status styles */
 .status-open {
-  color: green;
-  font-weight: bold;
+  color: #44bd32; /* vert vif */
+  font-weight: 700;
 }
 
 .status-closed {
-  color: red;
-  font-weight: bold;
+  color: #e84118; /* rouge vif */
+  font-weight: 700;
 }
 
+/* Editable fields */
 .editable {
-  border: 1px solid #ccc;
-  padding: 5px 7px;
-  border-radius: 4px;
-  background: red;
-  min-width: 30px;
+  border: 1.5px solid #718093;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: #353b48; /* gris moyen */
+  color: #f5f6fa;
+  min-width: 40px;
+  transition: border-color 0.3s ease;
+}
+
+.editable:focus {
+  outline: none;
+  border-color: #44bd32;
+  background-color: #2f3640;
 }
 
 textarea.editable-textarea {
   width: 100%;
-  min-height: 80px;
+  min-height: 100px;
   font-family: inherit;
-  font-size: 1em;
-  padding: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  font-size: 1rem;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1.5px solid #718093;
+  background-color: #353b48;
+  color: #f5f6fa;
+  resize: vertical;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
+textarea.editable-textarea:focus {
+  outline: none;
+  border-color: #44bd32;
+  background-color: #2f3640;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   nav#navbar ul {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
   main#content {
-    margin: 130px 10px 20px 10px;
+    margin: 140px 15px 20px 15px;
   }
 }
