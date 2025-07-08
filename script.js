@@ -301,7 +301,7 @@ function showMaintenancePage() {
 
     <div class="spinner"></div>
 
-    <a href="https://discord.gg/TONINVITE" target="_blank" class="join-button">
+    <a href="https://discord.gg/DJNF9DxcAg" target="_blank" class="join-button">
       💬 Rejoindre le Discord Haribo Community
     </a>
   </div>
