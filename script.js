@@ -1,5 +1,5 @@
 // MODE MAINTENANCE : change à true si besoin
-const maintenanceMode = false;
+const maintenanceMode = true;
 
 // Menu burger
 const toggle = document.getElementById('menu-toggle');
