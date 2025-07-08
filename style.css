@@ -1,50 +1,67 @@
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f0f0;
+  margin: 0; padding: 0;
   color: #222;
 }
 
 header {
   background: #7289da;
   color: white;
+  padding: 20px;
   text-align: center;
-  padding: 60px 20px;
+  position: sticky;
+  top: 0;
 }
 
-header h1 {
-  font-size: 3em;
-}
-
-header p {
-  font-size: 1.2em;
-  margin: 15px 0;
-}
-
-.button {
-  background: white;
-  color: #7289da;
-  padding: 12px 20px;
-  text-decoration: none;
+button {
+  margin-left: 10px;
+  padding: 8px 12px;
+  font-size: 1em;
+  cursor: pointer;
   border-radius: 5px;
-  font-weight: bold;
+  border: none;
+  background: #99aab5;
+  color: #222;
+}
+
+button:hover {
+  background: #677bc4;
+  color: white;
 }
 
 section {
-  max-width: 800px;
-  margin: auto;
-  padding: 40px 20px;
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 h2 {
   color: #7289da;
-  margin-bottom: 15px;
 }
 
-footer {
-  text-align: center;
-  background: #222;
-  color: white;
-  padding: 20px;
-  font-size: 0.9em;
+.status-open {
+  color: green;
+  font-weight: bold;
+}
+
+.status-closed {
+  color: red;
+  font-weight: bold;
+}
+
+.editable {
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+  border-radius: 3px;
+  background: #ffffcc;
+}
+
+textarea.editable-textarea {
+  width: 100%;
+  min-height: 80px;
+  font-family: inherit;
+  font-size: 1em;
 }
