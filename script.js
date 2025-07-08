@@ -35,7 +35,7 @@ let data = {
       "!mute @user - Couper le micro",
       "!play [musique] - Jouer une musique",
       "et plein d'autre encore",
-       statut: "off"
+    
     ]
   },
   contact: {
