@@ -3,49 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Haribo Hub - Tes serveurs et bot</title>
-  <link rel="icon" href="favicon.png" type="image/png">
+  <title>Haribo Hub – Tes serveurs et bot</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<nav id="navbar">
+<nav id="navbar" role="navigation" aria-label="Menu principal">
   <ul>
     <li><a href="#accueil">Accueil</a></li>
     <li><a href="#serveurs">Serveurs</a></li>
     <li><a href="#bot">Bot</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button id="edit-toggle">✏️ Modifier</button>
-  <button id="save-btn" style="display:none;">💾 Sauvegarder</button>
+  <div class="nav-buttons">
+    <button id="edit-toggle" aria-pressed="false" aria-label="Activer le mode modification">✏️ Modifier</button>
+    <button id="save-btn" style="display:none;" aria-label="Sauvegarder les modifications">💾 Sauvegarder</button>
+  </div>
 </nav>
 
-<main id="content">
-
-  <section id="accueil">
-    <h1>Bienvenue sur Haribo Hub</h1>
-    <p>Centralisez ici toutes les infos de tes serveurs Discord et bot Haribobot.</p>
+<main id="content" tabindex="-1">
+  <section id="accueil" tabindex="0" aria-labelledby="accueil-title">
+    <h1 id="accueil-title">Bienvenue sur Haribo Hub</h1>
+    <p>Centralisez ici toutes les informations de vos serveurs Discord et du bot Haribobot.</p>
   </section>
 
-  <section id="serveurs">
-    <h2>🖥️ Serveurs Discord</h2>
-    <div id="serveurs-list"></div>
+  <section id="serveurs" tabindex="0" aria-labelledby="serveurs-title">
+    <h2 id="serveurs-title">🖥️ Serveurs Discord</h2>
+    <div id="serveurs-list" aria-live="polite" aria-atomic="true"></div>
   </section>
 
-  <section id="bot">
-    <h2>🤖 Bot Discord</h2>
-    <div id="bot-desc"></div>
+  <section id="bot" tabindex="0" aria-labelledby="bot-title">
+    <h2 id="bot-title">🤖 Bot Discord</h2>
+    <div id="bot-desc" aria-live="polite" aria-atomic="true"></div>
     <h3>Commandes principales :</h3>
     <ul id="bot-commands"></ul>
   </section>
 
-  <section id="contact">
-    <h2>📬 Contact</h2>
-    <p>Pour toute question, écris-nous à : <span id="contact-mail">contact@haribohub.com</span></p>
+  <section id="contact" tabindex="0" aria-labelledby="contact-title">
+    <h2 id="contact-title">📬 Contact</h2>
+    <p>Pour toute question, écrivez-nous à : <a href="mailto:contact@haribohub.com" id="contact-mail">contact@haribohub.com</a></p>
   </section>
-
 </main>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>
