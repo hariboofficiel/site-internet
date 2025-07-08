@@ -80,7 +80,7 @@ h1, h2, h3 {
 }
 
 .status-closed {
-  color: red;
+  color: green;
   font-weight: bold;
 }
 
