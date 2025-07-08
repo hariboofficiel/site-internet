@@ -195,7 +195,7 @@ saveBtn.addEventListener("click", exitEditMode);
 loadData();
 renderPage(false);
 
-const maintenance = true; // Passe à true pour activer le mode maintenance
+const maintenance = false; // Passe à true pour activer le mode maintenance
 
 function showMaintenancePage() {
   document.body.innerHTML = `
