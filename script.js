@@ -194,3 +194,55 @@ saveBtn.addEventListener("click", exitEditMode);
 
 loadData();
 renderPage(false);
+
+const maintenance = true; // Passe à true pour activer le mode maintenance
+
+function showMaintenancePage() {
+  document.body.innerHTML = `
+  <style>
+    body {
+      margin: 0; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #2c3e50;
+      color: #ecf0f1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #e74c3c;
+      text-shadow: 0 0 8px #e74c3c;
+    }
+    p {
+      font-size: 1.5rem;
+      max-width: 400px;
+      line-height: 1.4;
+      color: #bdc3c7;
+    }
+    .emoji {
+      font-size: 5rem;
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <div>
+    <div class="emoji">🚧</div>
+    <h1>Site en maintenance</h1>
+    <p>Nous effectuons quelques améliorations. Merci de revenir un peu plus tard !</p>
+  </div>
+  `;
+}
+
+// Vérifie le mode maintenance au chargement
+if (maintenance) {
+  showMaintenancePage();
+  // Arrête l’exécution du reste du script
+  throw new Error("Mode maintenance activé, arrêt du script.");
+}
+
