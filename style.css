@@ -14,7 +14,7 @@ body {
 nav#navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
-  background: black ;
+  background: #f5f6fa ;
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -70,7 +70,7 @@ section {
 }
 
 h1, h2, h3 {
-  color: green;
+  color: black;
   margin-bottom: 15px;
 }
 
