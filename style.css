@@ -75,12 +75,12 @@ h1, h2, h3 {
 }
 
 .status-open {
-  color: red;
+  color: greenred;
   font-weight: bold;
 }
 
 .status-closed {
-  color: green;
+  color: red;
   font-weight: bold;
 }
 
