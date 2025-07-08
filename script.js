@@ -8,7 +8,7 @@ let data = {
     },
     {
       nom: "Omega RP",
-      description: "Serveur Roleplay immersif et sérieux.",
+      description: "Serveur discord du serveur Privé EH.",
       lien: "https://discord.gg/bRXQfVcMxz",
       statut: "Ouvert"
     },
@@ -16,13 +16,13 @@ let data = {
       nom: "Haribobot Support",
       description: "Support et aide pour le bot Haribobot.",
       lien: "https://discord.gg/JV5FmXhkRq",
-      statut: "Ouvert"
+      statut: "fermé"
     },
     {
       nom: "Emergency Hambourg (Privé)",
       description: "Serveur privé pour Emergency Hambourg RP.",
       lien: "https://www.roblox.com/games/start?placeId=7711635737&launchData=joinCode%3Dgwy3874x",
-      statut: "Fermé"
+      statut: "ouvert"
     }
   ],
   bot: {
@@ -36,7 +36,8 @@ let data = {
       "!play [musique] - Jouer une musique",
       "et plein d'autre encore",
     
-    ]
+    ],
+    statut: "hors-service"
   },
   contact: {
     mail: "contact@haribohub.com"
