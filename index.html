@@ -8,14 +8,41 @@
 </head>
 <body>
 
-<header>
-  <h1>Haribo Hub</h1>
+<nav id="navbar">
+  <ul>
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#serveurs">Serveurs</a></li>
+    <li><a href="#bot">Bot</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
   <button id="edit-toggle">✏️ Modifier</button>
   <button id="save-btn" style="display:none;">💾 Sauvegarder</button>
-</header>
+</nav>
 
 <main id="content">
-  <!-- Contenu dynamique chargé par JS -->
+
+  <section id="accueil">
+    <h1>Bienvenue sur Haribo Hub</h1>
+    <p>Centralisez ici toutes les infos de tes serveurs Discord et bot Haribobot.</p>
+  </section>
+
+  <section id="serveurs">
+    <h2>🖥️ Serveurs Discord</h2>
+    <div id="serveurs-list"></div>
+  </section>
+
+  <section id="bot">
+    <h2>🤖 Bot Discord</h2>
+    <div id="bot-desc"></div>
+    <h3>Commandes principales :</h3>
+    <ul id="bot-commands"></ul>
+  </section>
+
+  <section id="contact">
+    <h2>📬 Contact</h2>
+    <p>Pour toute question, écris-nous à : <span id="contact-mail">contact@haribohub.com</span></p>
+  </section>
+
 </main>
 
 <script src="script.js"></script>
