@@ -51,7 +51,7 @@ body {
   color: #00bcd4;
 }
 
-/* SECTIONS */
+/* SECTION */
 main {
   padding: 40px 20px;
   max-width: 1000px;
@@ -107,7 +107,7 @@ footer {
   color: #aaa;
 }
 
-/* ANIMATIONS */
+/* FADE IN */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -124,25 +124,40 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background: #1a1a1a;
+  background: linear-gradient(120deg, #0f0f0f, #1c1c1c);
   color: white;
   z-index: 9999;
-  text-align: center;
-  padding: 50px 20px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  animation: pulseBg 10s ease infinite;
+  padding: 40px 20px;
 }
 
-.maintenance-content h1 {
-  font-size: 2rem;
+@keyframes pulseBg {
+  0% { background-color: #0f0f0f; }
+  50% { background-color: #111; }
+  100% { background-color: #0f0f0f; }
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #333;
+  border-top: 6px solid #00bcd4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
   margin-bottom: 20px;
 }
 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .discord-button {
-  margin-top: 20px;
-  display: inline-block;
-  padding: 12px 20px;
+  margin-top: 25px;
+  padding: 12px 24px;
   background: #5865F2;
   color: white;
   text-decoration: none;
