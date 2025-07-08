@@ -9,19 +9,19 @@ let data = {
     {
       nom: "Omega RP",
       description: "Serveur Roleplay immersif et sérieux.",
-      lien: "https://discord.gg/omegarp",
+      lien: "https://discord.gg/bRXQfVcMxz",
       statut: "Ouvert"
     },
     {
       nom: "Haribobot Support",
       description: "Support et aide pour le bot Haribobot.",
-      lien: "https://discord.gg/haribobot",
+      lien: "https://discord.gg/JV5FmXhkRq",
       statut: "Ouvert"
     },
     {
       nom: "Emergency Hambourg (Privé)",
       description: "Serveur privé pour Emergency Hambourg RP.",
-      lien: "#",
+      lien: "https://www.roblox.com/games/start?placeId=7711635737&launchData=joinCode%3Dgwy3874x",
       statut: "Fermé"
     }
   ],
@@ -33,7 +33,9 @@ let data = {
       "!ban @user - Bannir un membre",
       "!kick @user - Expulser un membre",
       "!mute @user - Couper le micro",
-      "!play [musique] - Jouer une musique"
+      "!play [musique] - Jouer une musique",
+      "et plein d'autre encore",
+       statut: "off"
     ]
   },
   contact: {
@@ -195,7 +197,7 @@ saveBtn.addEventListener("click", exitEditMode);
 loadData();
 renderPage(false);
 
-const maintenance = true;
+const maintenance = false;
 
 function showMaintenancePage() {
   document.body.innerHTML = `
