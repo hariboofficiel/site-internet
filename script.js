@@ -195,7 +195,7 @@ saveBtn.addEventListener("click", exitEditMode);
 loadData();
 renderPage(false);
 
-const maintenance = true;
+const maintenance = false;
 
 function showMaintenancePage() {
   document.body.innerHTML = `
