@@ -195,134 +195,97 @@ saveBtn.addEventListener("click", exitEditMode);
 loadData();
 renderPage(false);
 
-const maintenance = true; // Passe à true pour activer le mode maintenance
+const maintenance = true; // Passe à false pour désactiver le mode maintenance
 
 function showMaintenancePage() {
   document.body.innerHTML = `
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+    * {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff6f91, #ff9671);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      text-align: center;
+      color: #fff;
       overflow: hidden;
-      position: relative;
     }
 
-    .container {
-      z-index: 10;
-      padding: 20px;
-      background: rgba(0,0,0,0.25);
-      border-radius: 15px;
-      box-shadow: 0 0 30px rgba(255,255,255,0.2);
-      max-width: 400px;
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 10px #ff6f91, 0 0 20px #ff6f91;
-      animation: pulse 2s infinite;
+    .maintenance-box {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      backdrop-filter: blur(8px);
     }
 
-    p {
-      font-size: 1.3rem;
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-      color: #f0e9ffcc;
-      text-shadow: 0 0 5px #8e44ad;
+    .maintenance-box h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00000055;
+      animation: fadeInDown 1s ease-in-out;
     }
 
-    .emoji {
-      font-size: 6rem;
-      margin-bottom: 1rem;
-      animation: bounce 2s infinite;
-      filter: drop-shadow(0 0 8px #ff6f91);
+    .maintenance-box p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #f0f0f0;
+      animation: fadeInUp 1s ease-in-out;
     }
 
-    /* Background animated circles */
-    .circle {
-      position: absolute;
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(255,255,255,0.2);
+      border-top: 6px solid #fff;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
+      margin: 0 auto;
+      animation: spin 1.2s linear infinite;
     }
 
-    .circle1 {
-      width: 200px;
-      height: 200px;
-      top: 10%;
-      left: 15%;
-      animation: float1 6s ease-in-out infinite;
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
-    .circle2 {
-      width: 150px;
-      height: 150px;
-      bottom: 20%;
-      right: 10%;
-      animation: float2 8s ease-in-out infinite;
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .circle3 {
-      width: 300px;
-      height: 300px;
-      top: 50%;
-      right: 40%;
-      animation: float3 7s ease-in-out infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { text-shadow: 0 0 10px #ff6f91, 0 0 20px #ff6f91; }
-      50% { text-shadow: 0 0 20px #ff3a6b, 0 0 40px #ff3a6b; }
-    }
-
-    @keyframes float1 {
-      0%, 100% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(-30px) translateX(20px); }
-    }
-
-    @keyframes float2 {
-      0%, 100% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(25px) translateX(-15px); }
-    }
-
-    @keyframes float3 {
-      0%, 100% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(-20px) translateX(-30px); }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 
-  <div class="circle circle1"></div>
-  <div class="circle circle2"></div>
-  <div class="circle circle3"></div>
-
-  <div class="container">
-    <div class="emoji">🚧</div>
-    <h1>Site en maintenance</h1>
-    <p>Nous effectuons quelques améliorations.<br>Merci de revenir un peu plus tard !</p>
+  <div class="maintenance-box">
+    <h1>🚧 Site en maintenance</h1>
+    <p>Nous faisons quelques ajustements techniques.<br>Merci de revenir plus tard !</p>
+    <div class="spinner"></div>
   </div>
   `;
 }
 
-// Vérifie le mode maintenance au chargement
 if (maintenance) {
   showMaintenancePage();
-  // Arrête l’exécution du reste du script
-  throw new Error("Mode maintenance activé, arrêt du script.");
+  throw new Error("Mode maintenance activé");
 }
-
-
