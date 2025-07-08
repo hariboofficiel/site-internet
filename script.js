@@ -1,4 +1,3 @@
-// Données initiales, tu modifies ici ou en mode édition
 let data = {
   serveurs: [
     {
@@ -36,15 +35,16 @@ let data = {
       "!mute @user - Couper le micro",
       "!play [musique] - Jouer une musique"
     ]
+  },
+  contact: {
+    mail: "contact@haribohub.com"
   }
 };
 
-const contentDiv = document.getElementById("content");
 const editBtn = document.getElementById("edit-toggle");
 const saveBtn = document.getElementById("save-btn");
 
 function loadData() {
-  // Essaie de charger depuis localStorage
   const saved = localStorage.getItem("hariboHubData");
   if (saved) {
     data = JSON.parse(saved);
@@ -56,83 +56,84 @@ function saveData() {
 }
 
 function createEditableField(text, tag = "p", isTextarea = false) {
-  const el = document.createElement(tag);
-  el.classList.add("editable");
-  el.contentEditable = true;
   if (isTextarea) {
-    // Remplacer <p> par <textarea>
     const textarea = document.createElement("textarea");
     textarea.className = "editable-textarea";
     textarea.value = text;
     return textarea;
   } else {
+    const el = document.createElement(tag);
+    el.classList.add("editable");
+    el.contentEditable = true;
     el.textContent = text;
     return el;
   }
 }
 
 function renderPage(editMode = false) {
-  contentDiv.innerHTML = "";
+  // Accueil
+  const accueil = document.getElementById("accueil");
+  if(editMode) {
+    accueil.innerHTML = "";
+    accueil.appendChild(createEditableField("Bienvenue sur Haribo Hub", "h1"));
+    accueil.appendChild(createEditableField("Centralisez ici toutes les infos de tes serveurs Discord et bot Haribobot.", "p", true));
+  } else {
+    accueil.innerHTML = `
+      <h1>${data.accueilTitle || "Bienvenue sur Haribo Hub"}</h1>
+      <p>${data.accueilDesc || "Centralisez ici toutes les infos de tes serveurs Discord et bot Haribobot."}</p>
+    `;
+  }
 
   // Serveurs
-  const serveursSection = document.createElement("section");
-  serveursSection.innerHTML = "<h2>🖥️ Serveurs Discord</h2>";
-
+  const serveursList = document.getElementById("serveurs-list");
+  serveursList.innerHTML = "";
   data.serveurs.forEach((srv, i) => {
-    const srvDiv = document.createElement("div");
-    const nom = editMode ? createEditableField(srv.nom, "h3") : document.createElement("h3");
-    if (!editMode) nom.textContent = srv.nom;
-
-    const desc = editMode ? createEditableField(srv.description, "p", true) : document.createElement("p");
-    if (!editMode) desc.textContent = srv.description;
-
-    const lien = editMode ? createEditableField(srv.lien, "p") : document.createElement("p");
-    if (!editMode) lien.innerHTML = `Lien : <a href="${srv.lien}" target="_blank">${srv.lien}</a>`;
-
-    const statut = editMode ? createEditableField(srv.statut, "p") : document.createElement("p");
-    statut.className = srv.statut.toLowerCase() === "ouvert" ? "status-open" : "status-closed";
-    if (!editMode) statut.textContent = `Statut : ${srv.statut}`;
-
-    srvDiv.appendChild(nom);
-    srvDiv.appendChild(desc);
-    srvDiv.appendChild(lien);
-    srvDiv.appendChild(statut);
-    serveursSection.appendChild(srvDiv);
+    if(editMode) {
+      const container = document.createElement("div");
+      container.appendChild(createEditableField(srv.nom, "h3"));
+      container.appendChild(createEditableField(srv.description, "p", true));
+      container.appendChild(createEditableField(srv.lien, "p"));
+      const statutField = createEditableField(srv.statut, "p");
+      statutField.className = srv.statut.toLowerCase() === "ouvert" ? "status-open editable" : "status-closed editable";
+      container.appendChild(statutField);
+      serveursList.appendChild(container);
+    } else {
+      serveursList.innerHTML += `
+      <div>
+        <h3>${srv.nom}</h3>
+        <p>${srv.description}</p>
+        <p>Lien : <a href="${srv.lien}" target="_blank">${srv.lien}</a></p>
+        <p class="${srv.statut.toLowerCase() === "ouvert" ? "status-open" : "status-closed"}">Statut : ${srv.statut}</p>
+      </div>
+      `;
+    }
   });
-  contentDiv.appendChild(serveursSection);
 
   // Bot
-  const botSection = document.createElement("section");
-  botSection.innerHTML = `<h2>🤖 Bot Discord : ${data.bot.nom}</h2>`;
-  const botDesc = editMode ? createEditableField(data.bot.description, "p", true) : document.createElement("p");
-  if (!editMode) botDesc.textContent = data.bot.description;
-
-  const commandesTitle = document.createElement("h3");
-  commandesTitle.textContent = "Commandes principales :";
-
-  const commandesList = document.createElement("ul");
-  if (editMode) {
-    // Edition des commandes avec textarea
-    data.bot.commandes.forEach((cmd, i) => {
+  const botDesc = document.getElementById("bot-desc");
+  const botCommands = document.getElementById("bot-commands");
+  if(editMode) {
+    botDesc.innerHTML = "";
+    botDesc.appendChild(createEditableField(data.bot.description, "p", true));
+    botCommands.innerHTML = "";
+    data.bot.commandes.forEach(cmd => {
       const ta = document.createElement("textarea");
       ta.className = "editable-textarea";
       ta.value = cmd;
-      ta.dataset.idx = i;
-      commandesList.appendChild(document.createElement("li")).appendChild(ta);
+      botCommands.appendChild(document.createElement("li")).appendChild(ta);
     });
   } else {
-    data.bot.commandes.forEach(cmd => {
-      const li = document.createElement("li");
-      li.textContent = cmd;
-      commandesList.appendChild(li);
-    });
+    botDesc.textContent = data.bot.description;
+    botCommands.innerHTML = data.bot.commandes.map(cmd => `<li>${cmd}</li>`).join("");
   }
 
-  botSection.appendChild(botDesc);
-  botSection.appendChild(commandesTitle);
-  botSection.appendChild(commandesList);
-
-  contentDiv.appendChild(botSection);
+  // Contact
+  const contactMail = document.getElementById("contact-mail");
+  if(editMode) {
+    contactMail.replaceWith(createEditableField(data.contact.mail, "span"));
+  } else {
+    contactMail.textContent = data.contact.mail;
+  }
 }
 
 function enterEditMode() {
@@ -142,16 +143,21 @@ function enterEditMode() {
 }
 
 function exitEditMode() {
-  // Récupérer les données modifiées
-  const sections = contentDiv.querySelectorAll("section");
+  const accueil = document.getElementById("accueil");
+  const h1 = accueil.querySelector("h1.editable");
+  const p = accueil.querySelector("textarea.editable-textarea") || accueil.querySelector("p.editable");
+
+  data.accueilTitle = h1 ? h1.textContent.trim() : data.accueilTitle;
+  data.accueilDesc = p ? (p.value !== undefined ? p.value.trim() : p.textContent.trim()) : data.accueilDesc;
 
   // Serveurs
-  const srvDivs = sections[0].querySelectorAll("div");
-  srvDivs.forEach((div, i) => {
+  const serveursList = document.getElementById("serveurs-list");
+  const serveursDivs = serveursList.querySelectorAll("div");
+  serveursDivs.forEach((div, i) => {
     const h3 = div.querySelector("h3.editable") || div.querySelector("h3");
     const pDesc = div.querySelector("textarea.editable-textarea") || div.querySelector("p.editable") || div.querySelector("p");
-    const pLien = div.querySelectorAll("p.editable")[1] || div.querySelectorAll("p")[1];
-    const pStatut = div.querySelectorAll("p.editable")[2] || div.querySelectorAll("p")[2];
+    const pLien = div.querySelectorAll("p")[1];
+    const pStatut = div.querySelectorAll("p")[2];
 
     data.serveurs[i].nom = h3.textContent.trim();
     data.serveurs[i].description = pDesc.value !== undefined ? pDesc.value.trim() : pDesc.textContent.trim();
@@ -160,16 +166,22 @@ function exitEditMode() {
   });
 
   // Bot
-  const botSection = sections[1];
-  const pDesc = botSection.querySelector("textarea.editable-textarea") || botSection.querySelector("p.editable") || botSection.querySelector("p");
+  const botDesc = document.getElementById("bot-desc");
+  const pDesc = botDesc.querySelector("textarea.editable-textarea") || botDesc.querySelector("p.editable") || botDesc.querySelector("p");
   data.bot.description = pDesc.value !== undefined ? pDesc.value.trim() : pDesc.textContent.trim();
 
-  // Commandes
-  const textareas = botSection.querySelectorAll("textarea.editable-textarea");
+  const botCommands = document.getElementById("bot-commands");
+  const textareas = botCommands.querySelectorAll("textarea.editable-textarea");
   data.bot.commandes = [];
   textareas.forEach(ta => {
     data.bot.commandes.push(ta.value.trim());
   });
+
+  // Contact
+  const contactSpan = document.querySelector("#contact span.editable") || document.querySelector("#contact span");
+  if(contactSpan) {
+    data.contact.mail = contactSpan.textContent.trim();
+  }
 
   saveData();
   renderPage(false);
