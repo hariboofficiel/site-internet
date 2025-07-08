@@ -1,4 +1,4 @@
-// ACTIVE ou DESACTIVE le mode maintenance ici (true = actif, false = désactivé)
+// Active ou désactive le mode maintenance ici
 const maintenance = true;
 
 function createBubble() {
@@ -32,9 +32,9 @@ window.addEventListener("DOMContentLoaded", () => {
     const box = document.getElementById("maintenance");
     if(box) box.style.display = "none";
 
-    // Ici tu peux mettre ton code pour afficher le vrai site
+    // Ici tu peux mettre ton code pour afficher la vraie page
   } else {
-    // Maintenance activée, init bulles animées
+    // Maintenance activée, initialisation des bulles animées
     initBubbles();
   }
 });
