@@ -3,47 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Haribo Hub – Tes serveurs et bot</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
+  <title>Haribo Hub - Tes serveurs & bot</title>
+  <link rel="icon" href="favicon.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<nav id="navbar" role="navigation" aria-label="Menu principal">
-  <ul>
-    <li><a href="#accueil">Accueil</a></li>
-    <li><a href="#serveurs">Serveurs</a></li>
-    <li><a href="#bot">Bot</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-buttons">
-    <button id="edit-toggle" aria-pressed="false" aria-label="Activer le mode modification">✏️ Modifier</button>
-    <button id="save-btn" style="display:none;" aria-label="Sauvegarder les modifications">💾 Sauvegarder</button>
-  </div>
-</nav>
+<header>
+  <nav class="navbar" role="navigation" aria-label="Menu principal">
+    <div class="container">
+      <a href="#" class="logo">🍬 Haribo Hub</a>
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#serveurs">Serveurs</a></li>
+        <li><a href="#bot">Bot</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="buttons">
+        <button id="edit-btn" aria-pressed="false" aria-label="Activer le mode édition">✏️ Modifier</button>
+        <button id="save-btn" hidden aria-label="Sauvegarder les modifications">💾 Sauvegarder</button>
+      </div>
+    </div>
+  </nav>
+</header>
 
-<main id="content" tabindex="-1">
-  <section id="accueil" tabindex="0" aria-labelledby="accueil-title">
-    <h1 id="accueil-title">Bienvenue sur Haribo Hub</h1>
-    <p>Centralisez ici toutes les informations de vos serveurs Discord et du bot Haribobot.</p>
+<main class="container" id="main-content" tabindex="-1">
+
+  <section id="accueil" class="section">
+    <h1>Bienvenue sur Haribo Hub</h1>
+    <p>Centralisez ici toutes les infos de vos serveurs Discord et bot Haribobot.</p>
   </section>
 
-  <section id="serveurs" tabindex="0" aria-labelledby="serveurs-title">
-    <h2 id="serveurs-title">🖥️ Serveurs Discord</h2>
-    <div id="serveurs-list" aria-live="polite" aria-atomic="true"></div>
+  <section id="serveurs" class="section">
+    <h2>🖥️ Serveurs Discord</h2>
+    <div id="serveurs-list" class="list"></div>
   </section>
 
-  <section id="bot" tabindex="0" aria-labelledby="bot-title">
-    <h2 id="bot-title">🤖 Bot Discord</h2>
-    <div id="bot-desc" aria-live="polite" aria-atomic="true"></div>
+  <section id="bot" class="section">
+    <h2>🤖 Bot Discord</h2>
+    <p id="bot-desc"></p>
     <h3>Commandes principales :</h3>
-    <ul id="bot-commands"></ul>
+    <ul id="bot-commands" class="list"></ul>
   </section>
 
-  <section id="contact" tabindex="0" aria-labelledby="contact-title">
-    <h2 id="contact-title">📬 Contact</h2>
-    <p>Pour toute question, écrivez-nous à : <a href="mailto:contact@haribohub.com" id="contact-mail">contact@haribohub.com</a></p>
+  <section id="contact" class="section">
+    <h2>📬 Contact</h2>
+    <p>Pour toute question, contactez-nous à : <a href="mailto:contact@haribohub.com" id="contact-mail">contact@haribohub.com</a></p>
   </section>
+
 </main>
 
 <script src="script.js" defer></script>
