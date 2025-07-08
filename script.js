@@ -195,7 +195,7 @@ saveBtn.addEventListener("click", exitEditMode);
 loadData();
 renderPage(false);
 
-const maintenance = true; // Passe à false pour désactiver le mode maintenance
+const maintenance = true;
 
 function showMaintenancePage() {
   document.body.innerHTML = `
@@ -229,27 +229,28 @@ function showMaintenancePage() {
     }
 
     .maintenance-box {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 40px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 40px 50px;
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      max-width: 600px;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .maintenance-box h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
+      font-size: 2.7rem;
+      margin-bottom: 20px;
       color: #ffffff;
       text-shadow: 0 0 10px #00000055;
-      animation: fadeInDown 1s ease-in-out;
     }
 
     .maintenance-box p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: #f0f0f0;
-      animation: fadeInUp 1s ease-in-out;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #e8e8e8;
+      line-height: 1.5;
     }
 
     .spinner {
@@ -258,29 +259,51 @@ function showMaintenancePage() {
       border: 6px solid rgba(255,255,255,0.2);
       border-top: 6px solid #fff;
       border-radius: 50%;
-      margin: 0 auto;
+      margin: 25px auto;
       animation: spin 1.2s linear infinite;
+    }
+
+    .join-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #5865F2;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .join-button:hover {
+      background-color: #4752c4;
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 
   <div class="maintenance-box">
     <h1>🚧 Site en maintenance</h1>
-    <p>Nous faisons quelques ajustements techniques.<br>Merci de revenir plus tard !</p>
+
+    <p>Nous travaillons actuellement sur des améliorations très cools 👨‍💻</p>
+    <p>Quelques bugs, un peu de magie, beaucoup de Haribo 🍬</p>
+    <p>Promis, on revient vite avec un site encore plus propre, plus rapide, plus stylé !</p>
+    <p>Ton accès reviendra dès que tout sera prêt — un peu de patience ❤️</p>
+    <p>Si tu veux être informé, rejoins notre serveur Discord :</p>
+
     <div class="spinner"></div>
+
+    <a href="https://discord.gg/TONINVITE" target="_blank" class="join-button">
+      💬 Rejoindre le Discord Haribo Community
+    </a>
   </div>
   `;
 }
