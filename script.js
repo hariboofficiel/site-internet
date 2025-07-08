@@ -1,40 +1,28 @@
-// Active ou désactive le mode maintenance ici
-const maintenance = true;
+// MODE MAINTENANCE : change à true si besoin
+const maintenanceMode = false;
 
-function createBubble() {
-  const bubble = document.createElement('div');
-  bubble.classList.add('bubble');
-
-  const size = Math.random() * 20 + 10; // 10px à 30px
-  bubble.style.width = `${size}px`;
-  bubble.style.height = `${size}px`;
-
-  bubble.style.left = `${Math.random() * 100}%`;
-  bubble.style.animationDuration = `${Math.random() * 10 + 10}s`; // 10-20 sec
-  bubble.style.animationDelay = `${Math.random() * 10}s`;
-
-  return bubble;
-}
-
-function initBubbles() {
-  const container = document.getElementById('bubbles-container');
-  const count = 30;
-
-  for (let i = 0; i < count; i++) {
-    const bubble = createBubble();
-    container.appendChild(bubble);
-  }
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  if (!maintenance) {
-    // Si maintenance désactivée, cacher la page maintenance
-    const box = document.getElementById("maintenance");
-    if(box) box.style.display = "none";
-
-    // Ici tu peux mettre ton code pour afficher la vraie page
-  } else {
-    // Maintenance activée, initialisation des bulles animées
-    initBubbles();
-  }
+// Menu burger
+const toggle = document.getElementById('menu-toggle');
+const links = document.getElementById('nav-links');
+toggle?.addEventListener('click', () => {
+  links.classList.toggle('active');
 });
+
+// Apparition animée au scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Activer/désactiver la maintenance
+if (maintenanceMode) {
+  document.getElementById('site-content').style.display = 'none';
+  document.getElementById('maintenance-screen').style.display = 'flex';
+} else {
+  document.getElementById('maintenance-screen').style.display = 'none';
+}
