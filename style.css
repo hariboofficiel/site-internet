@@ -200,4 +200,16 @@ footer {
   }
 }
 
+.hero-text {
+  font-size: 1.4em;
+  text-align: center;
+  margin: 30px 0;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+  color: #e6edf3;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
