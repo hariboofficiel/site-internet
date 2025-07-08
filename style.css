@@ -1,3 +1,54 @@
+/* Fond global animé */
+body {
+  background: linear-gradient(120deg, #0d1117, #161b22);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: #e6edf3;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Animation du fond */
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Appels visuels pour chaque section */
+section {
+  animation: fadeUp 1.2s ease;
+  margin-bottom: 50px;
+  padding: 40px 20px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Liens et boutons dynamiques */
+a, button {
+  transition: all 0.3s ease;
+}
+
+a:hover, button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Cartes au survol */
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(88, 166, 255, 0.2);
+}
 * {
   margin: 0;
   padding: 0;
