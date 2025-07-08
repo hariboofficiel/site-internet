@@ -296,7 +296,7 @@ function showMaintenancePage() {
     <p>Nous travaillons actuellement sur des améliorations très cools 👨‍💻</p>
     <p>Quelques bugs, un peu de magie, beaucoup de Haribo 🍬</p>
     <p>Promis, on revient vite avec un site encore plus propre, plus rapide, plus stylé !</p>
-    <p>Ton accès reviendra en septembre 2026 — un peu de patience ❤️</p>
+    <p>Ton accès reviendra dans les jours qui viennent — un peu de patience ❤️</p>
     <p>Si tu veux être informé, rejoins notre serveur Discord :</p>
 
     <div class="spinner"></div>
