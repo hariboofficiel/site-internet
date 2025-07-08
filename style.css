@@ -11,6 +11,12 @@ body {
   line-height: 1.6;
 }
 
+.maintenance-logo {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 12px;
+}
+
 /* NAVBAR */
 .navbar {
   background-color: #1c1c1c;
@@ -191,9 +197,5 @@ footer {
     display: flex;
   }
 }
-.maintenance-logo {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 12px;
-}
+
 
