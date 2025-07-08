@@ -324,3 +324,91 @@ if (maintenance) {
   // Arrête l’exécution du reste du script
   throw new Error("Mode maintenance activé, arrêt du script.");
 }
+function showMaintenancePage() {
+  document.body.innerHTML = `
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      z-index: 10;
+      padding: 30px 40px;
+      background: rgba(0,0,0,0.25);
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+    }
+
+    .emoji {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 8px #ff6f91);
+      animation: bounce 2s infinite;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: #7ab0ff;
+      text-shadow: 0 0 10px #ff3a6b, 0 0 20px #ff3a6b;
+      animation: pulse 2.5s infinite;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      margin-bottom: 25px;
+      color: #dcd6f7cc;
+      text-shadow: 0 0 5px #8e44ad;
+    }
+
+    /* Spinner */
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 6px solid rgba(255,255,255,0.25);
+      border-top-color: #ff6f91;
+      border-radius: 50%;
+      animation: spin 1.5s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 10px #ff6f91, 0 0 20px #ff6f91; }
+      50% { text-shadow: 0 0 20px #ff3a6b, 0 0 40px #ff3a6b; }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <div class="container">
+    <div class="emoji">🚧</div>
+    <h1>Site en maintenance</h1>
+    <p>Nous effectuons quelques améliorations.<br>Merci de revenir un peu plus tard !</p>
+    <div class="spinner"></div>
+  </div>
+  `;
+}
+
