@@ -1,5 +1,5 @@
 // Active ou désactive le mode maintenance ici
-const maintenance = true;
+const maintenance = false;
 
 function createBubble() {
   const bubble = document.createElement('div');
