@@ -1,14 +1,15 @@
-// MODE MAINTENANCE : change à true si besoin
-const maintenanceMode = false;
+// MODE MAINTENANCE
+const maintenanceMode = true; // Mets false pour afficher le site
 
 // Menu burger
 const toggle = document.getElementById('menu-toggle');
 const links = document.getElementById('nav-links');
+
 toggle?.addEventListener('click', () => {
   links.classList.toggle('active');
 });
 
-// Apparition animée au scroll
+// Scroll animation
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -19,7 +20,7 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Activer/désactiver la maintenance
+// Maintenance
 if (maintenanceMode) {
   document.getElementById('site-content').style.display = 'none';
   document.getElementById('maintenance-screen').style.display = 'flex';
