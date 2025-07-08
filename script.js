@@ -3,7 +3,7 @@ let data = {
     {
       nom: "Haribo Community",
       description: "Serveur général pour la communauté Haribo, discussions, jeux, entraide.",
-      lien: "https://discord.gg/haribocommunity",
+      lien: "https://discord.gg/DJNF9DxcAg",
       statut: "Ouvert"
     },
     {
