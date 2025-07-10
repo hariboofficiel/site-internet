@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Haribobot • Le bot officiel</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #FFD194, #70e1f5);
+      color: #222;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 50px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      animation: slideDown 0.8s ease-out;
+    }
+
+    h2 {
+      font-size: 1.6em;
+      margin-top: 30px;
+      color: #444;
+    }
+
+    p, li {
+      font-size: 1.1em;
+      line-height: 1.7;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: #ff8a00;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .cta:hover {
+      background: #e66e00;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🤖 Haribobot</h1>
+    <p>
+      Haribobot est un bot Discord puissant et polyvalent développé par Haribo Company™. Il propose une grande variété de commandes pour gérer, animer et sécuriser votre serveur.
+    </p>
+
+    <h2>🔧 Fonctions principales</h2>
+    <ul>
+      <li>🛠️ Modération (clear, alertes, verrouillage, reboot, shutdown...)</li>
+      <li>👥 Système de rôles automatisé et vérification du règlement</li>
+      <li>📋 Gestion complète des utilisateurs et des rôles (infos, avatars...)</li>
+      <li>🎮 Commandes funs et utilitaires : sondages, suggestions, aléatoire, calculs</li>
+      <li>🎵 Système musical (salon vocal, panneaux interactifs...)</li>
+      <li>📈 Système de niveaux entièrement personnalisable</li>
+    </ul>
+
+    <h2>🧩 Commandes publiques populaires</h2>
+    <ul>
+      <li><strong>!bonjour</strong>, <strong>!ping</strong>, <strong>!help_commands</strong></li>
+      <li><strong>!poll</strong>, <strong>!suggest</strong>, <strong>!reminder</strong></li>
+      <li><strong>!userinfo</strong>, <strong>!roleinfo</strong>, <strong>!avatar</strong></li>
+      <li><strong>!level</strong>, <strong>!levelconfig</strong>, <strong>!serverinvites</strong></li>
+    </ul>
+
+    <h2>🔒 Commandes Staff et Devs</h2>
+    <ul>
+      <li><strong>!shutdown</strong>, <strong>!reboot</strong>, <strong>!broadcast</strong></li>
+      <li><strong>!botstats</strong>, <strong>!devlist</strong>, <strong>!adddev</strong>, <strong>!removedev</strong></li>
+    </ul>
+
+    <h2>🌐 Ajouter Haribobot</h2>
+    <a class="cta" href="https://discord.com/oauth2/authorize?client_id=TON_ID_BOT&permissions=8&scope=bot%20applications.commands" target="_blank">➕ Inviter le bot</a>
+
+    <h2>🤝 Rejoindre le support</h2>
+    <a class="cta" href="https://discord.gg/TA_INVITATION" target="_blank">🔗 Rejoindre Haribo Support</a>
+
+    <footer>© 2025 Haribo Company™ – Haribobot v1.0</footer>
+  </div>
+</body>
+</html>
