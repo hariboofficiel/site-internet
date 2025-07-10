@@ -2,13 +2,90 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Conditions d'utilisation</title>
+  <title>Conditions d'utilisation • Haribo Company</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+      color: #222;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      background: white;
+      padding: 50px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      animation: slideDown 0.8s ease-out;
+    }
+    p, li {
+      font-size: 1.1em;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.3s;
+    }
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Conditions d'utilisation</h1>
-  <p>
-    En utilisant nos services, vous acceptez de ne pas utiliser ce bot pour spammer, harceler, ou enfreindre les règles de Discord.
-    L’équipe Haribo se réserve le droit de supprimer l’accès au bot à tout moment en cas d’abus.
-  </p>
+  <div class="container">
+    <h1>Conditions d'utilisation</h1>
+    <p>
+      En utilisant les services proposés par Haribo Company (comme nos bots Discord ou notre site web), vous vous engagez à :
+    </p>
+    <ul>
+      <li>Respecter les règles de Discord,</li>
+      <li>Ne pas utiliser nos outils pour spammer ou harceler,</li>
+      <li>Ne pas détourner ou compromettre nos services.</li>
+    </ul>
+    <p>
+      L’équipe Haribo se réserve le droit de restreindre ou bloquer l'accès à tout moment en cas d’abus, sans préavis.
+    </p>
+    <footer>© 2025 Haribo Company – Tous droits réservés.</footer>
+  </div>
 </body>
 </html>
