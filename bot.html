@@ -41,21 +41,27 @@
       font-size: 1.05em;
       line-height: 1.7;
       margin-bottom: 8px;
-      animation: fadeInUp 0.8s ease forwards;
     }
-    .cta {
+    .cta, .text-link {
       display: inline-block;
-      margin-top: 30px;
-      padding: 14px 28px;
+      margin-top: 15px;
+      padding: 12px 22px;
       background: #ff8a00;
       color: white;
       font-weight: bold;
       text-decoration: none;
       border-radius: 10px;
       transition: background 0.3s ease;
+      margin-right: 10px;
     }
-    .cta:hover {
+    .cta:hover, .text-link:hover {
       background: #e66e00;
+    }
+    .text-link {
+      background: transparent;
+      color: #ff8a00;
+      font-weight: normal;
+      padding: 0;
     }
     footer {
       margin-top: 50px;
@@ -72,82 +78,40 @@
       from { transform: translateY(-20px); opacity: 0 }
       to { transform: translateY(0); opacity: 1 }
     }
-    @keyframes fadeInUp {
-      from { transform: translateY(20px); opacity: 0 }
-      to { transform: translateY(0); opacity: 1 }
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🤖 Haribobot</h1>
-    <p>Haribobot est un bot Discord développé par Haribo Company™, conçu pour la gestion, la modération et l’animation de vos serveurs. Il dispose de nombreuses commandes accessibles aux membres, aux managers et aux développeurs.</p>
+    <p>Haribobot est un bot Discord développé par Haribo Company™, conçu pour gérer et animer vos serveurs avec style et efficacité.</p>
 
     <h2>✅ Commandes publiques</h2>
     <ul>
-      <li><strong>!bonjour</strong> – Dire bonjour au bot</li>
-      <li><strong>!ping</strong> – Affiche la latence du bot</li>
-      <li><strong>!rejoindre</strong> – Le bot rejoint votre salon vocal</li>
-      <li><strong>!quitter</strong> – Le bot quitte le salon vocal</li>
-      <li><strong>!help_commands</strong> – Voir toutes les commandes publiques</li>
-      <li><strong>!support</strong> – Lien du serveur support</li>
-      <li><strong>!say &lt;message&gt;</strong> – Faire parler le bot</li>
-      <li><strong>!say_embed &lt;titre&gt; &lt;contenu&gt;</strong> – Faire parler le bot dans un embed</li>
-      <li><strong>!calculate &lt;expression&gt;</strong> – Calculatrice intégrée</li>
-      <li><strong>!choose &lt;choix...&gt;</strong> – Choisir aléatoirement</li>
-      <li><strong>!level &lt;mention&gt;</strong> – Voir son niveau</li>
-      <li><strong>!serverinvites</strong> – Voir les invitations du serveur</li>
-      <li><strong>!alerte</strong> – Alerter un administrateur</li>
-      <li><strong>!suggest &lt;suggestion&gt;</strong> – Envoyer une suggestion</li>
-      <li><strong>!reminder &lt;temps&gt; &lt;texte&gt;</strong> – Créer un rappel</li>
-      <li><strong>!poll &lt;question&gt; &lt;options&gt;</strong> – Créer un sondage</li>
-      <li><strong>!userinfo &lt;utilisateur&gt;</strong> – Afficher les infos d’un membre</li>
-      <li><strong>!roleinfo &lt;rôle&gt;</strong> – Détails sur un rôle</li>
-      <li><strong>!servericon</strong> – Icone du serveur</li>
-      <li><strong>!avatar &lt;utilisateur&gt;</strong> – Voir un avatar</li>
-      <li><strong>!serveurinfo</strong> – Infos du serveur</li>
-      <li><strong>!info</strong> – Infos sur le bot</li>
+      <li><strong>!bonjour</strong> – Dire bonjour</li>
+      <li><strong>!ping</strong> – Latence</li>
+      <li><strong>!rejoindre / !quitter</strong> – Contrôle vocal</li>
+      <li><strong>!say / !say_embed</strong> – Faire parler le bot</li>
+      <li><strong>!calculate / !choose</strong> – Utilitaires</li>
+      <li><strong>!userinfo / !roleinfo / !avatar</strong> – Infos membres/serveur</li>
+      <li><strong>!poll / !suggest / !reminder</strong> – Interaction</li>
+      <li><strong>!level / !serverinvites / !info</strong> – Niveau & stats</li>
     </ul>
 
-    <h2>🔒 Commandes Managers</h2>
+    <h2>🔒 Commandes Managers & Développeurs</h2>
     <ul>
-      <li><strong>!managerhelp</strong> – Liste des commandes managers</li>
-      <li><strong>!shutdown</strong> – Éteindre le bot</li>
-      <li><strong>!reboot</strong> – Redémarrer le bot</li>
-      <li><strong>!addmanager</strong> – Ajouter un manager</li>
-      <li><strong>!removemanager</strong> – Supprimer un manager</li>
-      <li><strong>!broadcast</strong> – Envoyer un message global</li>
-      <li><strong>!MP</strong> – Envoyer un message privé</li>
-      <li><strong>!setup_server</strong> – Créer un serveur support automatiquement</li>
-      <li><strong>!blacklist add / remove / show</strong> – Gérer la blacklist</li>
-      <li><strong>!managerlist</strong> – Voir la liste des managers</li>
-    </ul>
-
-    <h2>👨‍💻 Commandes Développeurs</h2>
-    <ul>
-      <li><strong>!devhelp</strong> – Liste des commandes dev</li>
-      <li><strong>!servers</strong> – Voir les serveurs</li>
-      <li><strong>!maintenance on/off</strong> – Activer/Désactiver le mode maintenance</li>
-      <li><strong>!create_admin_role</strong> – Créer un rôle admin pour soi</li>
-      <li><strong>!purge_all</strong> – Supprimer tous les messages</li>
-      <li><strong>!lock_all / unlock_all</strong> – Verrouiller/Déverrouiller tous les salons</li>
-      <li><strong>!sync_category &lt;ID&gt;</strong> – Synchroniser une catégorie</li>
-      <li><strong>!leave_server &lt;ID&gt;</strong> – Faire quitter un serveur</li>
-      <li><strong>!adddev / removedev</strong> – Gérer les développeurs</li>
-      <li><strong>!devlist</strong> – Voir la liste des devs</li>
-    </ul>
-
-    <h2>🚨 Commandes d’urgence</h2>
-    <ul>
-      <li><strong>!announce &lt;message&gt;</strong> – Envoyer une annonce globale</li>
-      <li><strong>!lockdown</strong> – Verrouiller tout le serveur en urgence</li>
+      <li><strong>!shutdown / !reboot / !maintenance</strong></li>
+      <li><strong>!addmanager / !adddev / !blacklist</strong></li>
+      <li><strong>!servers / !leave_server / !purge_all</strong></li>
+      <li><strong>!lock_all / !unlock_all / !sync_category</strong></li>
+      <li><strong>!announce / !lockdown</strong></li>
     </ul>
 
     <h2>🔗 Liens utiles</h2>
-    <p>
-      <a class="cta" href="https://discord.com/oauth2/authorize?client_id=TON_ID_BOT&permissions=8&scope=bot%20applications.commands" target="_blank">➕ Inviter Haribobot</a><br><br>
-      <a class="cta" href="https://discord.gg/TA_INVITATION" target="_blank">🛠️ Serveur de support</a>
-    </p>
+    <a class="cta" href="https://discord.com/oauth2/authorize?client_id=TON_ID_BOT&permissions=8&scope=bot%20applications.commands" target="_blank">➕ Inviter le bot</a>
+    <a class="cta" href="https://discord.gg/TON_INVITE" target="_blank">🛠️ Serveur de support</a><br><br>
+
+    <a class="text-link" href="/privacy" target="_blank">🔒 Politique de confidentialité</a> |
+    <a class="text-link" href="/terms" target="_blank">📜 Conditions d'utilisation</a>
 
     <footer>© 2025 Haribo Company • Haribobot</footer>
   </div>
