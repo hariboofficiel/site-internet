@@ -1,5 +1,5 @@
 // MODE MAINTENANCE
-const maintenanceMode = false; // Mets false pour afficher le site
+const maintenanceMode = False; // Mets false pour afficher le site
 
 // Menu burger
 const toggle = document.getElementById('menu-toggle');
