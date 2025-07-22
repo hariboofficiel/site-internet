@@ -3,6 +3,15 @@
 <link rel="icon" href="favicon.png" type="image/png" />
 
 <head>
+  <script src="/global.js"></script>
+<script>
+  if (typeof maintenanceMode !== "undefined" && maintenanceMode === true) {
+    if (!window.location.href.includes("/maintenance")) {
+      window.location.href = "/maintenance";
+    }
+  }
+</script>
+
   <!-- Aperçu Discord / Open Graph -->
 <meta property="og:title" content="Haribo Hub - Tous tes serveurs & projets" />
 <meta property="og:description" content="Retrouve Haribo Community, Omega RP, Haribobot et plus encore sur une seule plateforme !" />
