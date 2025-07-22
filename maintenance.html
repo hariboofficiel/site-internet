@@ -2,239 +2,87 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Site en maintenance - Haribo Company</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🛠️ Maintenance en cours | Haribo Company™</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-    /* Reset */
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-      font-family: 'Rubik', sans-serif;
-      background: radial-gradient(circle at center, #14131b, #0f0e13 80%);
-      overflow: hidden;
-      color: #fff;
+    body {
+      background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+      font-family: 'Poppins', sans-serif;
+      color: #ffffff;
       display: flex;
-      justify-content: center;
       align-items: center;
-      text-align: center;
+      justify-content: center;
+      min-height: 100vh;
       flex-direction: column;
-      padding: 20px;
-    }
-
-    /* Animated background bubbles */
-    .bubbles {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .bubble {
-      position: absolute;
-      bottom: -150px;
-      background: rgba(212, 175, 55, 0.4);
-      border-radius: 50%;
-      opacity: 0.6;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.7));
-      box-shadow:
-        0 0 10px rgba(212, 175, 55, 0.5),
-        inset 0 0 5px rgba(255, 235, 59, 0.6);
-    }
-
-    /* Create multiple bubbles with different sizes, positions and speeds */
-    .bubble:nth-child(1) {
-      width: 60px; height: 60px;
-      left: 10%;
-      animation-name: rise;
-      animation-duration: 18s;
-      animation-delay: 0s;
-    }
-    .bubble:nth-child(2) {
-      width: 90px; height: 90px;
-      left: 30%;
-      animation-name: rise;
-      animation-duration: 22s;
-      animation-delay: 4s;
-    }
-    .bubble:nth-child(3) {
-      width: 40px; height: 40px;
-      left: 50%;
-      animation-name: rise;
-      animation-duration: 15s;
-      animation-delay: 2s;
-    }
-    .bubble:nth-child(4) {
-      width: 80px; height: 80px;
-      left: 70%;
-      animation-name: rise;
-      animation-duration: 20s;
-      animation-delay: 6s;
-    }
-    .bubble:nth-child(5) {
-      width: 50px; height: 50px;
-      left: 85%;
-      animation-name: rise;
-      animation-duration: 17s;
-      animation-delay: 1s;
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.6;
-      }
-      100% {
-        transform: translateY(-120vh) scale(1.3);
-        opacity: 0;
-      }
-    }
-
-    /* Container */
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 480px;
-      background: rgba(33, 25, 48, 0.85);
-      border-radius: 24px;
-      padding: 40px 30px;
-      box-shadow:
-        0 0 30px 5px rgba(212, 175, 55, 0.8);
-      backdrop-filter: blur(12px);
-      user-select: none;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     h1 {
-      font-weight: 700;
-      font-size: 3rem;
-      margin-bottom: 15px;
-      color: #d4af37;
-      text-shadow:
-        0 0 10px #d4af37bb,
-        0 0 20px #ffd54faa,
-        0 0 30px #ffd54faa;
-      animation: pulseGlow 2.5s ease-in-out infinite alternate;
-    }
-    @keyframes pulseGlow {
-      0% {
-        text-shadow:
-          0 0 10px #d4af37bb,
-          0 0 20px #ffd54faa,
-          0 0 30px #ffd54faa;
-      }
-      100% {
-        text-shadow:
-          0 0 25px #fff176dd,
-          0 0 40px #fff176dd,
-          0 0 60px #ffeb3bcc;
-      }
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      color: #f5a623;
     }
 
     p {
-      font-size: 1.15rem;
-      color: #c1b892;
-      margin-bottom: 40px;
-      line-height: 1.5;
+      font-size: 1.2em;
+      margin-bottom: 1.5em;
+      max-width: 500px;
     }
 
-    /* Spinner */
     .spinner {
-      margin: 0 auto;
-      width: 100px;
-      height: 100px;
-      position: relative;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #f5a623;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 2em;
     }
 
-    .spinner .circle {
-      box-sizing: border-box;
+    .footer {
       position: absolute;
-      border: 12px solid transparent;
-      border-top-color: #d4af37;
-      border-radius: 50%;
-      animation: spin 1.8s linear infinite;
-      top: 0; left: 0; right: 0; bottom: 0;
-      margin: auto;
-      width: 100px;
-      height: 100px;
-      filter: drop-shadow(0 0 8px #d4af37);
+      bottom: 20px;
+      font-size: 0.8em;
+      color: #bbbbbb;
     }
-    .spinner .circle:nth-child(2) {
-      border-top-color: #ffeb3b;
-      width: 70px;
-      height: 70px;
-      animation-duration: 2.6s;
-      top: 15px; left: 15px;
-      filter: drop-shadow(0 0 6px #ffeb3b);
+
+    a {
+      color: #f5a623;
+      text-decoration: none;
     }
-    .spinner .circle:nth-child(3) {
-      border-top-color: #6d54a6;
-      width: 40px;
-      height: 40px;
-      animation-duration: 1.3s;
-      top: 30px; left: 30px;
-      filter: drop-shadow(0 0 5px #6d54a6);
+
+    a:hover {
+      text-decoration: underline;
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
-    /* Responsive */
-    @media (max-width: 480px) {
-      .container {
-        padding: 30px 20px;
-      }
-      h1 {
-        font-size: 2.4rem;
-      }
-      p {
-        font-size: 1rem;
-        margin-bottom: 30px;
-      }
-      .spinner {
-        width: 80px;
-        height: 80px;
-      }
-      .spinner .circle {
-        border-width: 10px;
-      }
-      .spinner .circle:nth-child(2) {
-        width: 60px;
-        height: 60px;
-        top: 10px; left: 10px;
-      }
-      .spinner .circle:nth-child(3) {
-        width: 35px;
-        height: 35px;
-        top: 20px; left: 20px;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="bubbles" aria-hidden="true">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-  </div>
-
-  <div class="container" role="main" aria-live="polite" aria-busy="true" aria-label="Page en maintenance">
-    <h1>Site en maintenance</h1>
-    <p>Nous améliorons actuellement le site pour vous offrir la meilleure expérience possible.<br>Merci de votre patience, nous reviendrons très vite !</p>
-    <div class="spinner" aria-hidden="true">
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-    </div>
+  <div class="spinner"></div>
+  <h1>Maintenance en cours</h1>
+  <p>🚧 Le site <strong>Haribo Company™</strong> est actuellement en maintenance. Nous revenons très vite avec des nouveautés !</p>
+  <div class="footer">
+    <a href="https://haribo-company.netlify.app/terms">Conditions d'utilisation</a> ・
+    <a href="https://haribo-company.netlify.app/privacy">Politique de confidentialité</a>
   </div>
 </body>
 </html>
