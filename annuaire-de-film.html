@@ -5,52 +5,116 @@
   <title>Annuaire de films - Haribo Company</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
-      background: #121214;
+      margin: 0;
+      background: linear-gradient(135deg, #1e1e2f, #121214);
       color: #f0e6d2;
-      margin: 0; padding: 20px;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 40px auto 20px;
+      padding: 0 20px;
+      width: 100%;
+    }
+
     h1 {
-      color: #d4af37;
       text-align: center;
-      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: #d4af37;
+      text-shadow: 0 0 10px #d4af37aa;
+      margin-bottom: 40px;
     }
-    .film-list {
-      max-width: 800px;
-      margin: 0 auto;
+
+    ul.film-list {
       list-style: none;
       padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
-    .film-list li {
+
+    ul.film-list li {
       background: #22222e;
-      margin-bottom: 15px;
-      padding: 15px 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(109,84,166,0.7);
-      transition: background 0.3s ease;
-    }
-    .film-list li:hover {
-      background: #6d54a6;
+      border-radius: 14px;
+      padding: 20px 25px;
+      box-shadow: 0 0 25px rgba(109, 84, 166, 0.7);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
-    .film-list a {
+
+    ul.film-list li:hover {
+      background: #6d54a6;
+      box-shadow: 0 0 40px #c1b892;
+    }
+
+    ul.film-list a {
       color: #f0e6d2;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      display: block;
+      user-select: none;
     }
-    .film-list a:hover {
+
+    ul.film-list a:hover {
       color: #ffeb3b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.85rem;
+      color: #aaa;
+      background: #121214;
+      box-shadow: inset 0 1px 3px #22222e;
+    }
+
+    footer a {
+      color: #6d54a6;
+      margin: 0 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #d4af37;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      ul.film-list a {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Annuaire de films - Haribo Company</h1>
-  <ul class="film-list">
-    <li><a href="https://haribo-company.netlify.app/harrypotter-a-lecole-des-sorciers" target="_blank" rel="noopener noreferrer">Harry Potter à l'école des sorciers</a></li>
-    <li><a href="#" target="_blank" rel="noopener noreferrer">Film 2 (à venir)</a></li>
-    <li><a href="#" target="_blank" rel="noopener noreferrer">Film 3 (à venir)</a></li>
-  </ul>
+  <main>
+    <h1>Annuaire de films - Haribo Company</h1>
+    <ul class="film-list">
+      <li><a href="https://haribo-company.netlify.app/harrypotter-a-lecole-des-sorciers" target="_blank" rel="noopener noreferrer">Harry Potter à l'école des sorciers</a></li>
+      <li><a href="#" target="_blank" rel="noopener noreferrer">Film 2 (à venir)</a></li>
+      <li><a href="#" target="_blank" rel="noopener noreferrer">Film 3 (à venir)</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    <a href="https://haribo-company.netlify.app/terms" target="_blank" rel="noopener noreferrer">Conditions d'utilisation</a> | 
+    <a href="https://haribo-company.netlify.app/privacy" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>
+  </footer>
 </body>
 </html>
