@@ -1,6 +1,3 @@
-// MODE MAINTENANCE
-const maintenanceMode = true; // Mets false pour afficher le site
-
 // Menu burger
 const toggle = document.getElementById('menu-toggle');
 const links = document.getElementById('nav-links');
