@@ -5,163 +5,212 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Enor Lefoulon Meyer - Chanteur & Entrepreneur Numérique</title>
 
-  <!-- Balises Open Graph pour prévisualisation riche -->
+  <!-- Balises Open Graph pour prévisualisation riche sans image -->
   <meta property="og:title" content="Enor Lefoulon Meyer — Chanteur & Entrepreneur Numérique" />
   <meta property="og:description" content="Découvrez le parcours artistique et numérique d'Enor Lefoulon Meyer, alias Haribo." />
-  <meta property="og:image" content="https://haribo-company.netlify.app/images/enor-preview.jpg" />
   <meta property="og:url" content="https://haribo-company.netlify.app/enor" />
   <meta property="og:type" content="website" />
 
-  <!-- Balises Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Balises Twitter Card sans image -->
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Enor Lefoulon Meyer — Chanteur & Entrepreneur Numérique" />
   <meta name="twitter:description" content="Découvrez le parcours artistique et numérique d'Enor Lefoulon Meyer, alias Haribo." />
-  <meta name="twitter:image" content="https://haribo-company.netlify.app/images/enor-preview.jpg" />
 
   <style>
     /* Reset */
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
-      color: #222;
+      min-height: 100vh;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #ddd;
       line-height: 1.6;
-      padding: 20px;
-      max-width: 900px;
-      margin: 0 auto 40px;
+      padding: 30px 15px;
+      display: flex;
+      justify-content: center;
     }
 
-    /* Bandeau alias */
+    main {
+      max-width: 900px;
+      width: 100%;
+    }
+
     #alias-banner {
-      background-color: #f5a623;
-      color: white;
+      background: linear-gradient(90deg, #6a0dad, #4b0082);
+      color: #f0e6ff;
       text-align: center;
-      padding: 15px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 1.3rem;
-      box-shadow: 0 4px 10px rgba(245, 166, 35, 0.4);
-      margin-bottom: 30px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 18px 25px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 1.2px;
+      box-shadow: 0 0 15px #7b1fa2aa;
+      margin-bottom: 40px;
+      font-family: 'Segoe UI Black', 'Poppins', sans-serif;
     }
 
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
     header h1 {
-      font-size: 2.8rem;
-      color: #2c3e50;
-      margin-bottom: 8px;
+      font-size: 3rem;
+      color: #e0d7ff;
+      text-shadow: 0 0 8px #8e44adcc;
+      margin-bottom: 10px;
+      font-weight: 800;
     }
     header p {
-      font-size: 1.1rem;
-      color: #555;
-    }
-    section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
-    }
-    section h2 {
-      margin-bottom: 16px;
-      color: #34495e;
-      border-bottom: 2px solid #3498db;
-      padding-bottom: 6px;
-      font-weight: 700;
-    }
-    section h3 {
-      margin-bottom: 10px;
-      color: #2c3e50;
-    }
-    ul {
-      margin-left: 20px;
-      margin-top: 12px;
-    }
-    li {
-      margin-bottom: 8px;
+      font-size: 1.3rem;
+      color: #bbb5e5;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.05em;
     }
 
+    section {
+      background: rgba(25, 20, 40, 0.85);
+      padding: 25px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(75, 0, 130, 0.8);
+      margin-bottom: 45px;
+      transition: transform 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(138, 43, 226, 0.9);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #d8b9ff;
+      border-bottom: 3px solid #9b59b6;
+      padding-bottom: 8px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 0.06em;
+      text-shadow: 0 0 5px #a67affcc;
+    }
+
+    section h3 {
+      font-size: 1.25rem;
+      color: #b8a1d9;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    p, li {
+      font-size: 1.05rem;
+      color: #ccc;
+    }
+
+    ul {
+      margin-left: 22px;
+      margin-top: 14px;
+      list-style-type: square;
+      color: #b39ddb;
+    }
+    li {
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    em {
+      font-style: italic;
+      color: #d9b3ff;
+    }
+
+    /* Responsive */
     @media (max-width: 600px) {
       body {
-        padding: 10px;
-        max-width: 100%;
+        padding: 20px 10px;
       }
       header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       #alias-banner {
+        font-size: 1.2rem;
+        padding: 15px 18px;
+      }
+      section {
+        padding: 20px 18px;
+        margin-bottom: 30px;
+      }
+      section h2 {
+        font-size: 1.6rem;
+      }
+      section h3 {
         font-size: 1.1rem;
-        padding: 12px 15px;
-        max-width: 100%;
+      }
+      p, li {
+        font-size: 1rem;
       }
     }
   </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <main>
+    <div id="alias-banner">
+      Enor Lefoulon Meyer &mdash; Alias <em>Haribo</em>
+    </div>
 
-  <div id="alias-banner">
-    Enor Lefoulon Meyer &mdash; Alias <em>Haribo</em>
-  </div>
+    <header>
+      <h1>Enor Lefoulon Meyer</h1>
+      <p>Chanteur lyrique & Entrepreneur numérique</p>
+    </header>
 
-  <header>
-    <h1>Enor Lefoulon Meyer</h1>
-    <p>Chanteur lyrique & Entrepreneur numérique</p>
-  </header>
+    <section id="artistique">
+      <h2>Identité artistique (IRL)</h2>
+      <h3>Formation musicale</h3>
+      <p>Commence la musique à <strong>7 ans</strong> au <strong>Conservatoire à Rayonnement Régional (CRR) de Paris</strong>, où il acquiert des bases solides en technique vocale, lecture musicale et interprétation.</p>
 
-  <section id="artistique">
-    <h2>Identité artistique (IRL)</h2>
-    <h3>Formation musicale</h3>
-    <p>Commence la musique à <strong>7 ans</strong> au <strong>Conservatoire à Rayonnement Régional (CRR) de Paris</strong>, où il acquiert des bases solides en technique vocale, lecture musicale et interprétation.</p>
+      <h3>Parcours scénique et collaborations</h3>
+      <ul>
+        <li>Performance scénique avec <strong>Ibrahim Maalouf</strong>, artiste mêlant jazz et musique contemporaine.</li>
+        <li>Chanteur invité au <strong>musée du Louvre</strong> lors d’événements culturels.</li>
+        <li>Prestation à la <strong>Chapelle Royale du Château de Versailles</strong> lors de son ouverture au public.</li>
+        <li>Membre du <strong>Chœur de jeunes de l’Orchestre de Paris</strong>, dirigé par Lionel Sow puis Richard Wilberforce, avec le soutien de chefs associés (Béatrice Warcollier, Désirée Pannetier, Pierre-Louis de Laporte).</li>
+        <li>Compositeur de la musique complète de <strong>3 films d’animation pédagogiques</strong>, dont <em>« Voyage dans l’espace »</em>, destinés à sensibiliser le jeune public à l’astronomie et à la musique.</li>
+      </ul>
 
-    <h3>Parcours scénique et collaborations</h3>
-    <ul>
-      <li>Performance scénique avec <strong>Ibrahim Maalouf</strong>, artiste mêlant jazz et musique contemporaine.</li>
-      <li>Chanteur invité au <strong>musée du Louvre</strong> lors d’événements culturels.</li>
-      <li>Prestation à la <strong>Chapelle Royale du Château de Versailles</strong> lors de son ouverture au public.</li>
-      <li>Membre du <strong>Chœur de jeunes de l’Orchestre de Paris</strong>, dirigé par Lionel Sow puis Richard Wilberforce, avec le soutien de chefs associés (Béatrice Warcollier, Désirée Pannetier, Pierre-Louis de Laporte).</li>
-      <li>Compositeur de la musique complète de <strong>3 films d’animation pédagogiques</strong>, dont <em>« Voyage dans l’espace »</em>, destinés à sensibiliser le jeune public à l’astronomie et à la musique.</li>
-    </ul>
+      <h3>Style & engagement</h3>
+      <p>Voix lyrique, expressive et polyvalente, à l’aise sur scène dans différents répertoires (classique, contemporain, pédagogique). Engagement fort dans chaque projet.</p>
+    </section>
 
-    <h3>Style & engagement</h3>
-    <p>Voix lyrique, expressive et polyvalente, à l’aise sur scène dans différents répertoires (classique, contemporain, pédagogique). Engagement fort dans chaque projet.</p>
-  </section>
+    <section id="numerique">
+      <h2>Carrière numérique & gestion de communauté</h2>
+      <h3>Fondateur & directeur de Haribo Company</h3>
+      <ul>
+        <li>Création et gestion de plusieurs serveurs Discord : <strong>Haribo Community</strong>, <strong>District RP Haribo</strong>, <strong>Omega RP</strong>, <strong>Haribobot Support</strong>.</li>
+        <li>Supervision d’équipes managers, modérateurs, développeurs, co-directeurs.</li>
+      </ul>
 
-  <section id="numerique">
-    <h2>Carrière numérique & gestion de communauté</h2>
-    <h3>Fondateur & directeur de Haribo Company</h3>
-    <ul>
-      <li>Création et gestion de plusieurs serveurs Discord : <strong>Haribo Community</strong>, <strong>District RP Haribo</strong>, <strong>Omega RP</strong>, <strong>Haribobot Support</strong>.</li>
-      <li>Supervision d’équipes managers, modérateurs, développeurs, co-directeurs.</li>
-    </ul>
+      <h3>Développement du bot Haribobot</h3>
+      <ul>
+        <li>Bot multifonction : commandes publiques, modération avec base de données, niveaux, sondages, support.</li>
+        <li>Intégration d’API IA (OpenAI, Google Gemini).</li>
+        <li>Menus dynamiques et gestion avancée du staff.</li>
+        <li>Système musical performant : bots dédiés, salons réservés, limitation de participants.</li>
+      </ul>
 
-    <h3>Développement du bot Haribobot</h3>
-    <ul>
-      <li>Bot multifonction : commandes publiques, modération avec base de données, niveaux, sondages, support.</li>
-      <li>Intégration d’API IA (OpenAI, Google Gemini).</li>
-      <li>Menus dynamiques et gestion avancée du staff.</li>
-      <li>Système musical performant : bots dédiés, salons réservés, limitation de participants.</li>
-    </ul>
+      <h3>Communication & animation</h3>
+      <ul>
+        <li>Organisation d’événements RP, soirées cinéma, lives TikTok.</li>
+        <li>Annonces dynamiques, gestion communautaire active.</li>
+        <li>Création d’un site vitrine centralisant les projets.</li>
+        <li>Mise en place de formulaires en ligne (recrutement, support, candidatures).</li>
+      </ul>
+    </section>
 
-    <h3>Communication & animation</h3>
-    <ul>
-      <li>Organisation d’événements RP, soirées cinéma, lives TikTok.</li>
-      <li>Annonces dynamiques, gestion communautaire active.</li>
-      <li>Création d’un site vitrine centralisant les projets.</li>
-      <li>Mise en place de formulaires en ligne (recrutement, support, candidatures).</li>
-    </ul>
-  </section>
-
-  <section id="resume">
-    <h2>Résumé global</h2>
-    <p>Enor Lefoulon Meyer incarne une double compétence rare et puissante : artiste scénique reconnu et entrepreneur numérique innovant, alliant expression artistique et maîtrise des technologies communautaires.</p>
-  </section>
-
+    <section id="resume">
+      <h2>Résumé global</h2>
+      <p>Enor Lefoulon Meyer incarne une double compétence rare et puissante : artiste scénique reconnu et entrepreneur numérique innovant, alliant expression artistique et maîtrise des technologies communautaires.</p>
+    </section>
+  </main>
 </body>
 </html>
