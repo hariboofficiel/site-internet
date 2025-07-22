@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script src="/global.js"></script>
+<script>
+  if (typeof maintenanceMode !== "undefined" && maintenanceMode === true) {
+    if (!window.location.href.includes("/maintenance")) {
+      window.location.href = "/maintenance";
+    }
+  }
+</script>
+
   <meta charset="UTF-8">
   <title>Haribobot • Liste des commandes</title>
   <!-- Aperçu Discord / Open Graph -->
