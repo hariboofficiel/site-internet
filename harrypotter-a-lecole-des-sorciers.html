@@ -1,103 +1,193 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Harry Potter à l'école des sorciers</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
-      color: #f5f5f5;
       margin: 0;
-      padding: 20px;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #121214);
+      color: #f0e6d2;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      overflow-x: hidden;
     }
+
     .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #ffd700;
-      margin-bottom: 10px;
-    }
-    h2 {
-      color: #ffffff;
-      margin-top: 30px;
-      border-bottom: 1px solid #444;
-      padding-bottom: 5px;
-    }
-    img {
+      max-width: 900px;
       width: 100%;
-      max-width: 400px;
-      border-radius: 8px;
-      margin: 15px 0;
-      display: block;
+      background: #22222e;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 0 40px rgba(109, 84, 166, 0.7);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.3s;
     }
-    .info p {
-      margin: 8px 0;
-      font-size: 1rem;
+
+    h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: #d4af37;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 0 8px #d4af37aa;
     }
-    a {
-      color: #7abaff;
-      text-decoration: none;
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #6d54a6;
+      padding-bottom: 8px;
+      color: #c1b892;
+      text-shadow: 0 0 5px #6d54a6bb;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.6s;
     }
-    a:hover {
-      text-decoration: underline;
+
+    p, li {
+      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.8s;
     }
+
     ul {
       padding-left: 20px;
     }
-    .actors li {
-      margin-bottom: 6px;
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #ffeb3b;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #6d54a6, #c1b892);
+      border: none;
+      border-radius: 40px;
+      color: #1e1e2f;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(109, 84, 166, 0.7);
+      transition: background 0.4s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 1s;
+      text-align: center;
+      user-select: none;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: linear-gradient(45deg, #c1b892, #6d54a6);
+      box-shadow: 0 8px 24px rgba(255, 235, 59, 0.8);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      p, li {
+        font-size: 1rem;
+      }
+      .button {
+        font-size: 1rem;
+        padding: 12px 25px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <main class="container" role="main" aria-label="Fiche Harry Potter à l'école des sorciers">
     <h1>Harry Potter à l'école des sorciers</h1>
-    <!-- Affiche officielle hébergée sur Amazon CDN -->
-    <img src="https://m.media-amazon.com/images/I/81YOuOGFCJL._AC_UF894,1000_QL80_.jpg" alt="Affiche Harry Potter">
 
-    <div class="info">
+    <section>
+      <h2>Informations générales</h2>
       <p><strong>Sortie :</strong> 5 décembre 2001 (France)</p>
-      <p><strong>Durée :</strong> 2h 32min</p>
+      <p><strong>Durée :</strong> 2h 32min</p>
       <p><strong>Réalisateur :</strong> Chris Columbus</p>
-      <p><strong>Saga :</strong> Harry Potter – film 1/8</p>
-    </div>
+      <p><strong>Saga :</strong> Harry Potter – film 1 sur 8</p>
+    </section>
 
-    <h2>Synopsis</h2>
-    <p>
-      Harry Potter, orphelin élevé par sa famille adoptive, découvre le jour de ses 11 ans qu’il est en réalité un sorcier. Intégré à l’école de sorcellerie de Poudlard, il se lie d’amitié avec Ron et Hermione et affronte sa première grande aventure magique.
-    </p>
+    <section>
+      <h2>Synopsis</h2>
+      <p>Harry Potter, orphelin élevé par sa famille adoptive, découvre le jour de ses 11 ans qu’il est en réalité un sorcier. Intégré à l’école de sorcellerie de Poudlard, il se lie d’amitié avec Ron et Hermione et affronte sa première grande aventure magique.</p>
+    </section>
 
-    <h2>Acteurs principaux</h2>
-    <ul class="actors">
-      <li>Daniel Radcliffe : Harry Potter</li>
-      <li>Emma Watson : Hermione Granger</li>
-      <li>Rupert Grint : Ron Weasley</li>
-      <li>Richard Harris : Albus Dumbledore</li>
-      <li>Alan Rickman : Severus Rogue</li>
-      <li>Robbie Coltrane : Rubeus Hagrid</li>
-    </ul>
+    <section>
+      <h2>Acteurs principaux</h2>
+      <ul>
+        <li>Daniel Radcliffe : Harry Potter</li>
+        <li>Emma Watson : Hermione Granger</li>
+        <li>Rupert Grint : Ron Weasley</li>
+        <li>Richard Harris : Albus Dumbledore</li>
+        <li>Alan Rickman : Severus Rogue</li>
+        <li>Robbie Coltrane : Rubeus Hagrid</li>
+      </ul>
+    </section>
 
-    <h2>Galerie</h2>
-    <!-- Hébergées sur i.ibb.co pour fiabilité -->
-    <img src="https://i.ibb.co/9tfzMmT/harrypotter-scene.jpg" alt="Harry Potter scène 1">
-    <img src="https://i.ibb.co/5ryP9qz/harrypotter-scene2.jpg" alt="Harry Potter scène 2">
+    <section>
+      <h2>Liens utiles</h2>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=VyHV0BRtdxo" target="_blank" rel="noopener noreferrer">▶️ Bande-annonce officielle</a></li>
+        <li><a href="https://www.allocine.fr/film/fichefilm_gen_cfilm=26772.html" target="_blank" rel="noopener noreferrer">📄 Fiche Allociné</a></li>
+        <li><a href="https://www.wizardingworld.com/" target="_blank" rel="noopener noreferrer">🌐 Site officiel Wizarding World</a></li>
+      </ul>
+    </section>
 
-    <h2>Liens utiles</h2>
-    <ul>
-      <li><a href="https://www.youtube.com/watch?v=VyHV0BRtdxo" target="_blank">▶️ Bande-annonce officielle</a></li>
-      <li><a href="https://www.allocine.fr/film/fichefilm_gen_cfilm=26772.html" target="_blank">📄 Fiche AlloCiné</a></li>
-      <li><a href="https://www.wizardingworld.com/" target="_blank">🌐 Site officiel Wizarding World</a></li>
-    </ul>
-
-    <h2>Regarder le film</h2>
-    <p>
-      <a href="https://lien-visionnage" class="button">Regarder maintenant</a>
-    </p>
-  </div>
+    <a href="https://lien-visionnage" class="button" target="_blank" rel="noopener noreferrer">Regarder le film</a>
+  </main>
 </body>
 </html>
