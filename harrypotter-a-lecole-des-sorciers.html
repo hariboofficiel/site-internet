@@ -4,6 +4,21 @@
   <meta charset="UTF-8" />
   <title>Harry Potter à l'école des sorciers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Open Graph (Discord, Facebook, etc.) -->
+  <meta property="og:title" content="Harry Potter à l'école des sorciers" />
+  <meta property="og:description" content="Découvrez la fiche complète du premier film Harry Potter, avec synopsis, acteurs, et liens utiles." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://haribo-company.netlify.app/harrypotter-a-lecole-des-sorciers" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Harry Potter à l'école des sorciers" />
+  <meta name="twitter:description" content="Découvrez la fiche complète du premier film Harry Potter, avec synopsis, acteurs, et liens utiles." />
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#6d54a6" />
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
@@ -35,6 +50,19 @@
       transform: translateY(20px);
       animation: fadeInUp 1s forwards;
       animation-delay: 0.3s;
+    }
+
+    .poster {
+      max-width: 300px;
+      display: block;
+      margin: 0 auto 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease;
+    }
+
+    .poster:hover {
+      transform: scale(1.05);
     }
 
     h1 {
@@ -146,11 +174,21 @@
         font-size: 1rem;
         padding: 12px 25px;
       }
+      .poster {
+        max-width: 80%;
+      }
     }
   </style>
 </head>
 <body>
   <main class="container" role="main" aria-label="Fiche Harry Potter à l'école des sorciers">
+    <img
+      src="https://m.media-amazon.com/images/I/81YOuOGFCJL._AC_UF894,1000_QL80_.jpg"
+      alt="Affiche Harry Potter à l'école des sorciers"
+      class="poster"
+      loading="lazy"
+    />
+
     <h1>Harry Potter à l'école des sorciers</h1>
 
     <section>
@@ -158,6 +196,7 @@
       <p><strong>Sortie :</strong> 5 décembre 2001 (France)</p>
       <p><strong>Durée :</strong> 2h 32min</p>
       <p><strong>Réalisateur :</strong> Chris Columbus</p>
+      <p><strong>Musique :</strong> John Williams</p>
       <p><strong>Saga :</strong> Harry Potter – film 1 sur 8</p>
     </section>
 
@@ -187,7 +226,7 @@
       </ul>
     </section>
 
-    <a href="https://lien-visionnage" class="button" target="_blank" rel="noopener noreferrer">Regarder le film</a>
+    <a href="https://xalaflix.io/movies/watch/harry-potter-%C3%A0-l%C3%A9cole-des-sorciers/193" class="button" target="_blank" rel="noopener noreferrer">Regarder le film</a>
   </main>
 </body>
 </html>
