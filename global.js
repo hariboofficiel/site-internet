@@ -1,2 +1,2 @@
 // global.js
-const maintenanceMode = false; // ⬅️ Mets à false pour désactiver
+const maintenanceMode = true; // ⬅️ Mets à false pour désactiver
