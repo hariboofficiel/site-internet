@@ -1,141 +1,375 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <script src="/global.js"></script>
-<script>
-  if (typeof maintenanceMode !== "undefined" && maintenanceMode === true) {
-    if (!window.location.href.includes("/maintenance")) {
-      window.location.href = "/maintenance";
-    }
-  }
-</script>
-
-  <meta charset="UTF-8">
-  <title>Haribobot • Liste des commandes</title>
-  <!-- Aperçu Discord / Open Graph -->
-<meta property="og:title" content="Haribobot • Le bot officiel de Haribo Company">
-<meta property="og:description" content="Découvrez toutes les commandes de Haribobot, le bot officiel pour gérer et animer vos serveurs Discord. 🔧👑">
-<meta property="og:url" content="https://haribo-company.netlify.app/bot">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://haribo-company.netlify.app/assets/haribobot-banner.png"> <!-- remplace si besoin -->
-
-<!-- Twitter Card (optionnel) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Haribobot • Le bot officiel de Haribo Company">
-<meta name="twitter:description" content="Découvrez toutes les commandes de Haribobot, le bot officiel pour Discord. 🔧">
-<meta name="twitter:image" content="https://haribo-company.netlify.app/assets/haribobot-banner.png">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Haribo Vitrine — Carte Blanche</title>
+  <meta name="description" content="Prototype de site vitrine pour Haribo Company — hub serveurs, bots et recrutement." />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #FAD0C4, #FFD1FF);
-      color: #222;
+    :root{
+      --bg1:#fff7ed; --bg2:#fff1d6; --accent:#f59e0b; --muted:#6b7280; --card:#ffffff;
+      --maxw:1100px;
     }
-    .container {
-      max-width: 1000px;
-      margin: 60px auto;
-      background: #fff;
-      padding: 50px;
-      border-radius: 18px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 1s ease-out;
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#0f172a; -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
     }
-    h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-      animation: slideDown 0.8s ease-out;
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+    header{position:fixed;left:0;right:0;top:0;background:rgba(255,255,255,0.7);backdrop-filter:blur(6px);border-bottom:1px solid rgba(15,23,42,0.06);z-index:50;}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;max-width:var(--maxw);margin:0 auto;}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:48px;height:48px;border-radius:10px;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px;box-shadow:0 6px 16px rgba(245,158,11,0.18)
     }
-    h2 {
-      font-size: 1.5em;
-      margin-top: 30px;
-      color: #444;
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color: #0f172a;text-decoration:none;font-weight:600;font-size:14px;padding:6px 8px;border-radius:8px}
+    nav a:hover{background:rgba(15,23,42,0.04)}
+    .cta{background:var(--accent);color:white;padding:8px 12px;border-radius:10px;box-shadow:0 6px 12px rgba(14,165,233,0.06)}
+    /* mobile */
+    .menu-btn{display:none;background:transparent;border:0;font-size:22px;padding:6px}
+    @media (max-width:900px){
+      nav{display:none}
+      .menu-btn{display:inline-block}
+      .mobile-menu{display:none;padding:12px;background:white;border-top:1px solid rgba(15,23,42,0.06)}
+      .mobile-menu.open{display:block}
+      .hero{padding-top:110px}
     }
-    p {
-      font-size: 1.1em;
-      line-height: 1.7;
+    main{padding-top:84px}
+    /* hero */
+    .hero{display:flex;gap:32px;align-items:center;padding:60px 0}
+    .hero-left{flex:1}
+    h1{font-size:34px;margin:0 0 12px;font-weight:800;line-height:1.02}
+    p.lead{color:var(--muted);margin:0 0 16px}
+    .hero-actions{display:flex;gap:12px;margin-top:16px}
+    .btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:white;font-weight:700}
+    .btn-primary{background:var(--accent);color:#fff;border:0;box-shadow:0 8px 20px rgba(245,158,11,0.12)}
+    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+    .info-card{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 16px rgba(2,6,23,0.03)}
+    .hero-right{flex:1;display:flex;align-items:center;justify-content:center}
+    .visual{width:100%;height:260px;border-radius:18px;background:linear-gradient(135deg,#ffd9a8,#ffb84d);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:20px;box-shadow:0 20px 50px rgba(0,0,0,0.08)}
+    /* sections */
+    section{padding:48px 0}
+    h2.section-title{font-size:22px;margin:0 0 8px}
+    p.section-desc{color:var(--muted);margin:0 0 16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
+    .muted{color:var(--muted);font-size:14px}
+    /* server status */
+    .status-pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+    .online{background:#dcfce7;color:#166534}
+    .warn{background:#fff7ed;color:#92400e}
+    .offline{background:#eef2ff;color:#3730a3}
+    /* forms */
+    form{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
+    label{display:block;margin-bottom:6px;font-weight:700;font-size:13px}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.08);font-size:14px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:900px){
+      .hero{flex-direction:column}
+      .info-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
     }
-    ul {
-      padding-left: 25px;
-      margin-top: 10px;
-    }
-    li {
-      font-size: 1.05em;
-      line-height: 1.7;
-      margin-bottom: 8px;
-    }
-    .cta, .text-link {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 22px;
-      background: #ff8a00;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: background 0.3s ease;
-      margin-right: 10px;
-    }
-    .cta:hover, .text-link:hover {
-      background: #e66e00;
-    }
-    .text-link {
-      background: transparent;
-      color: #ff8a00;
-      font-weight: normal;
-      padding: 0;
-    }
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #666;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0 }
-      to { opacity: 1 }
-    }
-    @keyframes slideDown {
-      from { transform: translateY(-20px); opacity: 0 }
-      to { transform: translateY(0); opacity: 1 }
-    }
+    footer{padding:28px 0;background:#0b1220;color:#fff;margin-top:24px}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .small{font-size:13px;color:rgba(255,255,255,0.8)}
+    /* helper */
+    .hidden{display:none}
+    .success{background:#ecfdf5;color:#065f46;padding:10px;border-radius:8px;margin-top:10px}
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🤖 Haribobot</h1>
-    <p>Haribobot est un bot Discord développé par Haribo Company™, conçu pour gérer et animer vos serveurs avec style et efficacité.</p>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo">H</div>
+        <div>
+          <div style="font-weight:800">Haribo Company</div>
+          <div style="font-size:12px;color:var(--muted)">Carte blanche — Prototype</div>
+        </div>
+      </div>
 
-    <h2>✅ Commandes publiques</h2>
-    <ul>
-      <li><strong>!bonjour</strong> – Dire bonjour</li>
-      <li><strong>!ping</strong> – Latence</li>
-      <li><strong>!rejoindre / !quitter</strong> – Contrôle vocal</li>
-      <li><strong>!say / !say_embed</strong> – Faire parler le bot</li>
-      <li><strong>!calculate / !choose</strong> – Utilitaires</li>
-      <li><strong>!userinfo / !roleinfo / !avatar</strong> – Infos membres/serveur</li>
-      <li><strong>!poll / !suggest / !reminder</strong> – Interaction</li>
-      <li><strong>!level / !serverinvites / !info</strong> – Niveau & stats</li>
-    </ul>
+      <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#a-propos">À propos</a>
+        <a href="#projets">Projets</a>
+        <a href="#serveurs">Serveurs</a>
+        <a href="#bot">Haribobot</a>
+        <a href="#recrutement">Recrutement</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#recrutement">Postuler</a>
+      </nav>
 
-    <h2>🔒 Commandes Managers & Développeurs</h2>
-    <ul>
-      <li><strong>!shutdown / !reboot / !maintenance</strong></li>
-      <li><strong>!addmanager / !adddev / !blacklist</strong></li>
-      <li><strong>!servers / !leave_server / !purge_all</strong></li>
-      <li><strong>!lock_all / !unlock_all / !sync_category</strong></li>
-      <li><strong>!announce / !lockdown</strong></li>
-    </ul>
+      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">☰</button>
+    </div>
 
-    <h2>🔗 Liens utiles</h2>
-    <a class="cta" href="https://discord.com/oauth2/authorize?client_id=1370912081532162098" target="_blank">➕ Inviter le bot</a>
-    <a class="cta" href="https://discord.gg/85zQjBDs6c" target="_blank">🛠️ Serveur de support</a><br><br>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container" style="padding:12px 20px;">
+        <a href="#accueil" onclick="toggleMenu()">Accueil</a><br/>
+        <a href="#a-propos" onclick="toggleMenu()">À propos</a><br/>
+        <a href="#projets" onclick="toggleMenu()">Projets</a><br/>
+        <a href="#serveurs" onclick="toggleMenu()">Serveurs</a><br/>
+        <a href="#bot" onclick="toggleMenu()">Haribobot</a><br/>
+        <a href="#recrutement" onclick="toggleMenu()">Recrutement</a><br/>
+        <a href="#contact" onclick="toggleMenu()">Contact</a><br/>
+      </div>
+    </div>
+  </header>
 
-    <a class="text-link" href="/privacy" target="_blank">🔒 Politique de confidentialité</a> |
-    <a class="text-link" href="/terms" target="_blank">📜 Conditions d'utilisation</a>
+  <main>
+    <section id="accueil" class="container hero">
+      <div class="hero-left">
+        <h1>Bienvenue sur le site prototype</h1>
+        <p class="lead">Un hub qui rassemble nos serveurs, projets et outils. Conçu sur demande — carte blanche.</p>
 
-    <footer>© 2025 Haribo Company • Haribobot</footer>
-  </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projets">Voir nos projets</a>
+          <a class="btn" href="#serveurs">Nos serveurs</a>
+        </div>
+
+        <div class="info-grid" aria-hidden="false">
+          <div class="info-card">🔔 Annonce: Haribobot peut être instable — maintenance en cours.</div>
+          <div class="info-card">📢 Recrutement: Modérateurs & Développeurs recherchés.</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="visual">Visuel / Présentation</div>
+      </div>
+    </section>
+
+    <section id="a-propos" class="container">
+      <div style="display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <h2 class="section-title">À propos</h2>
+          <p class="section-desc">Haribo Company rassemble plusieurs communautés, bots et projets liés au jeu et à la création. Ce site sert de vitrine, centre de ressources et portail de candidatures.</p>
+          <ul class="muted" style="margin-top:10px;line-height:1.8">
+            <li>Gestion de serveurs Discord</li>
+            <li>Bots et outils (Haribobot, panels, commandes)</li>
+            <li>Recrutement et gestion de staff</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:260px">
+          <div class="card">
+            <strong>Mission</strong>
+            <p class="muted" style="margin-top:8px">Créer des espaces sécurisés, amusants et bien modérés pour jouer, partager et apprendre.</p>
+            <div style="margin-top:10px">
+              <strong>Valeurs</strong>
+              <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+                <span style="background:#fff7ed;padding:6px 10px;border-radius:999px;font-weight:700">Communauté</span>
+                <span style="background:#fff7ed;padding:6px 10px;border-radius:999px;font-weight:700">Transparence</span>
+                <span style="background:#fff7ed;padding:6px 10px;border-radius:999px;font-weight:700">Soutien</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets" class="container">
+      <h2 class="section-title">Projets & Outils</h2>
+      <p class="section-desc">Quelques projets majeurs et outils développés.</p>
+
+      <div class="grid-3" style="margin-top:14px">
+        <div class="card">
+          <strong>Haribobot</strong>
+          <p class="muted" style="margin-top:8px">Bot multi-fonctions: modération, musique, niveaux, support.</p>
+        </div>
+        <div class="card">
+          <strong>Haribo PLAYZONE</strong>
+          <p class="muted" style="margin-top:8px">Serveur communautaire pour sessions gaming et événements.</p>
+        </div>
+        <div class="card">
+          <strong>District RP</strong>
+          <p class="muted" style="margin-top:8px">Espace RP lié à Emergency Hambourg (Roblox).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="serveurs" class="container">
+      <h2 class="section-title">Serveurs</h2>
+      <p class="section-desc">Liste et statut rapide des serveurs les plus importants.</p>
+
+      <div class="grid-3" style="margin-top:14px">
+        <div class="card">
+          <strong>Haribo Community</strong>
+          <p class="muted">Serveur principal, annonces et aide.</p>
+          <div style="margin-top:10px"><span class="status-pill online">En ligne</span></div>
+        </div>
+        <div class="card">
+          <strong>Haribo PLAYZONE</strong>
+          <p class="muted">Sessions gaming, events.</p>
+          <div style="margin-top:10px"><span class="status-pill warn">Partiellement en maintenance</span></div>
+        </div>
+        <div class="card">
+          <strong>Omega RP</strong>
+          <p class="muted">RP et collaborations (privé).</p>
+          <div style="margin-top:10px"><span class="status-pill offline">Privé</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bot" class="container">
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start">
+        <div style="flex:1;min-width:280px">
+          <h2 class="section-title">Haribobot</h2>
+          <p class="section-desc">Haribobot est notre bot polyvalent. Commandes publiques, panneau de musique, systèmes de niveaux, outils managers/developers.</p>
+          <ul class="muted" style="margin-top:8px;line-height:1.8">
+            <li>Commandes modération (ban, kick, warn, timeout)</li>
+            <li>Musique (MUSICO integration)</li>
+            <li>Système de staff et logs</li>
+          </ul>
+
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a class="btn btn-primary" href="#">Inviter le bot</a>
+            <a class="btn" href="#">Documentation</a>
+          </div>
+        </div>
+
+        <div style="width:280px;">
+          <div class="card">
+            <strong>Statistiques rapides</strong>
+            <div style="margin-top:10px" class="muted">
+              Serveurs: <strong>+120</strong><br/>
+              Utilisateurs: <strong>~34k</strong><br/>
+              Commands/day: <strong>~8k</strong><br/>
+              Uptime: <strong>98%</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recrutement" class="container">
+      <h2 class="section-title">Recrutement</h2>
+      <p class="section-desc">Tu veux rejoindre l'équipe ? Remplis le formulaire ci-dessous — les candidatures sont envoyées par e-mail.</p>
+
+      <form id="applyForm" style="margin-top:12px" onsubmit="handleApply(event)">
+        <div class="row">
+          <div>
+            <label for="pseudo">Pseudo</label>
+            <input id="pseudo" name="pseudo" required placeholder="Ton pseudo"/>
+          </div>
+          <div>
+            <label for="age">Âge (optionnel)</label>
+            <input id="age" name="age" placeholder="Âge"/>
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label for="motivation">Pourquoi nous rejoindre ?</label>
+          <textarea id="motivation" name="motivation" rows="6" required placeholder="Décris ta motivation"></textarea>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button type="submit" class="btn btn-primary">Envoyer la candidature</button>
+          <button type="button" class="btn" onclick="document.getElementById('applyForm').reset()">Effacer</button>
+        </div>
+
+        <div id="applySuccess" class="hidden success" role="status">Candidature prête — ouvre ton client mail si demandé.</div>
+      </form>
+    </section>
+
+    <section id="contact" class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-desc">Questions, partenariats, signalements — utilise le formulaire ci-dessous ou envoie un e-mail.</p>
+
+      <form id="contactForm" style="margin-top:12px" onsubmit="handleContact(event)">
+        <div class="row">
+          <div>
+            <label for="name">Nom</label>
+            <input id="name" name="name" required placeholder="Ton nom"/>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" required placeholder="ton@mail.ex"/>
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label for="subject">Sujet</label>
+          <input id="subject" name="subject" placeholder="Ex: partenariat"/>
+        </div>
+
+        <div style="margin-top:10px">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required placeholder="Ton message"></textarea>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+          <a class="btn" href="mailto:contact@haribo-company.netlify.app">Envoyer par mail</a>
+          <div id="contactSuccess" class="hidden success">Message préparé — ouvre ton client mail pour l'envoyer.</div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div style="font-weight:800">Haribo Company</div>
+        <div class="small" style="margin-top:6px">Prototype — © <span id="year"></span></div>
+      </div>
+      <div class="small">Made with ❤️ — Haribo Vitrine</div>
+    </div>
+  </footer>
+
+  <script>
+    // header mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function toggleMenu(){
+      mobileMenu.classList.toggle('open');
+    }
+    menuBtn.addEventListener('click', toggleMenu);
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // forms behaviour: we open mailto with prefilled content to simulate sending (client-side)
+    function encodeMailto(to, subject, body){
+      return 'mailto:'+encodeURIComponent(to)+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    }
+
+    function handleApply(e){
+      e.preventDefault();
+      const pseudo = document.getElementById('pseudo').value.trim();
+      const age = document.getElementById('age').value.trim();
+      const motivation = document.getElementById('motivation').value.trim();
+      if(!pseudo || !motivation) return alert('Complète pseudo et motivation.');
+
+      const to = 'recrutement@haribo-company.netlify.app';
+      const subject = `Candidature — ${pseudo}`;
+      const body = `Pseudo: ${pseudo}\nÂge: ${age}\n\nMotivation:\n${motivation}\n\n---\nEnvoyé depuis le site prototype.`;
+      // open mail client
+      window.location.href = encodeMailto(to, subject, body);
+      const s = document.getElementById('applySuccess');
+      s.classList.remove('hidden');
+      setTimeout(()=>s.classList.add('hidden'),5000);
+      e.target.reset();
+    }
+
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim() || 'Contact site';
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message) return alert('Remplis le formulaire correctement.');
+
+      const to = 'contact@haribo-company.netlify.app';
+      const body = `De: ${name} <${email}>\n\n${message}\n\n---\nEnvoyé depuis le site prototype.`;
+      window.location.href = encodeMailto(to, subject, body);
+      const s = document.getElementById('contactSuccess');
+      s.classList.remove('hidden');
+      setTimeout(()=>s.classList.add('hidden'),5000);
+      e.target.reset();
+    }
+  </script>
 </body>
 </html>
