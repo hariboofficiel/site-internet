@@ -1,375 +1,480 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Haribo Vitrine — Carte Blanche</title>
-  <meta name="description" content="Prototype de site vitrine pour Haribo Company — hub serveurs, bots et recrutement." />
-  <style>
-    :root{
-      --bg1:#fff7ed; --bg2:#fff1d6; --accent:#f59e0b; --muted:#6b7280; --card:#ffffff;
-      --maxw:1100px;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Haribo Hub</title>
+<meta name="description" content="Centre officiel Haribo - serveurs, bots, projets, gestion des liens." />
+<style>
+  /* ===== Reset & base ===== */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #eee;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  a {
+    color: #ffb347;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #ffc966;
+  }
+
+  /* ===== Container ===== */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+  }
+
+  /* ===== Header ===== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #1e1e1e;
+    border-bottom: 1px solid #333;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+  .logo {
+    font-weight: 900;
+    font-size: 28px;
+    color: #ffb347;
+    cursor: default;
+    user-select: none;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 10px #ffb347aa;
+  }
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: inset 0 0 0 0 #ffb347;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  nav a:hover, nav a.active {
+    background: #ffb347;
+    color: #1a1a1a;
+    box-shadow: inset 0 0 10px 3px #ffb347cc;
+  }
+
+  /* Hamburger menu for mobile */
+  .menu-btn {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #ffb347;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease;
+  }
+  .menu-btn.open {
+    transform: rotate(90deg);
+  }
+  @media(max-width: 900px) {
+    nav {
+      display: none;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,var(--bg1),var(--bg2));
-      color:#0f172a; -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
+    .menu-btn {
+      display: block;
     }
-    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
-    header{position:fixed;left:0;right:0;top:0;background:rgba(255,255,255,0.7);backdrop-filter:blur(6px);border-bottom:1px solid rgba(15,23,42,0.06);z-index:50;}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;max-width:var(--maxw);margin:0 auto;}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:48px;height:48px;border-radius:10px;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px;box-shadow:0 6px 16px rgba(245,158,11,0.18)
+    .mobile-menu {
+      display: none;
+      background: #1e1e1e;
+      border-top: 1px solid #333;
+      padding: 12px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+      position: fixed;
+      top: 60px;
+      left: 0; right: 0;
+      z-index: 99;
+      animation: fadeInDown 0.35s ease forwards;
     }
-    nav{display:flex;gap:14px;align-items:center}
-    nav a{color: #0f172a;text-decoration:none;font-weight:600;font-size:14px;padding:6px 8px;border-radius:8px}
-    nav a:hover{background:rgba(15,23,42,0.04)}
-    .cta{background:var(--accent);color:white;padding:8px 12px;border-radius:10px;box-shadow:0 6px 12px rgba(14,165,233,0.06)}
-    /* mobile */
-    .menu-btn{display:none;background:transparent;border:0;font-size:22px;padding:6px}
-    @media (max-width:900px){
-      nav{display:none}
-      .menu-btn{display:inline-block}
-      .mobile-menu{display:none;padding:12px;background:white;border-top:1px solid rgba(15,23,42,0.06)}
-      .mobile-menu.open{display:block}
-      .hero{padding-top:110px}
+    .mobile-menu.open {
+      display: block;
     }
-    main{padding-top:84px}
-    /* hero */
-    .hero{display:flex;gap:32px;align-items:center;padding:60px 0}
-    .hero-left{flex:1}
-    h1{font-size:34px;margin:0 0 12px;font-weight:800;line-height:1.02}
-    p.lead{color:var(--muted);margin:0 0 16px}
-    .hero-actions{display:flex;gap:12px;margin-top:16px}
-    .btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:white;font-weight:700}
-    .btn-primary{background:var(--accent);color:#fff;border:0;box-shadow:0 8px 20px rgba(245,158,11,0.12)}
-    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
-    .info-card{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 16px rgba(2,6,23,0.03)}
-    .hero-right{flex:1;display:flex;align-items:center;justify-content:center}
-    .visual{width:100%;height:260px;border-radius:18px;background:linear-gradient(135deg,#ffd9a8,#ffb84d);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:20px;box-shadow:0 20px 50px rgba(0,0,0,0.08)}
-    /* sections */
-    section{padding:48px 0}
-    h2.section-title{font-size:22px;margin:0 0 8px}
-    p.section-desc{color:var(--muted);margin:0 0 16px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
-    .muted{color:var(--muted);font-size:14px}
-    /* server status */
-    .status-pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
-    .online{background:#dcfce7;color:#166534}
-    .warn{background:#fff7ed;color:#92400e}
-    .offline{background:#eef2ff;color:#3730a3}
-    /* forms */
-    form{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
-    label{display:block;margin-bottom:6px;font-weight:700;font-size:13px}
-    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.08);font-size:14px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width:900px){
-      .hero{flex-direction:column}
-      .info-grid{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .row{grid-template-columns:1fr}
+    .mobile-menu a {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid #333;
+      font-weight: 600;
+      font-size: 18px;
+      color: #ffb347;
+      text-shadow: 0 0 4px #ffb347aa;
     }
-    footer{padding:28px 0;background:#0b1220;color:#fff;margin-top:24px}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
-    .small{font-size:13px;color:rgba(255,255,255,0.8)}
-    /* helper */
-    .hidden{display:none}
-    .success{background:#ecfdf5;color:#065f46;padding:10px;border-radius:8px;margin-top:10px}
-  </style>
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+  }
+
+  /* ===== Main ===== */
+  main {
+    padding-top: 70px;
+  }
+  section {
+    padding: 60px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  }
+  section.visible {
+    animation-name: fadeUp;
+    animation-duration: 0.6s;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  h1, h2 {
+    color: #ffb347;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #ffb347aa;
+  }
+  p, li {
+    color: #ccc;
+  }
+  ul {
+    margin-top: 12px;
+    list-style: none;
+    padding-left: 20px;
+  }
+  ul li::before {
+    content: '•';
+    color: #ffb347;
+    margin-right: 8px;
+  }
+
+  /* ===== Buttons ===== */
+  .btn {
+    cursor: pointer;
+    background: #ffb347;
+    color: #1a1a1a;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 14px #ffb347bb;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    user-select: none;
+  }
+  .btn:hover {
+    box-shadow: 0 6px 30px #ffcc66dd;
+    transform: scale(1.05);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: #ffb347;
+    border: 2px solid #ffb347;
+  }
+  .btn-secondary:hover {
+    background: #ffb347;
+    color: #1a1a1a;
+  }
+
+  /* ===== Forms ===== */
+  form {
+    background: #222;
+    padding: 20px;
+    border-radius: 14px;
+    max-width: 600px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px #ffb347aa;
+  }
+  label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #ffb347;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 14px;
+    font-size: 15px;
+    background: #333;
+    color: #eee;
+    box-shadow: inset 0 0 6px #ffb34788;
+    transition: background-color 0.3s ease;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    background: #444;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    background: #1e1e1e;
+    padding: 24px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    box-shadow: inset 0 1px 4px #0008;
+  }
+
+  /* ===== Animations ===== */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ===== Admin modal ===== */
+  #adminModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+  }
+  #adminModal.active {
+    display: flex;
+  }
+  #adminContent {
+    background: #222;
+    padding: 30px 30px 20px;
+    border-radius: 16px;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 0 20px #ffb347cc;
+    color: #eee;
+  }
+  #adminContent h2 {
+    margin-bottom: 20px;
+    color: #ffb347;
+  }
+  #adminContent label {
+    color: #ffb347;
+  }
+  #adminContent input[type=password], #adminContent input[type=text] {
+    margin-bottom: 18px;
+  }
+  #adminContent button {
+    width: 100%;
+  }
+
+</style>
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <div class="logo">H</div>
-        <div>
-          <div style="font-weight:800">Haribo Company</div>
-          <div style="font-size:12px;color:var(--muted)">Carte blanche — Prototype</div>
-        </div>
-      </div>
 
-      <nav>
-        <a href="#accueil">Accueil</a>
-        <a href="#a-propos">À propos</a>
-        <a href="#projets">Projets</a>
-        <a href="#serveurs">Serveurs</a>
-        <a href="#bot">Haribobot</a>
-        <a href="#recrutement">Recrutement</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#recrutement">Postuler</a>
-      </nav>
+<header>
+  <div class="header-inner container">
+    <div class="logo" aria-label="Logo Haribo Hub" tabindex="0">Haribo Hub</div>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">☰</button>
-    </div>
+    <nav id="navMenu">
+      <a href="#" data-key="accueil" class="active">Accueil</a>
+      <a href="#" data-key="serveurs">Serveurs</a>
+      <a href="#" data-key="bots">Bots</a>
+      <a href="#" data-key="projets">Projets</a>
+      <a href="#" data-key="contact">Contact</a>
+      <a href="#" id="openAdminBtn" style="color:#ffb347; font-weight: 700; cursor:pointer;">Admin ⚙️</a>
+    </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="container" style="padding:12px 20px;">
-        <a href="#accueil" onclick="toggleMenu()">Accueil</a><br/>
-        <a href="#a-propos" onclick="toggleMenu()">À propos</a><br/>
-        <a href="#projets" onclick="toggleMenu()">Projets</a><br/>
-        <a href="#serveurs" onclick="toggleMenu()">Serveurs</a><br/>
-        <a href="#bot" onclick="toggleMenu()">Haribobot</a><br/>
-        <a href="#recrutement" onclick="toggleMenu()">Recrutement</a><br/>
-        <a href="#contact" onclick="toggleMenu()">Contact</a><br/>
-      </div>
-    </div>
-  </header>
+    <button id="menuBtn" class="menu-btn" aria-label="Ouvrir menu">☰</button>
+  </div>
 
-  <main>
-    <section id="accueil" class="container hero">
-      <div class="hero-left">
-        <h1>Bienvenue sur le site prototype</h1>
-        <p class="lead">Un hub qui rassemble nos serveurs, projets et outils. Conçu sur demande — carte blanche.</p>
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true" tabindex="-1">
+    <a href="#" data-key="accueil">Accueil</a>
+    <a href="#" data-key="serveurs">Serveurs</a>
+    <a href="#" data-key="bots">Bots</a>
+    <a href="#" data-key="projets">Projets</a>
+    <a href="#" data-key="contact">Contact</a>
+    <a href="#" id="mobileOpenAdminBtn" style="color:#ffb347; font-weight: 700; cursor:pointer;">Admin ⚙️</a>
+  </div>
+</header>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projets">Voir nos projets</a>
-          <a class="btn" href="#serveurs">Nos serveurs</a>
-        </div>
+<main class="container">
 
-        <div class="info-grid" aria-hidden="false">
-          <div class="info-card">🔔 Annonce: Haribobot peut être instable — maintenance en cours.</div>
-          <div class="info-card">📢 Recrutement: Modérateurs & Développeurs recherchés.</div>
-        </div>
-      </div>
+  <section id="section-accueil" class="visible">
+    <h1>Bienvenue sur Haribo Hub</h1>
+    <p>Le centre officiel pour tous nos serveurs, bots et projets.</p>
+    <p>Utilise le menu pour naviguer, et rends-toi dans la section Admin pour modifier les liens.</p>
+  </section>
 
-      <div class="hero-right">
-        <div class="visual">Visuel / Présentation</div>
-      </div>
-    </section>
+  <section id="section-serveurs" hidden>
+    <h2>Nos Serveurs</h2>
+    <ul id="serversList"></ul>
+  </section>
 
-    <section id="a-propos" class="container">
-      <div style="display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap">
-        <div style="flex:1;min-width:260px">
-          <h2 class="section-title">À propos</h2>
-          <p class="section-desc">Haribo Company rassemble plusieurs communautés, bots et projets liés au jeu et à la création. Ce site sert de vitrine, centre de ressources et portail de candidatures.</p>
-          <ul class="muted" style="margin-top:10px;line-height:1.8">
-            <li>Gestion de serveurs Discord</li>
-            <li>Bots et outils (Haribobot, panels, commandes)</li>
-            <li>Recrutement et gestion de staff</li>
-          </ul>
-        </div>
-        <div style="flex:1;min-width:260px">
-          <div class="card">
-            <strong>Mission</strong>
-            <p class="muted" style="margin-top:8px">Créer des espaces sécurisés, amusants et bien modérés pour jouer, partager et apprendre.</p>
-            <div style="margin-top:10px">
-              <strong>Valeurs</strong>
-              <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-                <span style="background:#fff7ed;padding:6px 10px;border-radius:999px;font-weight:700">Communauté</span>
-                <span style="background:#fff7ed;padding:6px 10px;border-radius:999px;font-weight:700">Transparence</span>
-                <span style="background:#fff7ed;padding:6px 10px;border-radius:999px;font-weight:700">Soutien</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section id="section-bots" hidden>
+    <h2>Nos Bots</h2>
+    <ul id="botsList"></ul>
+  </section>
 
-    <section id="projets" class="container">
-      <h2 class="section-title">Projets & Outils</h2>
-      <p class="section-desc">Quelques projets majeurs et outils développés.</p>
+  <section id="section-projets" hidden>
+    <h2>Projets en cours</h2>
+    <ul id="projectsList"></ul>
+  </section>
 
-      <div class="grid-3" style="margin-top:14px">
-        <div class="card">
-          <strong>Haribobot</strong>
-          <p class="muted" style="margin-top:8px">Bot multi-fonctions: modération, musique, niveaux, support.</p>
-        </div>
-        <div class="card">
-          <strong>Haribo PLAYZONE</strong>
-          <p class="muted" style="margin-top:8px">Serveur communautaire pour sessions gaming et événements.</p>
-        </div>
-        <div class="card">
-          <strong>District RP</strong>
-          <p class="muted" style="margin-top:8px">Espace RP lié à Emergency Hambourg (Roblox).</p>
-        </div>
-      </div>
-    </section>
+  <section id="section-contact" hidden>
+    <h2>Contact</h2>
+    <p>Pour nous contacter, utilise nos liens directs ci-dessous :</p>
+    <ul id="contactList"></ul>
+  </section>
 
-    <section id="serveurs" class="container">
-      <h2 class="section-title">Serveurs</h2>
-      <p class="section-desc">Liste et statut rapide des serveurs les plus importants.</p>
+</main>
 
-      <div class="grid-3" style="margin-top:14px">
-        <div class="card">
-          <strong>Haribo Community</strong>
-          <p class="muted">Serveur principal, annonces et aide.</p>
-          <div style="margin-top:10px"><span class="status-pill online">En ligne</span></div>
-        </div>
-        <div class="card">
-          <strong>Haribo PLAYZONE</strong>
-          <p class="muted">Sessions gaming, events.</p>
-          <div style="margin-top:10px"><span class="status-pill warn">Partiellement en maintenance</span></div>
-        </div>
-        <div class="card">
-          <strong>Omega RP</strong>
-          <p class="muted">RP et collaborations (privé).</p>
-          <div style="margin-top:10px"><span class="status-pill offline">Privé</span></div>
-        </div>
-      </div>
-    </section>
+<!-- Admin Modal -->
+<div id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+  <div id="adminContent">
+    <h2 id="adminTitle">Panneau Admin - Modifier les liens</h2>
+    <form id="loginForm">
+      <label for="adminPassword">Mot de passe</label>
+      <input type="password" id="adminPassword" autocomplete="current-password" required />
+      <button type="submit" class="btn">Se connecter</button>
+      <p id="loginError" style="color:#f44336;display:none;margin-top:12px;">Mot de passe incorrect</p>
+    </form>
 
-    <section id="bot" class="container">
-      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start">
-        <div style="flex:1;min-width:280px">
-          <h2 class="section-title">Haribobot</h2>
-          <p class="section-desc">Haribobot est notre bot polyvalent. Commandes publiques, panneau de musique, systèmes de niveaux, outils managers/developers.</p>
-          <ul class="muted" style="margin-top:8px;line-height:1.8">
-            <li>Commandes modération (ban, kick, warn, timeout)</li>
-            <li>Musique (MUSICO integration)</li>
-            <li>Système de staff et logs</li>
-          </ul>
+    <form id="linksForm" style="display:none;">
+      <label for="serversInput">Serveurs (JSON format)</label>
+      <textarea id="serversInput" rows="6" style="width:100%;background:#333;color:#eee;border-radius:8px;padding:10px;"></textarea>
 
-          <div style="margin-top:12px;display:flex;gap:8px">
-            <a class="btn btn-primary" href="#">Inviter le bot</a>
-            <a class="btn" href="#">Documentation</a>
-          </div>
-        </div>
+      <label for="botsInput">Bots (JSON format)</label>
+      <textarea id="botsInput" rows="6" style="width:100%;background:#333;color:#eee;border-radius:8px;padding:10px;"></textarea>
 
-        <div style="width:280px;">
-          <div class="card">
-            <strong>Statistiques rapides</strong>
-            <div style="margin-top:10px" class="muted">
-              Serveurs: <strong>+120</strong><br/>
-              Utilisateurs: <strong>~34k</strong><br/>
-              Commands/day: <strong>~8k</strong><br/>
-              Uptime: <strong>98%</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <label for="projectsInput">Projets (JSON format)</label>
+      <textarea id="projectsInput" rows="6" style="width:100%;background:#333;color:#eee;border-radius:8px;padding:10px;"></textarea>
 
-    <section id="recrutement" class="container">
-      <h2 class="section-title">Recrutement</h2>
-      <p class="section-desc">Tu veux rejoindre l'équipe ? Remplis le formulaire ci-dessous — les candidatures sont envoyées par e-mail.</p>
+      <label for="contactInput">Contact (JSON format)</label>
+      <textarea id="contactInput" rows="4" style="width:100%;background:#333;color:#eee;border-radius:8px;padding:10px;"></textarea>
 
-      <form id="applyForm" style="margin-top:12px" onsubmit="handleApply(event)">
-        <div class="row">
-          <div>
-            <label for="pseudo">Pseudo</label>
-            <input id="pseudo" name="pseudo" required placeholder="Ton pseudo"/>
-          </div>
-          <div>
-            <label for="age">Âge (optionnel)</label>
-            <input id="age" name="age" placeholder="Âge"/>
-          </div>
-        </div>
+      <button type="submit" class="btn" style="margin-top:10px;">Sauvegarder les liens</button>
+      <button type="button" class="btn btn-secondary" style="margin-top:10px;" id="logoutBtn">Déconnexion</button>
+    </form>
+  </div>
+</div>
 
-        <div style="margin-top:10px">
-          <label for="motivation">Pourquoi nous rejoindre ?</label>
-          <textarea id="motivation" name="motivation" rows="6" required placeholder="Décris ta motivation"></textarea>
-        </div>
+<script>
+  // State
+  const password = 'enorLEFM0';
+  let loggedIn = false;
+  let dataLinks = {
+    servers: [
+      {name: "Haribo Community", url: "https://discord.gg/haribocommunity"},
+      {name: "Haribo PLAYZONE", url: "https://discord.gg/playzone"},
+      {name: "Omega RP", url: "https://discord.gg/omegarp"}
+    ],
+    bots: [
+      {name: "Haribobot", url: "https://haribobot.com/invite"},
+      {name: "MusicBot", url: "https://musicbot.com/invite"}
+    ],
+    projects: [
+      {name: "District RP", url: "https://districtrp.com"},
+      {name: "Haribo Company Website", url: "https://haribo-company.netlify.app"}
+    ],
+    contact: [
+      {name: "Email support", url: "mailto:support@haribo-company.netlify.app"},
+      {name: "Discord Support", url: "https://discord.gg/support"}
+    ]
+  };
 
-        <div style="margin-top:12px;display:flex;gap:8px">
-          <button type="submit" class="btn btn-primary">Envoyer la candidature</button>
-          <button type="button" class="btn" onclick="document.getElementById('applyForm').reset()">Effacer</button>
-        </div>
+  // Elements
+  const navLinks = document.querySelectorAll('nav a[data-key]');
+  const sections = {
+    accueil: document.getElementById('section-accueil'),
+    serveurs: document.getElementById('section-serveurs'),
+    bots: document.getElementById('section-bots'),
+    projets: document.getElementById('section-projets'),
+    contact: document.getElementById('section-contact')
+  };
+  const serversList = document.getElementById('serversList');
+  const botsList = document.getElementById('botsList');
+  const projectsList = document.getElementById('projectsList');
+  const contactList = document.getElementById('contactList');
 
-        <div id="applySuccess" class="hidden success" role="status">Candidature prête — ouvre ton client mail si demandé.</div>
-      </form>
-    </section>
+  const adminModal = document.getElementById('adminModal');
+  const loginForm = document.getElementById('loginForm');
+  const linksForm = document.getElementById('linksForm');
+  const adminPasswordInput = document.getElementById('adminPassword');
+  const loginError = document.getElementById('loginError');
+  const serversInput = document.getElementById('serversInput');
+  const botsInput = document.getElementById('botsInput');
+  const projectsInput = document.getElementById('projectsInput');
+  const contactInput = document.getElementById('contactInput');
+  const logoutBtn = document.getElementById('logoutBtn');
 
-    <section id="contact" class="container">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-desc">Questions, partenariats, signalements — utilise le formulaire ci-dessous ou envoie un e-mail.</p>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    const opened = mobileMenu.classList.toggle('open');
+    mobileMenu.setAttribute('aria-hidden', !opened);
+  });
 
-      <form id="contactForm" style="margin-top:12px" onsubmit="handleContact(event)">
-        <div class="row">
-          <div>
-            <label for="name">Nom</label>
-            <input id="name" name="name" required placeholder="Ton nom"/>
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" required placeholder="ton@mail.ex"/>
-          </div>
-        </div>
-
-        <div style="margin-top:10px">
-          <label for="subject">Sujet</label>
-          <input id="subject" name="subject" placeholder="Ex: partenariat"/>
-        </div>
-
-        <div style="margin-top:10px">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" required placeholder="Ton message"></textarea>
-        </div>
-
-        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-          <button type="submit" class="btn btn-primary">Envoyer</button>
-          <a class="btn" href="mailto:contact@haribo-company.netlify.app">Envoyer par mail</a>
-          <div id="contactSuccess" class="hidden success">Message préparé — ouvre ton client mail pour l'envoyer.</div>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <div>
-        <div style="font-weight:800">Haribo Company</div>
-        <div class="small" style="margin-top:6px">Prototype — © <span id="year"></span></div>
-      </div>
-      <div class="small">Made with ❤️ — Haribo Vitrine</div>
-    </div>
-  </footer>
-
-  <script>
-    // header mobile menu
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    function toggleMenu(){
-      mobileMenu.classList.toggle('open');
-    }
-    menuBtn.addEventListener('click', toggleMenu);
-
-    // set year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // forms behaviour: we open mailto with prefilled content to simulate sending (client-side)
-    function encodeMailto(to, subject, body){
-      return 'mailto:'+encodeURIComponent(to)+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-    }
-
-    function handleApply(e){
+  // Navigation
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
       e.preventDefault();
-      const pseudo = document.getElementById('pseudo').value.trim();
-      const age = document.getElementById('age').value.trim();
-      const motivation = document.getElementById('motivation').value.trim();
-      if(!pseudo || !motivation) return alert('Complète pseudo et motivation.');
-
-      const to = 'recrutement@haribo-company.netlify.app';
-      const subject = `Candidature — ${pseudo}`;
-      const body = `Pseudo: ${pseudo}\nÂge: ${age}\n\nMotivation:\n${motivation}\n\n---\nEnvoyé depuis le site prototype.`;
-      // open mail client
-      window.location.href = encodeMailto(to, subject, body);
-      const s = document.getElementById('applySuccess');
-      s.classList.remove('hidden');
-      setTimeout(()=>s.classList.add('hidden'),5000);
-      e.target.reset();
+      showSection(link.dataset.key);
+      if(mobileMenu.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        menuBtn.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  });
+  document.getElementById('mobileOpenAdminBtn').addEventListener('click', e => {
+    e.preventDefault();
+    openAdmin();
+    if(mobileMenu.classList.contains('open')) {
+      mobileMenu.classList.remove('open');
+      menuBtn.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
     }
+  });
+  document.getElementById('openAdminBtn').addEventListener('click', e => {
+    e.preventDefault();
+    openAdmin();
+  });
 
-    function handleContact(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const subject = document.getElementById('subject').value.trim() || 'Contact site';
-      const message = document.getElementById('message').value.trim();
-      if(!name || !email || !message) return alert('Remplis le formulaire correctement.');
-
-      const to = 'contact@haribo-company.netlify.app';
-      const body = `De: ${name} <${email}>\n\n${message}\n\n---\nEnvoyé depuis le site prototype.`;
-      window.location.href = encodeMailto(to, subject, body);
-      const s = document.getElementById('contactSuccess');
-      s.classList.remove('hidden');
-      setTimeout(()=>s.classList.add('hidden'),5000);
-      e.target.reset();
-    }
-  </script>
-</body>
-</html>
+  // Show section
+  function showSection(key) {
+    Object.entries(sections).forEach(([k, sec]) => {
+      if(k === key) {
+        sec.hidden = false;
+        sec.classList.add('visible');
+        // Highlight nav
+        navLinks.forEach(l => l.classList.toggle('active', l.dataset.key === key));
+      } else {
+        sec.hidden = true;
+        sec.classList.remove('visible');
+      }
