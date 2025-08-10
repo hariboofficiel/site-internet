@@ -3,18 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Haribo Hub</title>
-<meta name="description" content="Centre officiel Haribo - serveurs, bots, projets, gestion des liens." />
+<title>Haribo Hub - Menu Responsive Stylé</title>
 <style>
-  /* ===== Reset & base ===== */
+  /* Reset */
   * {
     margin: 0; padding: 0; box-sizing: border-box;
   }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #121212;
+    background-color: #121212;
     color: #eee;
-    line-height: 1.5;
     min-height: 100vh;
   }
   a {
@@ -22,55 +20,52 @@
     text-decoration: none;
     transition: color 0.3s ease;
   }
-  a:hover {
+  a:hover, a:focus {
     color: #ffc966;
+    outline: none;
   }
 
-  /* ===== Container ===== */
-  .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
-  }
-
-  /* ===== Header ===== */
+  /* HEADER */
   header {
     position: fixed;
     top: 0; left: 0; right: 0;
     background: #1e1e1e;
     border-bottom: 1px solid #333;
-    z-index: 100;
+    z-index: 1000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.8);
   }
-  .header-inner {
+  .container {
     max-width: 1100px;
     margin: auto;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px;
+    height: 60px;
   }
   .logo {
     font-weight: 900;
     font-size: 28px;
     color: #ffb347;
-    cursor: default;
     user-select: none;
     letter-spacing: 0.04em;
     text-shadow: 0 0 10px #ffb347aa;
   }
+
+  /* NAVIGATION */
   nav {
     display: flex;
-    gap: 20px;
+    gap: 24px;
   }
   nav a {
     font-weight: 600;
     font-size: 16px;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 8px;
     background: transparent;
     box-shadow: inset 0 0 0 0 #ffb347;
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
   }
   nav a:hover, nav a.active {
     background: #ffb347;
@@ -78,314 +73,200 @@
     box-shadow: inset 0 0 10px 3px #ffb347cc;
   }
 
-  /* Hamburger menu for mobile */
+  /* HAMBURGER */
   .menu-btn {
     display: none;
-    font-size: 28px;
-    background: none;
-    border: none;
-    color: #ffb347;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
     cursor: pointer;
     user-select: none;
-    transition: transform 0.3s ease;
   }
-  .menu-btn.open {
-    transform: rotate(90deg);
+  .menu-btn span {
+    display: block;
+    height: 3px;
+    background: #ffb347;
+    border-radius: 3px;
+    transition: all 0.4s ease;
   }
-  @media(max-width: 900px) {
+  .menu-btn.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-btn.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-btn.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* MOBILE MENU */
+  .mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #1e1e1e;
+    border-top: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open {
+    max-height: 300px; /* assez pour 6 liens */
+  }
+  .mobile-menu a {
+    color: #ffb347;
+    padding: 16px 20px;
+    border-bottom: 1px solid #333;
+    font-weight: 700;
+    font-size: 18px;
+    user-select: none;
+  }
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+  .mobile-menu a:hover, .mobile-menu a:focus {
+    background: #ffb347;
+    color: #1a1a1a;
+    outline: none;
+  }
+
+  /* MAIN CONTENT */
+  main {
+    margin-top: 60px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+  section {
+    display: none;
+    animation: fadeIn 0.6s ease forwards;
+  }
+  section.active {
+    display: block;
+  }
+  h1, h2 {
+    color: #ffb347;
+    text-shadow: 0 0 10px #ffb347aa;
+    margin-bottom: 16px;
+  }
+  p {
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  /* ANIMATION */
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
     nav {
       display: none;
     }
     .menu-btn {
-      display: block;
-    }
-    .mobile-menu {
-      display: none;
-      background: #1e1e1e;
-      border-top: 1px solid #333;
-      padding: 12px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.7);
-      position: fixed;
-      top: 60px;
-      left: 0; right: 0;
-      z-index: 99;
-      animation: fadeInDown 0.35s ease forwards;
-    }
-    .mobile-menu.open {
-      display: block;
-    }
-    .mobile-menu a {
-      display: block;
-      padding: 12px 0;
-      border-bottom: 1px solid #333;
-      font-weight: 600;
-      font-size: 18px;
-      color: #ffb347;
-      text-shadow: 0 0 4px #ffb347aa;
-    }
-    .mobile-menu a:last-child {
-      border-bottom: none;
+      display: flex;
     }
   }
-
-  /* ===== Main ===== */
-  main {
-    padding-top: 70px;
-  }
-  section {
-    padding: 60px 0;
-    opacity: 0;
-    transform: translateY(30px);
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
-  }
-  section.visible {
-    animation-name: fadeUp;
-    animation-duration: 0.6s;
-    opacity: 1;
-    transform: translateY(0);
-  }
-  h1, h2 {
-    color: #ffb347;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px #ffb347aa;
-  }
-  p, li {
-    color: #ccc;
-  }
-  ul {
-    margin-top: 12px;
-    list-style: none;
-    padding-left: 20px;
-  }
-  ul li::before {
-    content: '•';
-    color: #ffb347;
-    margin-right: 8px;
-  }
-
-  /* ===== Buttons ===== */
-  .btn {
-    cursor: pointer;
-    background: #ffb347;
-    color: #1a1a1a;
-    font-weight: 700;
-    padding: 10px 20px;
-    border-radius: 12px;
-    border: none;
-    box-shadow: 0 4px 14px #ffb347bb;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    user-select: none;
-  }
-  .btn:hover {
-    box-shadow: 0 6px 30px #ffcc66dd;
-    transform: scale(1.05);
-  }
-  .btn-secondary {
-    background: transparent;
-    color: #ffb347;
-    border: 2px solid #ffb347;
-  }
-  .btn-secondary:hover {
-    background: #ffb347;
-    color: #1a1a1a;
-  }
-
-  /* ===== Forms ===== */
-  form {
-    background: #222;
-    padding: 20px;
-    border-radius: 14px;
-    max-width: 600px;
-    margin-top: 20px;
-    box-shadow: 0 0 10px #ffb347aa;
-  }
-  label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: #ffb347;
-  }
-  input, textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 14px;
-    font-size: 15px;
-    background: #333;
-    color: #eee;
-    box-shadow: inset 0 0 6px #ffb34788;
-    transition: background-color 0.3s ease;
-  }
-  input:focus, textarea:focus {
-    outline: none;
-    background: #444;
-  }
-
-  /* ===== Footer ===== */
-  footer {
-    background: #1e1e1e;
-    padding: 24px 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #777;
-    box-shadow: inset 0 1px 4px #0008;
-  }
-
-  /* ===== Animations ===== */
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* ===== Admin modal ===== */
-  #adminModal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 200;
-  }
-  #adminModal.active {
-    display: flex;
-  }
-  #adminContent {
-    background: #222;
-    padding: 30px 30px 20px;
-    border-radius: 16px;
-    max-width: 450px;
-    width: 90%;
-    box-shadow: 0 0 20px #ffb347cc;
-    color: #eee;
-  }
-  #adminContent h2 {
-    margin-bottom: 20px;
-    color: #ffb347;
-  }
-  #adminContent label {
-    color: #ffb347;
-  }
-  #adminContent input[type=password], #adminContent input[type=text] {
-    margin-bottom: 18px;
-  }
-  #adminContent button {
-    width: 100%;
-  }
-
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner container">
-    <div class="logo" aria-label="Logo Haribo Hub" tabindex="0">Haribo Hub</div>
+  <div class="container">
+    <div class="logo" tabindex="0" aria-label="Haribo Hub">Haribo Hub</div>
 
-    <nav id="navMenu">
-      <a href="#" data-key="accueil" class="active">Accueil</a>
-      <a href="#" data-key="serveurs">Serveurs</a>
-      <a href="#" data-key="bots">Bots</a>
-      <a href="#" data-key="projets">Projets</a>
-      <a href="#" data-key="contact">Contact</a>
-      <a href="#" id="openAdminBtn" style="color:#ffb347; font-weight: 700; cursor:pointer;">Admin ⚙️</a>
+    <nav aria-label="Menu principal">
+      <a href="#" data-section="accueil" class="active">Accueil</a>
+      <a href="#" data-section="serveurs">Serveurs</a>
+      <a href="#" data-section="bots">Bots</a>
+      <a href="#" data-section="projets">Projets</a>
+      <a href="#" data-section="contact">Contact</a>
+      <a href="#" id="adminBtn">Admin ⚙️</a>
     </nav>
 
-    <button id="menuBtn" class="menu-btn" aria-label="Ouvrir menu">☰</button>
+    <button aria-label="Ouvrir le menu" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 
-  <div id="mobileMenu" class="mobile-menu" aria-hidden="true" tabindex="-1">
-    <a href="#" data-key="accueil">Accueil</a>
-    <a href="#" data-key="serveurs">Serveurs</a>
-    <a href="#" data-key="bots">Bots</a>
-    <a href="#" data-key="projets">Projets</a>
-    <a href="#" data-key="contact">Contact</a>
-    <a href="#" id="mobileOpenAdminBtn" style="color:#ffb347; font-weight: 700; cursor:pointer;">Admin ⚙️</a>
-  </div>
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Menu mobile" aria-hidden="true">
+    <a href="#" data-section="accueil">Accueil</a>
+    <a href="#" data-section="serveurs">Serveurs</a>
+    <a href="#" data-section="bots">Bots</a>
+    <a href="#" data-section="projets">Projets</a>
+    <a href="#" data-section="contact">Contact</a>
+    <a href="#" id="mobileAdminBtn">Admin ⚙️</a>
+  </nav>
 </header>
 
-<main class="container">
-
-  <section id="section-accueil" class="visible">
+<main>
+  <section id="accueil" class="active" tabindex="0" aria-label="Section Accueil">
     <h1>Bienvenue sur Haribo Hub</h1>
-    <p>Le centre officiel pour tous nos serveurs, bots et projets.</p>
-    <p>Utilise le menu pour naviguer, et rends-toi dans la section Admin pour modifier les liens.</p>
+    <p>Le centre officiel regroupant tous nos serveurs, bots et projets.</p>
+    <p>Utilise le menu pour naviguer ou rends-toi dans la section Admin pour modifier les liens.</p>
   </section>
-
-  <section id="section-serveurs" hidden>
+  <section id="serveurs" tabindex="0" aria-label="Section Serveurs">
     <h2>Nos Serveurs</h2>
     <ul id="serversList"></ul>
   </section>
-
-  <section id="section-bots" hidden>
+  <section id="bots" tabindex="0" aria-label="Section Bots">
     <h2>Nos Bots</h2>
     <ul id="botsList"></ul>
   </section>
-
-  <section id="section-projets" hidden>
+  <section id="projets" tabindex="0" aria-label="Section Projets">
     <h2>Projets en cours</h2>
     <ul id="projectsList"></ul>
   </section>
-
-  <section id="section-contact" hidden>
+  <section id="contact" tabindex="0" aria-label="Section Contact">
     <h2>Contact</h2>
-    <p>Pour nous contacter, utilise nos liens directs ci-dessous :</p>
     <ul id="contactList"></ul>
   </section>
-
 </main>
 
 <!-- Admin Modal -->
-<div id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
-  <div id="adminContent">
-    <h2 id="adminTitle">Panneau Admin - Modifier les liens</h2>
+<div id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle" style="display:none;">
+  <div style="
+    background:#222; color:#eee; padding: 20px; max-width: 500px; margin: 10vh auto; border-radius: 12px; box-shadow: 0 0 15px #ffb347cc;
+  ">
+    <h2 id="adminTitle" style="color:#ffb347; margin-bottom: 20px;">Panneau Admin</h2>
     <form id="loginForm">
-      <label for="adminPassword">Mot de passe</label>
-      <input type="password" id="adminPassword" autocomplete="current-password" required />
-      <button type="submit" class="btn">Se connecter</button>
-      <p id="loginError" style="color:#f44336;display:none;margin-top:12px;">Mot de passe incorrect</p>
+      <label for="adminPassword" style="color:#ffb347; font-weight:bold;">Mot de passe</label>
+      <input type="password" id="adminPassword" required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:none; background:#333; color:#eee;" autocomplete="current-password" />
+      <button type="submit" class="btn" style="background:#ffb347; border:none; width:100%; padding:12px; font-weight:bold; cursor:pointer;">Se connecter</button>
+      <p id="loginError" style="color:#f44336; display:none; margin-top: 10px;">Mot de passe incorrect</p>
     </form>
+    <form id="linksForm" style="display:none; margin-top: 20px;">
+      <label for="serversInput" style="color:#ffb347; font-weight:bold;">Serveurs (JSON)</label>
+      <textarea id="serversInput" rows="5" style="width:100%; background:#333; color:#eee; border-radius:8px; padding:10px; margin-bottom:15px;"></textarea>
 
-    <form id="linksForm" style="display:none;">
-      <label for="serversInput">Serveurs (JSON format)</label>
-      <textarea id="serversInput" rows="6" style="width:100%;background:#333;color:#eee;border-radius:8px;padding:10px;"></textarea>
+      <label for="botsInput" style="color:#ffb347; font-weight:bold;">Bots (JSON)</label>
+      <textarea id="botsInput" rows="5" style="width:100%; background:#333; color:#eee; border-radius:8px; padding:10px; margin-bottom:15px;"></textarea>
 
-      <label for="botsInput">Bots (JSON format)</label>
-      <textarea id="botsInput" rows="6" style="width:100%;background:#333;color:#eee;border-radius:8px;padding:10px;"></textarea>
+      <label for="projectsInput" style="color:#ffb347; font-weight:bold;">Projets (JSON)</label>
+      <textarea id="projectsInput" rows="5" style="width:100%; background:#333; color:#eee; border-radius:8px; padding:10px; margin-bottom:15px;"></textarea>
 
-      <label for="projectsInput">Projets (JSON format)</label>
-      <textarea id="projectsInput" rows="6" style="width:100%;background:#333;color:#eee;border-radius:8px;padding:10px;"></textarea>
+      <label for="contactInput" style="color:#ffb347; font-weight:bold;">Contact (JSON)</label>
+      <textarea id="contactInput" rows="4" style="width:100%; background:#333; color:#eee; border-radius:8px; padding:10px; margin-bottom:15px;"></textarea>
 
-      <label for="contactInput">Contact (JSON format)</label>
-      <textarea id="contactInput" rows="4" style="width:100%;background:#333;color:#eee;border-radius:8px;padding:10px;"></textarea>
-
-      <button type="submit" class="btn" style="margin-top:10px;">Sauvegarder les liens</button>
-      <button type="button" class="btn btn-secondary" style="margin-top:10px;" id="logoutBtn">Déconnexion</button>
+      <button type="submit" class="btn" style="background:#ffb347; border:none; width:100%; padding:12px; font-weight:bold; cursor:pointer;">Sauvegarder</button>
+      <button type="button" id="logoutBtn" class="btn" style="margin-top:10px; background:#555;">Déconnexion</button>
     </form>
   </div>
 </div>
 
 <script>
-  // State
   const password = 'enorLEFM0';
-  let loggedIn = false;
+
+  // Data (initial)
   let dataLinks = {
     servers: [
       {name: "Haribo Community", url: "https://discord.gg/haribocommunity"},
@@ -407,19 +288,12 @@
   };
 
   // Elements
-  const navLinks = document.querySelectorAll('nav a[data-key]');
-  const sections = {
-    accueil: document.getElementById('section-accueil'),
-    serveurs: document.getElementById('section-serveurs'),
-    bots: document.getElementById('section-bots'),
-    projets: document.getElementById('section-projets'),
-    contact: document.getElementById('section-contact')
-  };
+  const navLinks = document.querySelectorAll('nav a[data-section]');
+  const sections = document.querySelectorAll('main section');
   const serversList = document.getElementById('serversList');
   const botsList = document.getElementById('botsList');
   const projectsList = document.getElementById('projectsList');
   const contactList = document.getElementById('contactList');
-
   const adminModal = document.getElementById('adminModal');
   const loginForm = document.getElementById('loginForm');
   const linksForm = document.getElementById('linksForm');
@@ -430,51 +304,142 @@
   const projectsInput = document.getElementById('projectsInput');
   const contactInput = document.getElementById('contactInput');
   const logoutBtn = document.getElementById('logoutBtn');
-
-  // Mobile menu
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('open');
-    const opened = mobileMenu.classList.toggle('open');
-    mobileMenu.setAttribute('aria-hidden', !opened);
-  });
+  const adminBtn = document.getElementById('adminBtn');
+  const mobileAdminBtn = document.getElementById('mobileAdminBtn');
 
-  // Navigation
+  // Navigation: show sections on menu click
   navLinks.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-      showSection(link.dataset.key);
-      if(mobileMenu.classList.contains('open')) {
-        mobileMenu.classList.remove('open');
-        menuBtn.classList.remove('open');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-      }
+      const target = e.target.getAttribute('data-section');
+      showSection(target);
+      closeMobileMenu();
     });
   });
-  document.getElementById('mobileOpenAdminBtn').addEventListener('click', e => {
-    e.preventDefault();
-    openAdmin();
-    if(mobileMenu.classList.contains('open')) {
-      mobileMenu.classList.remove('open');
-      menuBtn.classList.remove('open');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-    }
-  });
-  document.getElementById('openAdminBtn').addEventListener('click', e => {
-    e.preventDefault();
-    openAdmin();
+
+  function showSection(id) {
+    sections.forEach(section => {
+      if(section.id === id) {
+        section.classList.add('active');
+        section.focus();
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('data-section') === id);
+        });
+      } else {
+        section.classList.remove('active');
+      }
+    });
+  }
+
+  // Mobile menu toggle
+  menuBtn.addEventListener('click', () => {
+    const opened = menuBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open', opened);
+    menuBtn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    mobileMenu.setAttribute('aria-hidden', opened ? 'false' : 'true');
   });
 
-  // Show section
-  function showSection(key) {
-    Object.entries(sections).forEach(([k, sec]) => {
-      if(k === key) {
-        sec.hidden = false;
-        sec.classList.add('visible');
-        // Highlight nav
-        navLinks.forEach(l => l.classList.toggle('active', l.dataset.key === key));
+  function closeMobileMenu() {
+    menuBtn.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  }
+
+  // Admin modal open
+  adminBtn.addEventListener('click', e => {
+    e.preventDefault();
+    openAdmin();
+    closeMobileMenu();
+  });
+  mobileAdminBtn.addEventListener('click', e => {
+    e.preventDefault();
+    openAdmin();
+    closeMobileMenu();
+  });
+
+  function openAdmin() {
+    adminModal.style.display = 'block';
+    loginForm.style.display = 'block';
+    linksForm.style.display = 'none';
+    loginError.style.display = 'none';
+    adminPasswordInput.value = '';
+    adminPasswordInput.focus();
+  }
+
+  // Admin login form submit
+  loginForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const val = adminPasswordInput.value.trim();
+    if(val === password) {
+      loggedIn = true;
+      loadLinksToForm();
+      loginForm.style.display = 'none';
+      linksForm.style.display = 'block';
+    } else {
+      loginError.style.display = 'block';
+      adminPasswordInput.focus();
+    }
+  });
+
+  // Load links data into textareas
+  function loadLinksToForm() {
+    serversInput.value = JSON.stringify(dataLinks.servers, null, 2);
+    botsInput.value = JSON.stringify(dataLinks.bots, null, 2);
+    projectsInput.value = JSON.stringify(dataLinks.projects, null, 2);
+    contactInput.value = JSON.stringify(dataLinks.contact, null, 2);
+  }
+
+  // Save links form submit
+  linksForm.addEventListener('submit', e => {
+    e.preventDefault();
+    try {
+      const servers = JSON.parse(serversInput.value);
+      const bots = JSON.parse(botsInput.value);
+      const projects = JSON.parse(projectsInput.value);
+      const contact = JSON.parse(contactInput.value);
+
+      // Basic validation (array of objects with name+url)
+      if(validateLinksArray(servers) && validateLinksArray(bots) && validateLinksArray(projects) && validateLinksArray(contact)) {
+        dataLinks.servers = servers;
+        dataLinks.bots = bots;
+        dataLinks.projects = projects;
+        dataLinks.contact = contact;
+        renderLinks();
+        alert('Liens sauvegardés avec succès !');
       } else {
-        sec.hidden = true;
-        sec.classList.remove('visible');
+        alert('Format JSON invalide (champs name et url requis dans chaque objet).');
       }
+    } catch {
+      alert('Erreur : JSON mal formé.');
+    }
+  });
+
+  function validateLinksArray(arr) {
+    return Array.isArray(arr) && arr.every(item => item.name && item.url);
+  }
+
+  // Logout
+  logoutBtn.addEventListener('click', () => {
+    loggedIn = false;
+    adminModal.style.display = 'none';
+  });
+
+  // Render links in lists
+  function renderLinks() {
+    renderList(serversList, dataLinks.servers);
+    renderList(botsList, dataLinks.bots);
+    renderList(projectsList, dataLinks.projects);
+    renderList(contactList, dataLinks.contact);
+  }
+  function renderList(container, items) {
+    container.innerHTML = '';
+    items.forEach(item => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = item.url;
+      a.textContent = item.name;
+      a.target = '_blank';
+      a.rel
