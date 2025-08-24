@@ -1,70 +1,73 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Annonce importante - Noxxworks" />
-  <meta property="og:description" content="Ce serveur est communautaire et propose de développer des Discord gratuits, propres, sans arnaque, avec un bot incroyable ! Les liens servent désormais à Noxxworks." />
+  <meta property="og:description" content="Tous les serveurs Discord liés à Haribo Company sont désormais redirigés vers Noxxworks. Ce serveur reste communautaire et propose de développer des Discord gratuits, propres, sans arnaque, avec un bot incroyable !" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://haribo-company.netlify.app/logo.png" />
   <meta name="theme-color" content="#4a90e2" />
-  <title>Annonce - Noxxworks</title>
+  <title>Annonce importante - Noxxworks</title>
   <style>
     body {
+      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #111, #1c1c1c);
       color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 4em 2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
+      padding: 2em;
+    }
+    .card {
+      background-color: #222;
+      border: 2px solid #4a90e2;
+      border-radius: 15px;
+      padding: 3em 2em;
+      max-width: 700px;
+      box-shadow: 0 0 30px rgba(74,144,226,0.5);
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
     h1 {
-      font-size: 3em;
       color: #4a90e2;
+      font-size: 2.8em;
       margin-bottom: 0.5em;
     }
     p {
-      font-size: 1.3em;
-      line-height: 1.8;
+      font-size: 1.2em;
+      line-height: 1.6;
       margin-bottom: 1.5em;
     }
     .highlight {
       color: #ffcc00;
       font-weight: bold;
     }
-    .box {
-      background-color: #222;
-      padding: 2em;
-      border-radius: 15px;
-      border: 2px solid #4a90e2;
-      box-shadow: 0 0 20px rgba(74,144,226,0.5);
-      margin-top: 2em;
-    }
     .footer {
-      margin-top: 3em;
       font-size: 0.9em;
       color: #aaa;
+      margin-top: 2em;
+    }
+    a {
+      color: #4a90e2;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="card">
     <h1>🚨 Annonce Importante 🚨</h1>
-    <p>Nous procédons actuellement à une mise à jour majeure de ce serveur.  
-    Tous les anciens liens et projets sont maintenant redirigés vers <span class="highlight">Noxxworks</span>.</p>
-
-    <div class="box">
-      <p>Ce serveur reste <span class="highlight">communautaire</span> et propose de développer des Discord gratuits, propres, sans arnaque, avec un <span class="highlight">bot incroyable</span> !</p>
-      <p>Merci de votre patience et de votre soutien, l'avenir se construit désormais avec <span class="highlight">Noxxworks</span>.</p>
-    </div>
-
+    <p>Tous les serveurs Discord liés à <span class="highlight">Haribo Company</span> sont désormais <span class="highlight">fermés</span> et redirigés vers <span class="highlight">Noxxworks</span>.</p>
+    <p>Ce serveur reste <span class="highlight">communautaire</span> et propose de développer des Discord gratuits, propres, sans arnaque, avec un <span class="highlight">bot incroyable</span> !</p>
+    <p>Vous pouvez suivre les nouveautés et accéder aux projets via : <a href="https://noxxworks.netlify.app" target="_blank">https://noxxworks.netlify.app</a></p>
     <div class="footer">
-      ✨ Merci à toutes celles et ceux qui participent à nos projets et continuent cette aventure avec nous. ✨
+      ✨ Merci à tous ceux qui ont participé à nos projets. L'avenir se construit désormais avec <span class="highlight">Noxxworks</span>. ✨
     </div>
   </div>
 </body>
