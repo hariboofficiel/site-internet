@@ -1,1 +1,140 @@
-j’ai trop la flemme 
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>j’ai trop la flemme</title>
+  <style>
+    :root{
+      --bg1: #0f172a;    /* fond sombre */
+      --bg2: #0b1220;    /* fond secondaire */
+      --glow: #7c5cff;   /* couleur du néon */
+      --accent: #ff8fb1; /* couleur secondaire */
+      --panel: rgba(255,255,255,0.03);
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: var(--font-sans);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2) 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      -webkit-font-smoothing:antialiased;
+      color: #fff;
+    }
+
+    .card{
+      width: min(1100px, 92vw);
+      padding: clamp(28px, 4vw, 48px);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow:
+        0 10px 30px rgba(2,6,23,0.6),
+        0 0 80px rgba(124,92,255,0.08) inset;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter: blur(6px) saturate(120%);
+      transform: translateY(0);
+    }
+
+    h1{
+      margin:0;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      font-size: clamp(36px, 9vw, 132px); /* responsive huge text */
+      text-align:center;
+      text-transform: none;
+      color: white;
+      position: relative;
+      padding: 8px 18px;
+    }
+
+    /* néon */
+    .neon {
+      color: #fff;
+      text-shadow:
+        0 0 8px rgba(255,255,255,0.65),
+        0 0 20px rgba(124,92,255,0.25),
+        0 0 40px rgba(124,92,255,0.18),
+        0 6px 30px rgba(3,6,23,0.6);
+      background: linear-gradient(90deg, rgba(255,255,255,0.98), rgba(255,255,255,0.9));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* petit tag "vibe" */
+    .sub {
+      display:block;
+      font-size: clamp(12px, 1.6vw, 18px);
+      font-weight:600;
+      margin-top: 10px;
+      opacity: 0.9;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+
+    /* effet pulse léger */
+    @keyframes pulseGlow {
+      0% {
+        filter: drop-shadow(0 0 12px rgba(124,92,255,0.18));
+        transform: translateY(0);
+      }
+      50% {
+        filter: drop-shadow(0 0 34px rgba(124,92,255,0.26));
+        transform: translateY(-4px);
+      }
+      100% {
+        filter: drop-shadow(0 0 12px rgba(124,92,255,0.18));
+        transform: translateY(0);
+      }
+    }
+
+    .neon-wrap{
+      display:inline-block;
+      animation: pulseGlow 3.6s ease-in-out infinite;
+      border-radius: 12px;
+      padding: 6px 12px;
+      background: linear-gradient(90deg, rgba(124,92,255,0.04), rgba(255,143,177,0.02));
+    }
+
+    /* petit effet brouillé en arrière-plan */
+    .bg-blob{
+      position:absolute;
+      width: 60vmax;
+      height: 60vmax;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%,-50%);
+      background: radial-gradient(circle at 30% 30%, rgba(124,92,255,0.18), transparent 20%),
+                  radial-gradient(circle at 70% 70%, rgba(255,143,177,0.12), transparent 18%);
+      filter: blur(50px) saturate(140%);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    /* responsive tweak */
+    @media (max-width:540px){
+      .card{ padding: 18px; border-radius:16px; }
+      h1{ line-height:1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blob" aria-hidden="true"></div>
+
+  <div class="card" role="region" aria-label="Message principal">
+    <div style="text-align:center; z-index:1; width:100%;">
+      <div class="neon-wrap">
+        <h1 class="neon">j’ai trop la flemme</h1>
+      </div>
+      <span class="sub">vraiment pas envie de bouger</span>
+    </div>
+  </div>
+</body>
+</html>
