@@ -4,16 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>j’ai trop la flemme</title>
+
+  <!-- Intégration Open Graph -->
+  <meta property="og:title" content="j’ai trop la flemme" />
+  <meta property="og:description" content="Une page pour exprimer toute la puissance de la flemme 😴" />
+  <meta property="og:image" content="https://exemple.com/flemme.jpg" />
+  <meta property="og:url" content="https://exemple.com/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="j’ai trop la flemme" />
+  <meta name="twitter:description" content="Une page pour exprimer toute la puissance de la flemme 😴" />
+  <meta name="twitter:image" content="https://exemple.com/flemme.jpg" />
+
   <style>
     :root{
-      --bg1: #0f172a;    /* fond sombre */
-      --bg2: #0b1220;    /* fond secondaire */
-      --glow: #7c5cff;   /* couleur du néon */
-      --accent: #ff8fb1; /* couleur secondaire */
+      --bg1: #0f172a;
+      --bg2: #0b1220;
+      --glow: #7c5cff;
+      --accent: #ff8fb1;
       --panel: rgba(255,255,255,0.03);
       --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-
     html,body{
       height:100%;
       margin:0;
@@ -25,7 +38,6 @@
       -webkit-font-smoothing:antialiased;
       color: #fff;
     }
-
     .card{
       width: min(1100px, 92vw);
       padding: clamp(28px, 4vw, 48px);
@@ -38,25 +50,17 @@
       align-items:center;
       justify-content:center;
       backdrop-filter: blur(6px) saturate(120%);
-      transform: translateY(0);
     }
-
     h1{
       margin:0;
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 0.95;
-      font-size: clamp(36px, 9vw, 132px); /* responsive huge text */
+      font-size: clamp(36px, 9vw, 132px);
       text-align:center;
-      text-transform: none;
       color: white;
-      position: relative;
-      padding: 8px 18px;
     }
-
-    /* néon */
     .neon {
-      color: #fff;
       text-shadow:
         0 0 8px rgba(255,255,255,0.65),
         0 0 20px rgba(124,92,255,0.25),
@@ -67,8 +71,6 @@
       background-clip: text;
       color: transparent;
     }
-
-    /* petit tag "vibe" */
     .sub {
       display:block;
       font-size: clamp(12px, 1.6vw, 18px);
@@ -78,23 +80,11 @@
       letter-spacing: 0.06em;
       color: var(--accent);
     }
-
-    /* effet pulse léger */
     @keyframes pulseGlow {
-      0% {
-        filter: drop-shadow(0 0 12px rgba(124,92,255,0.18));
-        transform: translateY(0);
-      }
-      50% {
-        filter: drop-shadow(0 0 34px rgba(124,92,255,0.26));
-        transform: translateY(-4px);
-      }
-      100% {
-        filter: drop-shadow(0 0 12px rgba(124,92,255,0.18));
-        transform: translateY(0);
-      }
+      0% { filter: drop-shadow(0 0 12px rgba(124,92,255,0.18)); }
+      50% { filter: drop-shadow(0 0 34px rgba(124,92,255,0.26)); }
+      100% { filter: drop-shadow(0 0 12px rgba(124,92,255,0.18)); }
     }
-
     .neon-wrap{
       display:inline-block;
       animation: pulseGlow 3.6s ease-in-out infinite;
@@ -102,8 +92,6 @@
       padding: 6px 12px;
       background: linear-gradient(90deg, rgba(124,92,255,0.04), rgba(255,143,177,0.02));
     }
-
-    /* petit effet brouillé en arrière-plan */
     .bg-blob{
       position:absolute;
       width: 60vmax;
@@ -117,18 +105,11 @@
       pointer-events:none;
       z-index:0;
     }
-
-    /* responsive tweak */
-    @media (max-width:540px){
-      .card{ padding: 18px; border-radius:16px; }
-      h1{ line-height:1; }
-    }
   </style>
 </head>
 <body>
   <div class="bg-blob" aria-hidden="true"></div>
-
-  <div class="card" role="region" aria-label="Message principal">
+  <div class="card">
     <div style="text-align:center; z-index:1; width:100%;">
       <div class="neon-wrap">
         <h1 class="neon">j’ai trop la flemme</h1>
