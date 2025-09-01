@@ -1,160 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fondation Team NoxxWorks</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Open Graph / Discord Preview -->
-    <meta property="og:title" content="Fondation Team NoxxWorks">
-    <meta property="og:description" content="Découvrez les membres fondateurs et la direction de la Team NoxxWorks !">
-    <meta property="og:image" content="https://noxxworks.netlify.app/preview-image.png">
-    <meta property="og:url" content="https://noxxworks.netlify.app/fondation">
-    <meta property="og:type" content="website">
-
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            background-color: #1e1e2f;
-            color: #f5f5f5;
-        }
-        header {
-            background: linear-gradient(90deg, #ff6a00, #ee0979);
-            padding: 25px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            background-color: #29293d;
-            padding: 12px 0;
-        }
-        nav a {
-            color: #f5f5f5;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #ff6a00;
-        }
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        h2 {
-            color: #ff6a00;
-            margin-top: 25px;
-        }
-        .member {
-            display: flex;
-            align-items: center;
-            background-color: #29293d;
-            margin: 15px 0;
-            padding: 15px;
-            border-radius: 10px;
-        }
-        .member img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-right: 15px;
-            border: 2px solid #ff6a00;
-        }
-        .member-info {
-            flex: 1;
-        }
-        .member-info h3 {
-            margin: 0;
-            color: #ff6a00;
-        }
-        .member-info span {
-            font-size: 0.9rem;
-            color: #ccc;
-        }
-        .member-info a {
-            margin-right: 10px;
-            color: #f5f5f5;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .member-info a:hover {
-            color: #ee0979;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #29293d;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fondation Team NoxxWorks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-[#0f0f1a] text-gray-100 font-sans">
 
-<header>
-    <h1>Fondation Team NoxxWorks</h1>
-</header>
-
-<nav>
-    <a href="https://noxxworks.netlify.app/">Accueil</a>
-    <a href="https://noxxworks.netlify.app/condition">Conditions</a>
-    <a href="https://noxxworks.netlify.app/privacy">Privacy</a>
-</nav>
-
-<div class="container">
-    <h2>Les membres fondateurs et la direction</h2>
-
-    <div class="member">
-        <img src="noxxfall.png" alt="NoxxFall">
-        <div class="member-info">
-            <h3>NoxxFall <span>(Fondateur)</span></h3>
-            <a href="https://www.tiktok.com/@xx_sxnny1" target="_blank">TikTok</a>
-        </div>
+  <!-- HEADER -->
+  <header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-16 shadow-lg">
+    <h1 class="text-4xl md:text-5xl font-extrabold">🏛 Fondation Team NoxxWorks</h1>
+    <p class="mt-4 text-lg">Découvrez les membres fondateurs et la direction de la Team</p>
+    <!-- Vague décorative -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg class="w-full h-16 text-[#0f0f1a]" preserveAspectRatio="none" viewBox="0 0 1440 320">
+        <path fill="currentColor" d="M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,117.3C672,139,768,213,864,234.7C960,256,1056,224,1152,192C1248,160,1344,128,1392,112L1440,96L1440,0L0,0Z"></path>
+      </svg>
     </div>
+  </header>
 
-    <div class="member">
-        <img src="noxxvarios.png" alt="NoxxVarios">
-        <div class="member-info">
-            <h3>NoxxVarios <span>(Co-Fondateur)</span></h3>
-            <a href="https://www.tiktok.com/@higu370ff0" target="_blank">TikTok</a>
-            <a href="https://www.instagram.com/higu37_/" target="_blank">Instagram</a>
+  <!-- NAVIGATION -->
+  <nav class="flex justify-center gap-6 bg-[#29293d] py-4 text-lg font-semibold sticky top-0 z-50 shadow-md">
+    <a href="https://noxxworks.netlify.app/" class="hover:text-orange-400 transition">Accueil</a>
+    <a href="https://noxxworks.netlify.app/condition" class="hover:text-orange-400 transition">Conditions</a>
+    <a href="https://noxxworks.netlify.app/privacy" class="hover:text-orange-400 transition">Privacy</a>
+  </nav>
+
+  <!-- MEMBERS SECTION -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-center text-orange-400 mb-12">✨ Membres fondateurs & Direction</h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- NoxxFall -->
+      <div class="flex items-center bg-[#1e1e2f] p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="noxxfall.png" alt="NoxxFall" class="w-20 h-20 rounded-full border-2 border-orange-500 mr-4">
+        <div>
+          <h3 class="text-xl font-bold text-orange-400">NoxxFall <span class="text-sm text-gray-400">(Fondateur)</span></h3>
+          <div class="mt-2 space-x-3">
+            <a href="https://www.tiktok.com/@xx_sxnny1" target="_blank" class="text-pink-400 hover:text-orange-400 font-semibold">TikTok</a>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="member">
-        <img src="noxxshadow.png" alt="NoxxShadow">
-        <div class="member-info">
-            <h3>NoxxShadow <span>(Leader Staff)</span></h3>
-            <a href="https://www.tiktok.com/@noxxshadow" target="_blank">TikTok</a>
+      <!-- NoxxVarios -->
+      <div class="flex items-center bg-[#1e1e2f] p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="noxxvarios.png" alt="NoxxVarios" class="w-20 h-20 rounded-full border-2 border-pink-500 mr-4">
+        <div>
+          <h3 class="text-xl font-bold text-pink-400">NoxxVarios <span class="text-sm text-gray-400">(Co-Fondateur)</span></h3>
+          <div class="mt-2 space-x-3">
+            <a href="https://www.tiktok.com/@higu370ff0" target="_blank" class="text-pink-400 hover:text-orange-400 font-semibold">TikTok</a>
+            <a href="https://www.instagram.com/higu37_/" target="_blank" class="text-blue-400 hover:text-orange-400 font-semibold">Instagram</a>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="member">
-        <img src="noxxharven.png" alt="NoxxHarven">
-        <div class="member-info">
-            <h3>NoxxHarven <span>(Gardien du conseil)</span></h3>
-            <a href="https://www.tiktok.com/@haribo2344_off" target="_blank">TikTok</a>
-            <a href="https://www.instagram.com/noxxharven2344_direction/" target="_blank">Instagram</a>
+      <!-- NoxxShadow -->
+      <div class="flex items-center bg-[#1e1e2f] p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="noxxshadow.png" alt="NoxxShadow" class="w-20 h-20 rounded-full border-2 border-orange-500 mr-4">
+        <div>
+          <h3 class="text-xl font-bold text-orange-400">NoxxShadow <span class="text-sm text-gray-400">(Leader Staff)</span></h3>
+          <div class="mt-2 space-x-3">
+            <a href="https://www.tiktok.com/@noxxshadow" target="_blank" class="text-pink-400 hover:text-orange-400 font-semibold">TikTok</a>
+          </div>
         </div>
+      </div>
+
+      <!-- NoxxHarven -->
+      <div class="flex items-center bg-[#1e1e2f] p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="noxxharven.png" alt="NoxxHarven" class="w-20 h-20 rounded-full border-2 border-pink-500 mr-4">
+        <div>
+          <h3 class="text-xl font-bold text-pink-400">NoxxHarven <span class="text-sm text-gray-400">(Gardien du conseil)</span></h3>
+          <div class="mt-2 space-x-3">
+            <a href="https://www.tiktok.com/@haribo2344_off" target="_blank" class="text-pink-400 hover:text-orange-400 font-semibold">TikTok</a>
+            <a href="https://www.instagram.com/noxxharven2344_direction/" target="_blank" class="text-blue-400 hover:text-orange-400 font-semibold">Instagram</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </main>
 
-</div>
-
-<footer>
+  <!-- FOOTER -->
+  <footer class="bg-[#29293d] text-center py-6 mt-12">
     <p>© 2025 Team NoxxWorks. Tous droits réservés.</p>
-</footer>
+  </footer>
 
 </body>
 </html>
