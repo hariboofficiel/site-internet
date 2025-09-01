@@ -21,20 +21,61 @@
   body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #0f0f1a, #1e1e2f);
+    overflow: hidden;
   }
+
+  /* Background animation (floating circles) */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 106, 0, 0.3);
+    animation: float 10s linear infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    50% { opacity: 0.7; }
+    100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+  }
+
   .card {
-    animation: fadeIn 1s ease-out;
+    animation: fadeInUp 1s ease-out;
   }
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-30px);}
+  @keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(30px);}
     to {opacity: 1; transform: translateY(0);}
+  }
+
+  /* Floating text animation */
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* Bounce arrow */
+  .bounce {
+    animation: bounce 1.5s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
+<body class="flex items-center justify-center min-h-screen p-4 relative">
 
-<div class="card bg-[#29293d] rounded-3xl shadow-2xl p-10 max-w-lg text-center">
-  <h1 class="text-4xl md:text-5xl font-extrabold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-pink-600 mb-6">🚧 Maintenance en cours 🚧</h1>
+<!-- Animated circles in background -->
+<div class="circle w-24 h-24 left-10 top-1/4"></div>
+<div class="circle w-32 h-32 left-3/4 top-1/3 bg-pink-500/30"></div>
+<div class="circle w-16 h-16 left-1/2 top-1/2 bg-white/20"></div>
+<div class="circle w-40 h-40 left-1/4 top-3/4 bg-orange-500/20"></div>
+
+<div class="card bg-[#29293d] rounded-3xl shadow-2xl p-10 max-w-lg text-center relative z-10">
+  <h1 class="text-4xl md:text-5xl font-extrabold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-pink-600 mb-6 pulse">
+    🚧 Maintenance en cours 🚧
+  </h1>
   
   <p class="text-lg md:text-xl text-gray-100 mb-4">
     Le site <span class="font-bold text-orange-400">NoxxWorks</span> est actuellement en maintenance.
@@ -44,7 +85,7 @@
     Nous travaillons à améliorer votre expérience et serons de retour très bientôt ! Merci pour votre patience.
   </p>
 
-  <a href="https://discord.gg/AR2KeVtx7X" target="_blank" class="inline-block px-8 py-4 font-bold rounded-xl text-white text-lg shadow-lg transition-transform transform hover:scale-105 bg-gradient-to-r from-orange-500 to-pink-600">
+  <a href="https://discord.gg/AR2KeVtx7X" target="_blank" class="inline-block px-8 py-4 font-bold rounded-xl text-white text-lg shadow-lg transition-transform transform hover:scale-105 bg-gradient-to-r from-orange-500 to-pink-600 bounce">
     Rejoindre notre Discord
   </a>
 
