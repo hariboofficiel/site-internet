@@ -5,6 +5,13 @@
   <title>Conditions Générales d’Utilisation • ✩༺•Team NoxxWorks•༻✩</title>
   <link rel="icon" type="image/png" href="favicon.png" />
 
+  <!-- Open Graph / Discord Preview -->
+  <meta property="og:title" content="Conditions d’Utilisation • Team NoxxWorks">
+  <meta property="og:description" content="Consultez les Conditions Générales d’Utilisation de la ✩༺•Team NoxxWorks•༻✩.">
+  <meta property="og:image" content="https://noxxworks.netlify.app/preview-image.png">
+  <meta property="og:url" content="https://noxxworks.netlify.app/condition">
+  <meta property="og:type" content="website">
+
   <style>
     body {
       margin: 0;
@@ -19,22 +26,29 @@
       margin: 50px auto;
       background: white;
       padding: 60px;
-      border-radius: 18px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 1s ease forwards;
     }
 
     h1 {
       font-size: 2.8em;
       margin-bottom: 30px;
       text-align: center;
+      background: linear-gradient(90deg, #FD6585, #FFD3A5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     h2 {
       margin-top: 50px;
       font-size: 1.9em;
       color: #333;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
+      border-left: 6px solid #FD6585;
+      padding-left: 12px;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 0.6s ease;
     }
 
     h3 {
@@ -61,7 +75,7 @@
       color: #666;
     }
 
-    /* Boutons */
+    /* Navigation boutons */
     .nav-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -84,7 +98,18 @@
     .btn:hover {
       background: #4752c4;
       transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
   </style>
 </head>
@@ -110,6 +135,7 @@
       <a href="#loi" class="btn">Loi applicable</a>
     </div>
 
+    <!-- Sections complètes (inchangées) -->
     <h2 id="preambule">1. Préambule</h2>
     <p>
       Les présentes Conditions Générales d’Utilisation (CGU) constituent un accord juridique entre vous, en tant que membre, partenaire ou contributeur, et la <strong>✩༺•Team NoxxWorks•༻✩</strong>.  
@@ -226,6 +252,19 @@
           behavior: 'smooth'
         });
       });
+    });
+
+    // Animation progressive des titres
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll("h2").forEach(h2 => {
+      observer.observe(h2);
     });
   </script>
 </body>
