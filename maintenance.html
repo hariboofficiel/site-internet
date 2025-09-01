@@ -1,74 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Annonce importante - Noxxworks" /> 
-  <meta property="og:description" content="Tous les serveurs Discord liés à Haribo Company sont désormais redirigés vers Noxxworks. Ce serveur reste communautaire et propose de développer des Discord gratuits, propres, sans arnaque, avec un bot incroyable !" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://haribo-company.netlify.app/logo.png" />
-  <meta name="theme-color" content="#4a90e2" />
-  <title>Annonce importante - Noxxworks</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #111, #1c1c1c);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      padding: 2em;
-    }
-    .card {
-      background-color: #222;
-      border: 2px solid #4a90e2;
-      border-radius: 15px;
-      padding: 3em 2em;
-      max-width: 700px;
-      box-shadow: 0 0 30px rgba(74,144,226,0.5);
-      animation: fadeIn 1s ease-out;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(-20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    h1 {
-      color: #4a90e2;
-      font-size: 2.8em;
-      margin-bottom: 0.5em;
-    }
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      margin-bottom: 1.5em;
-    }
-    .highlight {
-      color: #ffcc00;
-      font-weight: bold;
-    }
-    .footer {
-      font-size: 0.9em;
-      color: #aaa;
-      margin-top: 2em;
-    }
-    a {
-      color: #4a90e2;
-      text-decoration: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maintenance - NoxxWorks</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png" />
+
+<!-- Open Graph / Discord Preview -->
+<meta property="og:title" content="Maintenance - NoxxWorks">
+<meta property="og:description" content="Le site NoxxWorks est actuellement en maintenance. Nous serons de retour très bientôt !">
+<meta property="og:image" content="https://example.com/preview-image.png">
+<meta property="og:type" content="website">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f0f1a, #1e1e2f);
+  }
+  .card {
+    animation: fadeIn 1s ease-out;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-30px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+</style>
 </head>
-<body>
-  <div class="card">
-    <h1>🚨 Annonce Importante 🚨</h1>
-    <p>Tous les serveurs Discord liés à <span class="highlight">Haribo Company</span> sont désormais <span class="highlight">fermés</span> et redirigés vers <span class="highlight">Noxxworks</span>.</p>
-    <p>Ce serveur reste <span class="highlight">communautaire</span> et propose de développer des Discord gratuits, propres, sans arnaque, avec un <span class="highlight">bot incroyable</span> !</p>
-    <p>Vous pouvez suivre les nouveautés et accéder aux projets via notre discord: <a href="https://discord.gg/AR2KeVtx7X" target="_blank">rejoindre notre discord</a></p>
-    <div class="footer">
-      ✨ Merci à tous ceux qui ont participé à nos projets. L'avenir se construit désormais avec <span class="highlight">Noxxworks</span>. ✨
-    </div>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+<div class="card bg-[#29293d] rounded-3xl shadow-2xl p-10 max-w-lg text-center">
+  <h1 class="text-4xl md:text-5xl font-extrabold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-pink-600 mb-6">🚧 Maintenance en cours 🚧</h1>
+  
+  <p class="text-lg md:text-xl text-gray-100 mb-4">
+    Le site <span class="font-bold text-orange-400">NoxxWorks</span> est actuellement en maintenance.
+  </p>
+  
+  <p class="text-lg md:text-xl text-gray-100 mb-6">
+    Nous travaillons à améliorer votre expérience et serons de retour très bientôt ! Merci pour votre patience.
+  </p>
+
+  <a href="https://discord.gg/AR2KeVtx7X" target="_blank" class="inline-block px-8 py-4 font-bold rounded-xl text-white text-lg shadow-lg transition-transform transform hover:scale-105 bg-gradient-to-r from-orange-500 to-pink-600">
+    Rejoindre notre Discord
+  </a>
+
+  <div class="mt-6 text-gray-400 text-sm md:text-base">
+    ✨ Restez connectés pour les mises à jour ! ✨
   </div>
+</div>
+
 </body>
 </html>
