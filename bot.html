@@ -1,206 +1,82 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Haribo Hub - Menu Ultra Stylé</title>
+  <meta charset="UTF-8">
+  <title>Conditions d'utilisation • ✩༺•𝙏𝙚𝙖𝙢 𝙉𝙤𝙭𝙭𝙒𝙤𝙧𝙠𝙨•༻✩</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
-    /* Reset */
-    *, *::before, *::after {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
     body {
-      background: #121212;
-      color: #eee;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      min-height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #FFD3A5, #FD6585);
+      color: #222;
       overflow-x: hidden;
     }
-    a {
-      color: #ffb347;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      cursor: pointer;
-    }
-    a:hover, a:focus {
-      color: #ffc966;
-      outline: none;
+
+    .container {
+      max-width: 950px;
+      margin: 60px auto;
+      background: white;
+      padding: 50px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
     }
 
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: #1f1f1f;
-      height: 70px;
-      box-shadow: 0 0 15px #ffb347aa;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 30px;
-      z-index: 9999;
-      user-select: none;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-    .logo {
-      font-size: 28px;
-      color: #ffb347;
-      text-shadow: 0 0 10px #ffb347cc;
-      cursor: default;
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+      animation: slideDown 0.8s ease-out;
     }
 
-    /* NAVIGATION */
-    nav.desktop-menu {
-      display: flex;
-      gap: 28px;
-    }
-    nav.desktop-menu a {
-      position: relative;
-      font-size: 18px;
-      padding: 10px 8px;
-      border-radius: 10px;
-      transition: color 0.4s ease;
-    }
-    nav.desktop-menu a::after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 50%;
-      width: 0;
-      height: 3px;
-      background: #ffb347;
-      border-radius: 5px;
-      transition: width 0.35s ease, left 0.35s ease;
-    }
-    nav.desktop-menu a:hover::after,
-    nav.desktop-menu a.active::after {
-      width: 60%;
-      left: 20%;
-    }
-    nav.desktop-menu a:hover,
-    nav.desktop-menu a.active {
-      color: #ffc966;
+    h2 {
+      margin-top: 30px;
+      font-size: 1.6em;
+      color: #444;
     }
 
-    /* HAMBURGER MENU */
-    .hamburger {
-      width: 36px;
-      height: 30px;
-      position: relative;
-      cursor: pointer;
-      display: none;
-      perspective: 800px;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .hamburger span {
-      position: absolute;
-      height: 4px;
-      width: 100%;
-      background: #ffb347;
-      border-radius: 8px;
-      left: 0;
-      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      transform-origin: center;
-    }
-    .hamburger span:nth-child(1) {
-      top: 0;
-    }
-    .hamburger span:nth-child(2) {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .hamburger span:nth-child(3) {
-      bottom: 0;
-    }
-    /* Hamburger animation on active */
-    .hamburger.active span:nth-child(1) {
-      transform: rotateY(180deg) rotate(45deg);
-      top: 50%;
-    }
-    .hamburger.active span:nth-child(2) {
+    p, li {
+      font-size: 1.1em;
+      line-height: 1.7;
       opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: rotateY(180deg) rotate(-45deg);
-      bottom: 50%;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.3s;
     }
 
-    /* MOBILE MENU */
-    nav.mobile-menu {
-      position: fixed;
-      top: 70px;
-      left: 0; right: 0;
-      background: #1f1f1f;
-      box-shadow: 0 6px 18px #ffb347aa;
-      max-height: 0;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
-      z-index: 9998;
-    }
-    nav.mobile-menu.open {
-      max-height: 280px; /* Ajuste selon le nombre de liens */
-    }
-    nav.mobile-menu a {
-      padding: 18px 32px;
-      font-size: 20px;
-      color: #ffb347;
-      border-bottom: 1px solid #333;
-      transition: background-color 0.3s ease;
-    }
-    nav.mobile-menu a:last-child {
-      border-bottom: none;
-    }
-    nav.mobile-menu a:hover,
-    nav.mobile-menu a:focus {
-      background: #ffb347;
-      color: #1a1a1a;
-      outline: none;
-    }
-
-    /* MAIN CONTENT */
-    main {
-      max-width: 960px;
-      margin: 110px auto 40px;
-      padding: 0 20px;
-    }
-    section {
-      display: none;
-      animation: fadeInUp 0.5s ease forwards;
-    }
-    section.active {
-      display: block;
-    }
-    h1, h2 {
-      color: #ffb347;
-      text-shadow: 0 0 10px #ffb347cc;
-      margin-bottom: 16px;
-    }
-    p, ul {
-      color: #ccc;
-      font-size: 18px;
-      line-height: 1.6;
-    }
     ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    ul li::before {
-      content: '➤';
-      color: #ffb347;
-      margin-right: 10px;
+      padding-left: 20px;
+      margin-top: 10px;
     }
 
-    /* FadeInUp animation */
-    @keyframes fadeInUp {
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    a {
+      color: #5865F2; /* couleur Discord */
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #4752c4; /* légèrement plus foncé au survol */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes slideDown {
       from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(-30px);
       }
       to {
         opacity: 1;
@@ -208,94 +84,84 @@
       }
     }
 
-    /* Buttons */
-    button.btn {
-      background: #ffb347;
-      border: none;
-      border-radius: 12px;
-      padding: 12px 24px;
-      font-weight: 700;
-      color: #1a1a1a;
-      cursor: pointer;
-      box-shadow: 0 0 15px #ffb347aa;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-    }
-    button.btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px #ffc966cc;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      nav.desktop-menu {
-        display: none;
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
       }
-      .hamburger {
-        display: block;
+      to {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Conditions d'utilisation du serveur Discord</h1>
+    
+    <p>
+      Bienvenue sur le serveur officiel de <strong>✩༺•𝙏𝙚𝙖𝙢 𝙉𝙤𝙭𝙭𝙒𝙤𝙧𝙠𝙨•༻✩</strong> !  
+      Ce serveur est un espace communautaire qui a pour but d’aider les utilisateurs à créer des serveurs Discord <strong>gratuits, propres et sans arnaque</strong>, 
+      tout en profitant d’un bot incroyable pour améliorer l’expérience de chacun.  
+      Vous pouvez rejoindre notre serveur via ce lien : <a href="https://discord.gg/tonlien" target="_blank">https://discord.gg/tonlien</a>
+    </p>
 
-<header>
-  <div class="logo" tabindex="0" aria-label="Logo Haribo Hub">Haribo Hub</div>
+    <h2>1. Respect et comportement</h2>
+    <p>
+      En rejoignant ce serveur, vous vous engagez à respecter les règles de Discord ainsi que la charte interne du serveur. 
+      Le respect, la bienveillance et la politesse sont essentiels pour que la communauté reste agréable.  
+    </p>
+    <ul>
+      <li>Pas d’insultes, de propos discriminatoires ou toxiques,</li>
+      <li>Pas de spam ni de flood dans les salons,</li>
+      <li>Pas de contenu NSFW, illégal ou choquant,</li>
+      <li>Respect de la vie privée des autres membres.</li>
+    </ul>
 
-  <nav class="desktop-menu" aria-label="Menu principal">
-    <a href="#" class="active" data-section="accueil">Accueil</a>
-    <a href="#" data-section="serveurs">Serveurs</a>
-    <a href="#" data-section="bots">Bots</a>
-    <a href="#" data-section="projets">Projets</a>
-    <a href="#" data-section="contact">Contact</a>
-    <a href="#" id="adminBtn">Admin ⚙️</a>
-  </nav>
+    <h2>2. Utilisation des services proposés</h2>
+    <p>
+      Le serveur a pour objectif d’accompagner les membres dans la création de serveurs Discord personnalisés.  
+      L’aide et les développements proposés sont <strong>gratuits</strong> et ne doivent pas être détournés à des fins commerciales ou frauduleuses.  
+    </p>
+    <ul>
+      <li>Il est interdit d’arnaquer ou de monnayer les services proposés gratuitement,</li>
+      <li>Le code et les bots mis à disposition doivent être utilisés uniquement dans le cadre prévu,</li>
+      <li>Toute tentative de vol, de copie ou de revente sera sanctionnée.</li>
+    </ul>
 
-  <div class="hamburger" id="hamburger" role="button" aria-label="Menu" aria-expanded="false" tabindex="0">
-    <span></span>
-    <span></span>
-    <span></span>
+    <h2>3. Responsabilité et sécurité</h2>
+    <p>
+      L’équipe de <strong>✩༺•𝙏𝙚𝙖𝙢 𝙉𝙤𝙭𝙭𝙒𝙤𝙧𝙠𝙨•༻✩</strong> s’engage à fournir un environnement sûr et fiable.  
+      Cependant, chaque membre est responsable de ses propres actions sur le serveur.  
+    </p>
+    <ul>
+      <li>Les liens externes doivent être partagés avec précaution,</li>
+      <li>Tout logiciel ou script non approuvé est interdit,</li>
+      <li>La sécurité de votre compte Discord est de votre responsabilité (authentification à deux facteurs recommandée).</li>
+    </ul>
+
+    <h2>4. Modération et sanctions</h2>
+    <p>
+      Les modérateurs et administrateurs sont là pour garantir le respect des règles.  
+      En cas de non-respect, différentes mesures peuvent être prises :
+    </p>
+    <ul>
+      <li>Avertissement écrit,</li>
+      <li>Mute temporaire ou expulsion,</li>
+      <li>Bannissement définitif en cas de récidive ou de faute grave.</li>
+    </ul>
+
+    <h2>5. Modification des conditions</h2>
+    <p>
+      L’équipe se réserve le droit de modifier ces conditions d’utilisation à tout moment, 
+      afin de s’adapter à l’évolution du serveur et des services proposés.  
+      Toute mise à jour sera communiquée aux membres via un salon dédié.
+    </p>
+
+    <footer>
+      © 2025 ✩༺•𝙏𝙚𝙖𝙢 𝙉𝙤𝙭𝙭𝙒𝙤𝙧𝙠𝙨•༻✩ – Tous droits réservés.
+    </footer>
   </div>
-</header>
-
-<nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true">
-  <a href="#" data-section="accueil">Accueil</a>
-  <a href="#" data-section="serveurs">Serveurs</a>
-  <a href="#" data-section="bots">Bots</a>
-  <a href="#" data-section="projets">Projets</a>
-  <a href="#" data-section="contact">Contact</a>
-  <a href="#" id="mobileAdminBtn">Admin ⚙️</a>
-</nav>
-
-<main>
-  <section id="accueil" class="active" tabindex="0" aria-label="Section Accueil">
-    <h1>Bienvenue sur Haribo Hub</h1>
-    <p>Le centre officiel regroupant tous nos serveurs, bots et projets.</p>
-    <p>Utilise le menu pour naviguer ou rends-toi dans la section Admin pour modifier les liens.</p>
-  </section>
-
-  <section id="serveurs" tabindex="0" aria-label="Section Serveurs">
-    <h2>Nos Serveurs</h2>
-    <ul id="serversList"></ul>
-  </section>
-
-  <section id="bots" tabindex="0" aria-label="Section Bots">
-    <h2>Nos Bots</h2>
-    <ul id="botsList"></ul>
-  </section>
-
-  <section id="projets" tabindex="0" aria-label="Section Projets">
-    <h2>Projets en cours</h2>
-    <ul id="projectsList"></ul>
-  </section>
-
-  <section id="contact" tabindex="0" aria-label="Section Contact">
-    <h2>Contact</h2>
-    <ul id="contactList"></ul>
-  </section>
-</main>
-
-<!-- Admin Modal -->
-<div id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle" style="display:none;">
-  <div style="
-    background:#222; color:#eee; padding:
+</body>
+</html>
