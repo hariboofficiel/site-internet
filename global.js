@@ -1,5 +1,5 @@
 // global.js
-const maintenanceMode = true; // ⬅️ Mets à true pour activer la maintenance
+const maintenanceMode = false; // ⬅️ Mets à true pour activer la maintenance
 
 // Redirection automatique
 if (maintenanceMode) {
