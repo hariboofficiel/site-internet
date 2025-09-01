@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Conditions d'utilisation • ✩༺•𝙏𝙚𝙖𝙢 𝙉𝙤𝙭𝙭𝙒𝙤𝙧𝙠𝙨•༻✩</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #FFD3A5, #FD6585);
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 60px auto;
+      background: white;
+      padding: 50px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+      animation: slideDown 0.8s ease-out;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 1.6em;
+      color: #444;
+    }
+
+    p, li {
+      font-size: 1.1em;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.3s;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Conditions d'utilisation du serveur Discord</h1>
+    
+    <p>
+      Bienvenue sur le serveur officiel de <strong>✩༺•𝙏𝙚𝙖𝙢 𝙉𝙤𝙭𝙭𝙒𝙤𝙧𝙠𝙨•༻✩</strong> !  
+      Ce serveur est un espace communautaire qui a pour but d’aider les utilisateurs à créer des serveurs Discord <strong>gratuits, propres et sans arnaque</strong>, 
+      tout en profitant d’un bot incroyable développé spécialement pour améliorer l’expérience de chacun.
+    </p>
+
+    <h2>1. Respect et comportement</h2>
+    <p>
+      En rejoignant ce serveur, vous vous engagez à respecter les règles de Discord ainsi que la charte interne du serveur. 
+      Le respect, la bienveillance et la politesse sont essentiels pour que la communauté reste agréable.  
+    </p>
+    <ul>
+      <li>Pas d’insultes, de propos discriminatoires ou toxiques,</li>
+      <li>Pas de spam ni de flood dans les salons,</li>
+      <li>Pas de contenu NSFW, illégal ou choquant,</li>
+      <li>Respect de la vie privée des autres membres.</li>
+    </ul>
+
+    <h2>2. Utilisation des services proposés</h2>
+    <p>
+      Le serveur a pour objectif d’accompagner les membres dans la création de serveurs Discord personnalisés.  
+      L’aide et les développements proposés sont <strong>gratuits</strong> et ne doivent pas être détournés à des fins commerciales ou frauduleuses.  
+    </p>
+    <ul>
+      <li>Il est interdit d’arnaquer ou de monnayer les services proposés gratuitement,</li>
+      <li>Le code et les bots mis à disposition doivent être utilisés uniquement dans le cadre prévu,</li>
+      <li>Toute tentative de vol, de copie ou de revente sera sanctionnée.</li>
+    </ul>
+
+    <h2>3. Responsabilité et sécurité</h2>
+    <p>
+      L’équipe de <strong>✩༺•𝙏𝙚𝙖𝙢 𝙉𝙤𝙭𝙭𝙒𝙤𝙧𝙠𝙨•༻✩</strong> s’engage à fournir un environnement sûr et fiable.  
+      Cependant, chaque membre est responsable de ses propres actions sur le serveur.  
+    </p>
+    <ul>
+      <li>Les liens externes doivent être partagés avec précaution,</li>
+      <li>Tout logiciel ou script non approuvé est interdit,</li>
+      <li>La sécurité de votre compte Discord est de votre responsabilité (authentification à deux facteurs recommandée).</li>
+    </ul>
+
+    <h2>4. Modération et sanctions</h2>
+    <p>
+      Les modérateurs et administrateurs sont là pour garantir le respect des règles.  
+      En cas de non-respect, différentes mesures peuvent être prises :
+    </p>
+    <ul>
+      <li>Avertissement écrit,</li>
+      <li>Mute temporaire ou expulsion,</li>
+      <li>Bannissement définitif en cas de récidive ou de faute grave.</li>
+    </ul>
+
+    <h2>5. Modification des conditions</h2>
+    <p>
+      L’équipe se réserve le droit de modifier ces conditions d’utilisation à tout moment, 
+      afin de s’adapter à l’évolution du serveur et des services proposés.  
+      Toute mise à jour sera communiquée aux membres via un salon dédié.
+    </p>
+
+    <footer>
+      © 2025 ✩༺•𝙏𝙚𝙖𝙢 𝙉𝙤𝙭𝙭𝙒𝙤𝙧𝙠𝙨•༻✩ – Tous droits réservés.
+    </footer>
+  </div>
+</body>
+</html>
