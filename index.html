@@ -4,22 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team NoxxWorks</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Discord Preview -->
+  <meta property="og:title" content="Team NoxxWorks">
+  <meta property="og:description" content="Rejoins la Team NoxxWorks pour du fun, du développement Discord et du contenu TikTok !">
+  <meta property="og:image" content="https://example.com/preview-image.png">
+  <meta property="og:url" content="https://noxxworks.netlify.app/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Team NoxxWorks">
+  <meta name="twitter:description" content="Rejoins la Team NoxxWorks pour du fun, du développement Discord et du contenu TikTok !">
+  <meta name="twitter:image" content="https://example.com/preview-image.png">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+    /* Animation des cards */
+    .hover-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      transition: all 0.3s ease;
+    }
+    /* Ombre dynamique sur les boutons */
+    .btn-gradient {
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      box-shadow: 0 8px 20px rgba(238, 9, 121, 0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-gradient:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(238, 9, 121, 0.5);
+    }
+  </style>
 </head>
-<body class="bg-[#0f0f1a] text-gray-100 font-sans">
+
+<body class="bg-[#0f0f1a] text-gray-100">
 
   <!-- HEADER / HERO -->
-  <header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-20 shadow-xl">
+  <header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-24 shadow-xl">
     <h1 class="text-5xl font-extrabold drop-shadow-lg">✩༺• Team NoxxWorks •༻✩</h1>
     <p class="mt-4 text-lg">Une communauté fun & créative autour de Discord et TikTok</p>
-    <div class="mt-6 flex justify-center gap-4">
-      <a href="https://discord.gg/AR2KeVtx7X" class="px-6 py-3 bg-black/40 hover:bg-black/60 text-white rounded-xl font-bold transition shadow-lg">🚀 Rejoindre le Discord</a>
-      <a href="https://www.tiktok.com/@teamnoxxworks" class="px-6 py-3 bg-white/20 hover:bg-white/40 text-white rounded-xl font-bold transition shadow-lg">🎥 Voir le TikTok</a>
-      <a href="https://noxxworks.netlify.app/fondation" class="px-6 py-3 bg-orange-500 hover:bg-pink-600 text-white rounded-xl font-bold transition shadow-lg">🏛 Fondation</a>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a href="https://discord.gg/AR2KeVtx7X" class="px-6 py-3 text-white rounded-xl font-bold shadow-lg btn-gradient">🚀 Rejoindre le Discord</a>
+      <a href="https://www.tiktok.com/@teamnoxxworks" class="px-6 py-3 bg-white/20 hover:bg-white/40 text-white rounded-xl font-bold shadow-lg transition">🎥 Voir le TikTok</a>
+      <a href="https://noxxworks.netlify.app/fondation" class="px-6 py-3 text-white rounded-xl font-bold shadow-lg btn-gradient">🏛 Fondation</a>
     </div>
     <!-- Vague décorative -->
     <div class="absolute bottom-0 left-0 right-0">
-      <svg class="w-full h-20 text-[#0f0f1a]" preserveAspectRatio="none" viewBox="0 0 1440 320">
+      <svg class="w-full h-24 text-[#0f0f1a]" preserveAspectRatio="none" viewBox="0 0 1440 320">
         <path fill="currentColor" d="M0,224L48,218.7C96,213,192,203,288,176C384,149,480,107,576,128C672,149,768,235,864,266.7C960,299,1056,277,1152,256C1248,235,1344,213,1392,202.7L1440,192L1440,0L0,0Z"></path>
       </svg>
     </div>
@@ -34,41 +75,41 @@
 
   <!-- FEATURES -->
   <section class="max-w-6xl mx-auto p-10 grid md:grid-cols-3 gap-8 text-center">
-    <div class="p-6 bg-[#1e1e2f] rounded-2xl shadow-lg hover:scale-105 transition">
+    <div class="p-6 bg-[#1e1e2f] rounded-2xl shadow-lg hover-card">
       <h3 class="text-2xl font-bold text-orange-400 mb-3">⚡ Développement Discord</h3>
       <p>Systèmes Roleplay & serveurs complets créés sur mesure.</p>
     </div>
-    <div class="p-6 bg-[#1e1e2f] rounded-2xl shadow-lg hover:scale-105 transition">
+    <div class="p-6 bg-[#1e1e2f] rounded-2xl shadow-lg hover-card">
       <h3 class="text-2xl font-bold text-pink-400 mb-3">🎥 Contenus TikTok & YouTube</h3>
       <p>Des vidéos fun, des tutos et du divertissement exclusif.</p>
     </div>
-    <div class="p-6 bg-[#1e1e2f] rounded-2xl shadow-lg hover:scale-105 transition">
+    <div class="p-6 bg-[#1e1e2f] rounded-2xl shadow-lg hover-card">
       <h3 class="text-2xl font-bold text-orange-400 mb-3">🤝 Communauté Active</h3>
       <p>Un lieu d’échange, d’entraide et de créativité sans limite.</p>
     </div>
   </section>
 
   <!-- VISION -->
-  <section class="bg-gradient-to-r from-pink-600 to-orange-500 py-16 text-center">
+  <section class="bg-gradient-to-r from-pink-600 to-orange-500 py-20 text-center">
     <h2 class="text-3xl font-bold mb-6">🌟 Notre Vision</h2>
     <p class="max-w-2xl mx-auto text-lg">Faire de NoxxWorks un espace unique où la créativité prend vie, où chacun peut montrer ses talents, et où l’esprit d’équipe prime.</p>
   </section>
 
   <!-- REASONS -->
-  <section class="max-w-5xl mx-auto py-16 px-6 text-center">
-    <h2 class="text-3xl font-bold text-orange-400 mb-6">🔥 Pourquoi nous rejoindre ?</h2>
+  <section class="max-w-5xl mx-auto py-20 px-6 text-center">
+    <h2 class="text-3xl font-bold text-orange-400 mb-8">🔥 Pourquoi nous rejoindre ?</h2>
     <ul class="grid md:grid-cols-2 gap-6 text-left">
-      <li class="bg-[#1e1e2f] p-6 rounded-xl shadow hover:scale-105 transition">✅ Développement pro & gratuit</li>
-      <li class="bg-[#1e1e2f] p-6 rounded-xl shadow hover:scale-105 transition">✅ Une équipe passionnée et disponible</li>
-      <li class="bg-[#1e1e2f] p-6 rounded-xl shadow hover:scale-105 transition">✅ Une communauté vivante et accueillante</li>
-      <li class="bg-[#1e1e2f] p-6 rounded-xl shadow hover:scale-105 transition">✅ Contenus exclusifs TikTok / bientôt YouTube</li>
+      <li class="bg-[#1e1e2f] p-6 rounded-xl shadow hover-card">✅ Développement pro & gratuit</li>
+      <li class="bg-[#1e1e2f] p-6 rounded-xl shadow hover-card">✅ Une équipe passionnée et disponible</li>
+      <li class="bg-[#1e1e2f] p-6 rounded-xl shadow hover-card">✅ Une communauté vivante et accueillante</li>
+      <li class="bg-[#1e1e2f] p-6 rounded-xl shadow hover-card">✅ Contenus exclusifs TikTok / bientôt YouTube</li>
     </ul>
   </section>
 
   <!-- CALL TO ACTION -->
-  <section class="bg-[#1e1e2f] py-16 text-center">
+  <section class="bg-[#1e1e2f] py-20 text-center">
     <h2 class="text-3xl font-bold text-pink-400 mb-6">🚀 Rejoins-nous dès aujourd'hui</h2>
-    <a href="https://discord.gg/AR2KeVtx7X" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-600 rounded-2xl font-bold text-white text-lg shadow-xl hover:scale-105 transition">Rejoindre le Discord</a>
+    <a href="https://discord.gg/AR2KeVtx7X" class="px-8 py-4 rounded-2xl font-bold text-white text-lg shadow-xl btn-gradient">Rejoindre le Discord</a>
   </section>
 
   <!-- FOOTER -->
