@@ -59,22 +59,38 @@
             margin-top: 25px;
         }
         .member {
+            display: flex;
+            align-items: center;
             background-color: #29293d;
             margin: 15px 0;
             padding: 15px;
             border-radius: 10px;
         }
-        .member h3 {
-            margin: 0 0 10px 0;
+        .member img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid #ff6a00;
+        }
+        .member-info {
+            flex: 1;
+        }
+        .member-info h3 {
+            margin: 0;
             color: #ff6a00;
         }
-        .member a {
+        .member-info span {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .member-info a {
             margin-right: 10px;
             color: #f5f5f5;
             text-decoration: none;
             font-weight: bold;
         }
-        .member a:hover {
+        .member-info a:hover {
             color: #ee0979;
         }
         footer {
@@ -101,25 +117,37 @@
     <h2>Les membres fondateurs et la direction</h2>
 
     <div class="member">
-        <h3>NoxxFall <span>(Fondateur)</span></h3>
-        <a href="https://www.tiktok.com/@xx_sxnny1" target="_blank">TikTok</a>
+        <img src="noxxfall.png" alt="NoxxFall">
+        <div class="member-info">
+            <h3>NoxxFall <span>(Fondateur)</span></h3>
+            <a href="https://www.tiktok.com/@xx_sxnny1" target="_blank">TikTok</a>
+        </div>
     </div>
 
     <div class="member">
-        <h3>NoxxVarios <span>(Co-Fondateur)</span></h3>
-        <a href="https://www.tiktok.com/@higu370ff0" target="_blank">TikTok</a>
-        <a href="https://www.instagram.com/higu37_/" target="_blank">Instagram</a>
+        <img src="noxxvarios.png" alt="NoxxVarios">
+        <div class="member-info">
+            <h3>NoxxVarios <span>(Co-Fondateur)</span></h3>
+            <a href="https://www.tiktok.com/@higu370ff0" target="_blank">TikTok</a>
+            <a href="https://www.instagram.com/higu37_/" target="_blank">Instagram</a>
+        </div>
     </div>
 
     <div class="member">
-        <h3>NoxxShadow <span>(Leader Staff)</span></h3>
-        <a href="https://www.tiktok.com/@noxxshadow" target="_blank">TikTok</a>
+        <img src="noxxshadow.png" alt="NoxxShadow">
+        <div class="member-info">
+            <h3>NoxxShadow <span>(Leader Staff)</span></h3>
+            <a href="https://www.tiktok.com/@noxxshadow" target="_blank">TikTok</a>
+        </div>
     </div>
 
     <div class="member">
-        <h3>NoxxHarven <span>(Gardien du conseil)</span></h3>
-        <a href="https://www.tiktok.com/@haribo2344_off" target="_blank">TikTok</a>
-        <a href="https://www.instagram.com/noxxharven2344_direction/" target="_blank">Instagram</a>
+        <img src="noxxharven.png" alt="NoxxHarven">
+        <div class="member-info">
+            <h3>NoxxHarven <span>(Gardien du conseil)</span></h3>
+            <a href="https://www.tiktok.com/@haribo2344_off" target="_blank">TikTok</a>
+            <a href="https://www.instagram.com/noxxharven2344_direction/" target="_blank">Instagram</a>
+        </div>
     </div>
 
 </div>
