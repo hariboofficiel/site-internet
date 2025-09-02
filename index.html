@@ -120,11 +120,8 @@
 
   <script src="global.js"></script>
 </body>
-<script>
-  const updatePopup = document.getElementById('updatePopup');
-  const closeUpdatePopup = document.getElementById('closeUpdatePopup');
 <!-- Popup Mise à jour longue et centrale -->
-<div id="updatePopup" class="fixed inset-0 bg-[#0f0f1a]/90 flex justify-center items-center opacity-0 invisible transition-opacity duration-300 z-50 px-4">
+<div id="updatePopup" class="fixed inset-0 bg-[#0f0f1a]/90 flex justify-center items-center opacity-0 transition-opacity duration-300 z-50 px-4">
   <div class="bg-[#1e1e2f] rounded-3xl p-6 md:p-10 w-full max-w-lg text-center shadow-2xl border-4 border-pink-500 animate-fadeIn">
     <h2 class="text-3xl md:text-4xl font-extrabold text-orange-400 mb-6 drop-shadow-lg">🚀 Mise à jour majeure !</h2>
     <p class="text-gray-100 mb-4 text-left md:text-center text-sm md:text-base">
@@ -147,36 +144,34 @@
   const updatePopup = document.getElementById('updatePopup');
   const closeUpdatePopup = document.getElementById('closeUpdatePopup');
 
-  // Vérifier si l'utilisateur a déjà vu le popup
-  const hasSeenPopup = localStorage.getItem('seenUpdatePopup');
+  // Vérifier la date de première apparition
+  const firstVisit = localStorage.getItem('updatePopupFirstVisit');
+  const now = new Date().getTime();
+  const twoDays = 2 * 24 * 60 * 60 * 1000; // 2 jours en ms
 
-  if (!hasSeenPopup) {
-    // Afficher le popup
+  if (!firstVisit) {
+    // Première visite : enregistrer la date
+    localStorage.setItem('updatePopupFirstVisit', now);
+    showPopup();
+  } else if (now - firstVisit < twoDays) {
+    // Toujours dans les 2 jours : afficher le popup
+    showPopup();
+  } 
+  // Après 2 jours : ne rien faire (popup ne s'affiche plus)
+
+  function showPopup() {
     window.addEventListener('load', () => {
-      updatePopup.classList.remove('invisible');
+      updatePopup.classList.remove('opacity-0');
       updatePopup.classList.add('opacity-100');
     });
   }
 
-  // Fermer le popup avec le bouton
-  closeUpdatePopup.addEventListener('click', () => {
-    updatePopup.classList.add('opacity-0');
-    setTimeout(() => updatePopup.classList.add('invisible'), 300);
-    localStorage.setItem('seenUpdatePopup', 'true');
-  });
-
-  // Fermer si on clique en dehors du popup
-  updatePopup.addEventListener('click', (e) => {
-    if(e.target === updatePopup) {
-      updatePopup.classList.add('opacity-0');
-      setTimeout(() => updatePopup.classList.add('invisible'), 300);
-      localStorage.setItem('seenUpdatePopup', 'true');
-    }
-  });
+  // Fermer le popup avec le bouton ou clic dehors
+  closeUpdatePopup.addEventListener('click', () => updatePopup.classList.add('opacity-0'));
+  updatePopup.addEventListener('click', e => { if(e.target === updatePopup) updatePopup.classList.add('opacity-0'); });
 </script>
 
 <style>
-  /* Animation légère pour apparition du popup */
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -185,4 +180,6 @@
     animation: fadeIn 0.5s ease-out;
   }
 </style>
+
 </html>
+
