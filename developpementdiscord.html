@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Développement Discord • Team NoxxWorks</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+    .hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .hover-card:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 6px 18px rgba(0,0,0,0.3); }
+    .btn-gradient { background: linear-gradient(90deg, #ff6a00, #ee0979); box-shadow: 0 6px 14px rgba(238,9,121,0.4); transition: all 0.3s ease; }
+    .btn-gradient:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(238,9,121,0.5); }
+  </style>
+</head>
+
+<body class="bg-[#0f0f1a] text-gray-100">
+
+  <!-- HEADER -->
+  <header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-14 md:py-24 shadow-xl">
+    <h1 class="text-3xl md:text-5xl font-extrabold drop-shadow-lg">⚡ Développement Discord</h1>
+    <p class="mt-3 text-sm md:text-lg">Nous ajoutons gratuitement des bots existants sur votre serveur pour améliorer votre expérience.</p>
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      <a href="https://discord.gg/AR2KeVtx7X" class="px-6 py-3 text-white rounded-lg font-bold shadow-lg btn-gradient">🚀 Rejoindre le Discord</a>
+    </div>
+  </header>
+
+  <!-- SECTION DETAILLEE -->
+  <section class="max-w-6xl mx-auto py-12 px-4">
+    <h2 class="text-xl md:text-3xl font-bold mb-6 text-orange-400 text-center">Ce que nous faisons</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card">
+        <h3 class="text-lg md:text-2xl font-bold text-orange-400 mb-3">Ajout de Bots Gratuits</h3>
+        <p class="text-sm md:text-base">Nous ajoutons sur votre serveur des bots populaires et utiles : musique, modération, mini-jeux, statistiques, et plus, entièrement gratuitement.</p>
+      </div>
+      <div class="p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card">
+        <h3 class="text-lg md:text-2xl font-bold text-orange-400 mb-3">Serveurs Organisés</h3>
+        <p class="text-sm md:text-base">Nous vous aidons à configurer les bots correctement pour que votre serveur reste organisé, sécurisé et interactif pour tous vos membres.</p>
+      </div>
+      <div class="p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card">
+        <h3 class="text-lg md:text-2xl font-bold text-orange-400 mb-3">Support Gratuit</h3>
+        <p class="text-sm md:text-base">Besoin d’aide pour configurer ou utiliser un bot ? Notre équipe est disponible pour répondre à vos questions et résoudre les problèmes.</p>
+      </div>
+      <div class="p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card">
+        <h3 class="text-lg md:text-2xl font-bold text-orange-400 mb-3">Communauté Active</h3>
+        <p class="text-sm md:text-base">Rejoignez notre communauté pour partager vos idées, découvrir de nouveaux bots et collaborer avec d’autres serveurs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section class="max-w-6xl mx-auto py-12 px-4">
+    <h2 class="text-xl md:text-3xl font-bold mb-6 text-pink-400 text-center">Quelques Bots Disponibles</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="p-2 bg-[#1e1e2f] rounded-lg shadow-lg hover-card">
+        <img src="bot-music.png" alt="Bot Musique" class="rounded-lg">
+      </div>
+      <div class="p-2 bg-[#1e1e2f] rounded-lg shadow-lg hover-card">
+        <img src="bot-mod.png" alt="Bot Modération" class="rounded-lg">
+      </div>
+      <div class="p-2 bg-[#1e1e2f] rounded-lg shadow-lg hover-card">
+        <img src="bot-games.png" alt="Bot Jeux" class="rounded-lg">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-5xl mx-auto py-12 px-4">
+    <h2 class="text-xl md:text-3xl font-bold mb-6 text-pink-400 text-center">FAQ</h2>
+    <div class="space-y-4 text-left">
+      <div class="p-4 bg-[#1e1e2f] rounded-xl shadow hover-card">
+        <h3 class="font-bold">🔹 Les bots sont-ils vraiment gratuits ?</h3>
+        <p>Oui, tous les bots ajoutés sont gratuits pour votre serveur.</p>
+      </div>
+      <div class="p-4 bg-[#1e1e2f] rounded-xl shadow hover-card">
+        <h3 class="font-bold">🔹 Puis-je demander plusieurs bots ?</h3>
+        <p>Oui, vous pouvez demander autant de bots que vous voulez, nous les ajoutons gratuitement.</p>
+      </div>
+      <div class="p-4 bg-[#1e1e2f] rounded-xl shadow hover-card">
+        <h3 class="font-bold">🔹 Faut-il que je sois administrateur ?</h3>
+        <p>Oui, vous devez avoir les permissions administratives pour que nous puissions ajouter les bots.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="bg-gradient-to-r from-orange-500 to-pink-600 py-12 md:py-20 text-center px-4">
+    <h2 class="text-2xl md:text-4xl font-bold mb-6 text-white drop-shadow-lg">Prêt à ajouter des bots gratuits sur ton serveur ?</h2>
+    <a href="https://noxxworks.netlify.app/formulaire" class="px-8 py-4 rounded-xl font-bold text-white shadow-xl btn-gradient">📜 Demande un ajout de bots</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#29293d] text-center py-4 md:py-6 mt-8 text-xs md:text-base">
+    <p>© 2025 Team NoxxWorks. Tous droits réservés.</p>
+  </footer>
+
+</body>
+</html>
