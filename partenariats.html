@@ -145,7 +145,7 @@
       new FormData(form).forEach((value, key) => data[key] = value);
 
       // Changer l'URL si tu utilises un webhook ou Netlify Function
-      const res = await fetch("/.netlify/functions/send-to-discord.partenariats", {
+      const res = await fetch("/.netlify/functions/send-to-discord", {
         method: "POST",
         body: JSON.stringify(data)
       });
