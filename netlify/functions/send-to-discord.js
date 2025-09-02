@@ -24,6 +24,8 @@ exports.handler = async function(event, context) {
   }));
 
   const body = {
+    // Mention du rôle ici
+    content: "<@&1403730494159323176>", // le "&" est obligatoire pour ping un rôle
     embeds: [
       {
         title: "📌 Nouveau formulaire de partenariat",
@@ -46,7 +48,7 @@ exports.handler = async function(event, context) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
     });
-    return { statusCode: 200, body: "Formulaire envoyé sur Discord avec embed !" };
+    return { statusCode: 200, body: "Formulaire envoyé sur Discord avec embed et ping !" };
   } catch (err) {
     console.error("Erreur en envoyant à Discord :", err);
     return { statusCode: 500, body: "Erreur lors de l'envoi à Discord" };
