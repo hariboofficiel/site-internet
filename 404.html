@@ -37,16 +37,24 @@
       color: #333333;
       margin-bottom: 30px;
     }
-    a {
-      text-decoration: none;
-      color: #000000;
-      font-weight: bold;
-      border-bottom: 1px solid #000000;
-      padding-bottom: 2px;
-      margin: 0 10px;
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
     }
-    a:hover {
-      opacity: 0.7;
+    button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      font-size: 16px;
+      border: none;
+      background: #000;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.8;
     }
     .contact {
       margin-top: 20px;
@@ -61,17 +69,39 @@
     <h2>Désolé</h2>
     <p>Le service que vous tentez d’accéder n’est actuellement pas disponible.<br>
     Nous vous présentons nos excuses pour ce désagrément et vous invitons à revenir ultérieurement.</p>
-    
+
+    <!-- Formulaire mot de passe -->
     <div>
-      <a href="/">Retour à l’accueil</a>
-      <a href="https://discord.gg/AR2KeVtx7X" target="_blank">Nous rejoindre sur Discord</a>
+      <input type="password" id="password" placeholder="Mot de passe">
+      <button onclick="checkPassword()">Entrer</button>
     </div>
 
     <div class="contact">
       Pour toute assistance, vous pouvez nous rejoindre sur notre serveur Discord.
     </div>
   </div>
-</body>
-<script src="global.js"></script>
 
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const secret = "teste"; // <-- change ici ton mot de passe
+
+      if (input === secret) {
+        // Redirection vers l’URL demandée à l’origine
+        const redirectUrl = window.location.pathname; 
+        window.location.href = redirectUrl + "?unlocked=1";
+      } else {
+        alert("Mot de passe incorrect ❌");
+      }
+    }
+
+    // Empêcher la boucle infinie : si on a déjà déverrouillé, on laisse passer
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("unlocked") === "1") {
+      // Ici tu peux afficher le vrai contenu ou rediriger vers ton vrai site
+      // Exemple : rediriger vers la vraie version hébergée ailleurs
+      window.location.href = "/index.html"; 
+    }
+  </script>
+</body>
 </html>
