@@ -122,7 +122,7 @@
 </body>
 <!-- Popup Mise à jour longue et centrale -->
 <div id="updatePopup" class="fixed inset-0 bg-[#0f0f1a]/90 flex justify-center items-center opacity-0 transition-opacity duration-300 z-50 px-4">
-  <div class="bg-[#1e1e2f] rounded-3xl p-6 md:p-10 w-full max-w-lg text-center shadow-2xl border-4 border-pink-500 animate-fadeIn">
+  <div class="bg-[#1e1e2f] rounded-3xl p-6 md:p-10 w-full max-w-lg text-center shadow-2xl border-4 border-pink-500 animate-fadeIn relative">
     <h2 class="text-3xl md:text-4xl font-extrabold text-orange-400 mb-6 drop-shadow-lg">🚀 Mise à jour majeure !</h2>
     <p class="text-gray-100 mb-4 text-left md:text-center text-sm md:text-base">
       Bonjour à tous ! Une mise à jour importante a été effectuée cette nuit sur <span class="text-pink-400 font-bold">Team NoxxWorks</span>.  
@@ -136,7 +136,7 @@
       <li>✅ Correction de bugs mineurs pour une meilleure expérience utilisateur.</li>
     </ul>
     <p class="text-gray-100 mb-4 text-sm md:text-base">Profitez pleinement des nouvelles fonctionnalités et explorez le site !</p>
-    <button id="closeUpdatePopup" class="px-8 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition">Fermer</button>
+    <button id="closeUpdatePopup" class="px-8 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition z-10 relative">Fermer</button>
   </div>
 </div>
 
@@ -156,8 +156,7 @@
   } else if (now - firstVisit < twoDays) {
     // Toujours dans les 2 jours : afficher le popup
     showPopup();
-  } 
-  // Après 2 jours : ne rien faire (popup ne s'affiche plus)
+  }
 
   function showPopup() {
     window.addEventListener('load', () => {
@@ -166,9 +165,13 @@
     });
   }
 
-  // Fermer le popup avec le bouton ou clic dehors
-  closeUpdatePopup.addEventListener('click', () => updatePopup.classList.add('opacity-0'));
-  updatePopup.addEventListener('click', e => { if(e.target === updatePopup) updatePopup.classList.add('opacity-0'); });
+  // Fermer le popup avec le bouton
+  closeUpdatePopup.addEventListener('click', () => {
+    updatePopup.classList.add('opacity-0');
+  });
+
+  // Ne pas fermer si on clique autour du contenu
+  // (on pourrait ajouter un clic hors du popup si nécessaire)
 </script>
 
 <style>
@@ -182,4 +185,5 @@
 </style>
 
 </html>
+
 
