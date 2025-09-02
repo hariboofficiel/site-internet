@@ -130,32 +130,31 @@
   🔔 Nouvelle mise à jour !
 </div>
 
-<!-- Popup central caché au départ (Mobile Friendly) -->
-<div id="popupMessage" class="fixed inset-0 bg-[#0f0f1a]/90 flex justify-center items-center opacity-0 invisible transition-opacity duration-300 z-50 px-4">
-  <div class="bg-[#1e1e2f] rounded-3xl p-6 md:p-10 w-full max-w-md text-center shadow-2xl border-4 border-pink-500 animate-fadeIn relative">
-    <h2 class="text-2xl md:text-3xl font-extrabold text-orange-400 mb-4 md:mb-6 drop-shadow-lg">🚀 Mise à jour majeure !</h2>
-    <p class="text-gray-100 mb-4 text-sm md:text-base">
+<!-- Popup central compact -->
+<div id="popupMessage" class="fixed inset-0 bg-[#0f0f1a]/90 flex justify-center items-center opacity-0 invisible transition-opacity duration-300 z-50 px-2">
+  <div class="bg-[#1e1e2f] rounded-2xl p-4 md:p-6 w-full max-w-sm text-center shadow-xl border-2 border-pink-500 animate-fadeIn relative">
+    <h2 class="text-xl md:text-2xl font-extrabold text-orange-400 mb-3 drop-shadow-lg">🚀 Mise à jour majeure !</h2>
+    <p class="text-gray-100 mb-3 text-sm md:text-base">
       Une mise à jour importante a été effectuée sur <span class="text-pink-400 font-bold">Team NoxxWorks</span>.  
       Découvrez les nouveautés :
     </p>
-    <ul class="text-gray-100 mb-4 text-left list-disc list-inside space-y-1 text-sm md:text-base">
+    <ul class="text-gray-100 mb-3 text-left list-disc list-inside space-y-1 text-sm">
       <li>✅ Tous les liens sont maintenant fonctionnels.</li>
       <li>✅ Optimisation complète pour téléphones et tablettes.</li>
       <li>✅ Performance améliorée et animations fluides.</li>
       <li>✅ Design modernisé avec touches néon.</li>
       <li>✅ Correction de bugs mineurs.</li>
-      <li>✅ Les cartes "Développement Discord", "TikTok & YouTube" et "Communauté Active" sont désormais cliquables vers leurs pages respectives.</li>
+      <li>✅ Les cartes sont désormais cliquables vers leurs pages respectives.</li>
     </ul>
 
     <!-- LIENS CLIQUABLES -->
-    <div class="flex flex-col sm:flex-row justify-center gap-3 mt-4">
-      <a href="https://noxxworks.netlify.app/developpementdiscord" class="w-full sm:w-auto px-4 py-2 rounded-xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition text-sm md:text-base">⚡ Développement Discord</a>
-      <a href="https://noxxworks.netlify.app/social" class="w-full sm:w-auto px-4 py-2 rounded-xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition text-sm md:text-base">🎥 TikTok & YouTube</a>
-      <a href="https://noxxworks.netlify.app/communauty" class="w-full sm:w-auto px-4 py-2 rounded-xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition text-sm md:text-base">🤝 Communauté Active</a>
+    <div class="flex flex-col sm:flex-row justify-center gap-2 mt-3">
+      <a href="https://noxxworks.netlify.app/developpementdiscord" class="w-full sm:w-auto px-3 py-2 rounded-xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition text-sm">⚡ Développement Discord</a>
+      <a href="https://noxxworks.netlify.app/social" class="w-full sm:w-auto px-3 py-2 rounded-xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition text-sm">🎥 TikTok & YouTube</a>
+      <a href="https://noxxworks.netlify.app/communauty" class="w-full sm:w-auto px-3 py-2 rounded-xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition text-sm">🤝 Communauté Active</a>
     </div>
 
-    <p class="text-gray-100 mt-4 mb-4 text-sm md:text-base">Profitez pleinement des nouvelles fonctionnalités et explorez le site !</p>
-    <button id="closePopup" class="w-full md:w-auto px-6 py-3 rounded-2xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition">Fermer</button>
+    <button id="closePopup" class="w-full md:w-auto mt-3 px-4 py-2 rounded-xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition text-sm">Fermer</button>
   </div>
 </div>
 
@@ -236,6 +235,7 @@
 
 
 </html>
+
 
 
 
