@@ -42,39 +42,69 @@
   </header>
 
   <!-- NAVIGATION -->
-  <nav class="flex justify-center gap-4 md:gap-6 bg-[#29293d] py-3 md:py-4 text-base md:text-lg font-semibold sticky top-0 z-50 shadow-md">
+  <nav class="flex justify-center gap-6 bg-[#29293d] py-3 md:py-4 text-sm md:text-lg font-semibold sticky top-0 z-50 shadow-md">
     <a href="https://noxxworks.netlify.app/" class="hover:text-orange-400 transition">Accueil</a>
     <a href="https://noxxworks.netlify.app/condition" class="hover:text-orange-400 transition">Conditions</a>
     <a href="https://noxxworks.netlify.app/privacy" class="hover:text-orange-400 transition">Privacy</a>
   </nav>
 
   <!-- MEMBERS SECTION -->
-  <main class="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12">
-    <h2 class="text-2xl md:text-3xl font-bold text-center text-orange-400 mb-8 md:mb-12">✨ Membres fondateurs & Direction</h2>
+  <main class="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-orange-400 mb-10 md:mb-12">✨ Membres fondateurs & Direction</h2>
 
-    <div class="grid sm:grid-cols-2 gap-6 md:gap-8">
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
 
-      <!-- Exemple membre -->
+      <!-- NoxxFall -->
       <div class="flex flex-col items-center bg-[#1e1e2f] p-5 md:p-6 rounded-2xl shadow-lg hover:scale-105 transition">
-        <img src="noxxfall.png" alt="NoxxFall" class="w-24 h-24 rounded-full border-4 border-orange-500 mb-4 object-cover">
-        <h3 class="text-lg md:text-xl font-bold text-orange-400">NoxxFall <span class="text-sm text-gray-400">(Fondateur)</span></h3>
-        <p class="text-gray-300 mt-2 text-center text-sm md:text-base">Supervise la direction globale de la Team NoxxWorks et prend les décisions stratégiques majeures.</p>
+        <img src="noxxfall.png" alt="NoxxFall" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-orange-500 mb-3 object-cover">
+        <h3 class="text-lg md:text-xl font-bold text-orange-400">NoxxFall <span class="text-xs md:text-sm text-gray-400">(Fondateur)</span></h3>
+        <p class="text-gray-300 mt-2 text-sm md:text-base text-center">Supervise la direction globale de la Team NoxxWorks et prend les décisions stratégiques majeures.</p>
         <div class="mt-2 space-x-3">
           <a href="https://www.tiktok.com/@xx_sxnny1" target="_blank" class="text-pink-400 hover:text-orange-400 font-semibold text-sm md:text-base">TikTok</a>
         </div>
       </div>
 
-      <!-- Tu répètes la même structure pour NoxxVarios, NoxxShadow, NoxxHarven -->
-      <!-- ⚡ Le fix principal est dans la classe des images : object-cover + taille fixe -->
+      <!-- NoxxVarios -->
+      <div class="flex flex-col items-center bg-[#1e1e2f] p-5 md:p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="noxxvarios.png" alt="NoxxVarios" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-pink-500 mb-3 object-cover">
+        <h3 class="text-lg md:text-xl font-bold text-pink-400">NoxxVarios <span class="text-xs md:text-sm text-gray-400">(Co-Fondateur)</span></h3>
+        <p class="text-gray-300 mt-2 text-sm md:text-base text-center">Assiste le fondateur dans la gestion de l'équipe et coordonne les projets importants.</p>
+        <div class="mt-2 space-x-3">
+          <a href="https://www.tiktok.com/@higu370ff0" target="_blank" class="text-pink-400 hover:text-orange-400 font-semibold text-sm md:text-base">TikTok</a>
+          <a href="https://www.instagram.com/higu37_/" target="_blank" class="text-blue-400 hover:text-orange-400 font-semibold text-sm md:text-base">Instagram</a>
+        </div>
+      </div>
+
+      <!-- NoxxShadow -->
+      <div class="flex flex-col items-center bg-[#1e1e2f] p-5 md:p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="noxxshadow.png" alt="NoxxShadow" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-orange-500 mb-3 object-cover">
+        <h3 class="text-lg md:text-xl font-bold text-orange-400">NoxxShadow <span class="text-xs md:text-sm text-gray-400">(Leader Staff)</span></h3>
+        <p class="text-gray-300 mt-2 text-sm md:text-base text-center">Gère l'équipe staff et veille à la bonne organisation des missions et activités de la team.</p>
+        <div class="mt-2 space-x-3">
+          <a href="https://www.tiktok.com/@noxxshadow" target="_blank" class="text-pink-400 hover:text-orange-400 font-semibold text-sm md:text-base">TikTok</a>
+        </div>
+      </div>
+
+      <!-- NoxxHarven -->
+      <div class="flex flex-col items-center bg-[#1e1e2f] p-5 md:p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="noxxharven.png" alt="NoxxHarven" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-pink-500 mb-3 object-cover">
+        <h3 class="text-lg md:text-xl font-bold text-pink-400">NoxxHarven <span class="text-xs md:text-sm text-gray-400">(Gardien du conseil)</span></h3>
+        <p class="text-gray-300 mt-2 text-sm md:text-base text-center">S’assure que les règles et directives de la Team sont respectées et conseille la direction.</p>
+        <div class="mt-2 space-x-3">
+          <a href="https://www.tiktok.com/@haribo2344_off" target="_blank" class="text-pink-400 hover:text-orange-400 font-semibold text-sm md:text-base">TikTok</a>
+          <a href="https://www.instagram.com/noxxharven2344_direction/" target="_blank" class="text-blue-400 hover:text-orange-400 font-semibold text-sm md:text-base">Instagram</a>
+        </div>
+      </div>
 
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-[#29293d] text-center py-4 md:py-6 mt-8 md:mt-12 text-sm md:text-base">
+  <footer class="bg-[#29293d] text-center py-5 md:py-6 mt-10 md:mt-12 text-sm md:text-base">
     <p>© 2025 Team NoxxWorks. Tous droits réservés.</p>
   </footer>
 
   <script src="global.js"></script>
+
 </body>
 </html>
