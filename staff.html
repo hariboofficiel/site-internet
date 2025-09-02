@@ -20,46 +20,47 @@
     }
   </style>
 </head>
-<body class="bg-[#0f0f1a] text-gray-100">
+<body class="bg-[#0f0f1a] text-gray-100 min-h-screen flex flex-col">
 
   <!-- HEADER -->
-  <header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-20 shadow-xl">
-    <h1 class="text-5xl font-extrabold drop-shadow-lg">🛡️︱Formulaire de Recrutement Staff</h1>
-    <p class="mt-4 text-lg">Merci de remplir ce formulaire si vous souhaitez rejoindre notre équipe.</p>
+  <header class="bg-gradient-to-r from-orange-500 to-pink-600 text-center py-16 px-4 shadow-xl">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold drop-shadow-lg">🛡️︱Formulaire de Recrutement Staff</h1>
+    <p class="mt-3 text-base sm:text-lg md:text-xl">Merci de remplir ce formulaire si vous souhaitez rejoindre notre équipe.</p>
   </header>
 
   <!-- NAVIGATION -->
-  <nav class="flex justify-center gap-6 bg-[#29293d] py-4 text-lg font-semibold sticky top-0 z-50 shadow-md">
+  <nav class="flex justify-center gap-3 sm:gap-6 bg-[#29293d] py-3 text-sm sm:text-base font-semibold sticky top-0 z-50 shadow-md">
     <a href="/" class="hover:text-orange-400 transition">Accueil</a>
     <a href="/formulaire" class="hover:text-orange-400 transition">Formulaires</a>
     <a href="/fondation" class="hover:text-orange-400 transition">Fondation</a>
   </nav>
 
   <!-- CONDITIONS -->
-  <section class="max-w-4xl mx-auto p-8 mt-12 bg-[#1e1e2f] rounded-2xl shadow-lg">
-    <h2 class="text-2xl font-bold text-orange-400 mb-4">📜︱Conditions pour devenir Staff</h2>
-    <ul class="space-y-2 text-gray-300">
-      <li>🔹 Avoir au minimum **15 ans**</li>
-      <li>🔹 Être **actif et disponible** régulièrement</li>
-      <li>🔹 Avoir une bonne **orthographe et communication respectueuse**</li>
-      <li>🔹 Ne pas avoir d’antécédents de **toxicité ou comportement négatif**</li>
-      <li>🔹 Savoir gérer les conflits avec **calme et impartialité**</li>
-      <li>🔹 Respecter les **règles internes** et l’esprit de la communauté</li>
-      <li>🔹 Être capable de travailler en **équipe**</li>
-      <li>🔹 Garder la **confidentialité** sur les discussions internes du staff</li>
+  <section class="w-full max-w-md mx-auto p-6 sm:p-8 mt-8 bg-[#1e1e2f] rounded-2xl shadow-lg">
+    <h2 class="text-xl sm:text-2xl font-bold text-orange-400 mb-4">📜︱Conditions pour devenir Staff</h2>
+    <ul class="space-y-2 text-gray-300 text-sm sm:text-base">
+      <li>🔹 Avoir au minimum <strong>15 ans</strong></li>
+      <li>🔹 Être <strong>actif et disponible</strong> régulièrement</li>
+      <li>🔹 Avoir une bonne <strong>orthographe et communication respectueuse</strong></li>
+      <li>🔹 Ne pas avoir d’antécédents de <strong>toxicité ou comportement négatif</strong></li>
+      <li>🔹 Savoir gérer les conflits avec <strong>calme et impartialité</strong></li>
+      <li>🔹 Respecter les <strong>règles internes</strong> et l’esprit de la communauté</li>
+      <li>🔹 Être capable de travailler en <strong>équipe</strong></li>
+      <li>🔹 Garder la <strong>confidentialité</strong> sur les discussions internes du staff</li>
     </ul>
   </section>
 
   <!-- FORMULAIRE -->
-  <section class="max-w-4xl mx-auto p-8 mt-12 bg-[#1e1e2f] rounded-2xl shadow-lg">
-    <form id="staff-form" class="space-y-8">
+  <section class="w-full max-w-md mx-auto p-6 sm:p-8 mt-6 bg-[#1e1e2f] rounded-2xl shadow-lg">
+    <form id="staff-form" class="space-y-6">
+
       <!-- Type caché -->
       <input type="hidden" name="form_type" value="staff">
 
       <!-- INFORMATIONS DE BASE -->
       <div>
-        <h2 class="text-2xl font-bold text-pink-400 mb-4">📝︱Informations personnelles</h2>
-        <div class="grid md:grid-cols-2 gap-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-pink-400 mb-4">📝︱Informations personnelles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <input type="text" name="pseudo" placeholder="🪪 Pseudo Discord" required class="p-3 rounded-lg bg-[#29293d] w-full">
           <input type="text" name="identifiant" placeholder="🆔 Identifiant Discord" required class="p-3 rounded-lg bg-[#29293d] w-full">
           <input type="number" name="age" placeholder="🎂 Âge" required class="p-3 rounded-lg bg-[#29293d] w-full">
@@ -69,14 +70,14 @@
 
       <!-- MOTIVATION & EXPÉRIENCE -->
       <div>
-        <h2 class="text-2xl font-bold text-orange-400 mb-4">💡︱Motivation & expérience</h2>
+        <h2 class="text-xl sm:text-2xl font-bold text-orange-400 mb-4">💡︱Motivation & expérience</h2>
         <textarea name="motivation" placeholder="🔥 Pourquoi voulez-vous rejoindre le staff ?" rows="3" required class="p-3 rounded-lg bg-[#29293d] w-full"></textarea>
         <textarea name="experience" placeholder="🧩 Avez-vous déjà été staff sur d'autres serveurs ? (si oui, détaillez)" rows="3" class="p-3 rounded-lg bg-[#29293d] w-full mt-4"></textarea>
       </div>
 
       <!-- QUESTIONS SITUATIONNELLES -->
       <div>
-        <h2 class="text-2xl font-bold text-pink-400 mb-4">⚡︱Questions situationnelles</h2>
+        <h2 class="text-xl sm:text-2xl font-bold text-pink-400 mb-4">⚡︱Questions situationnelles</h2>
         <textarea name="conflit" placeholder="👥 Que feriez-vous en cas de conflit entre deux membres ?" rows="3" required class="p-3 rounded-lg bg-[#29293d] w-full"></textarea>
         <textarea name="spam" placeholder="📢 Que feriez-vous si un membre spam sans arrêt ?" rows="3" required class="p-3 rounded-lg bg-[#29293d] w-full mt-4"></textarea>
         <textarea name="abus" placeholder="🛑 Que feriez-vous si un autre staff abuse de ses pouvoirs ?" rows="3" required class="p-3 rounded-lg bg-[#29293d] w-full mt-4"></textarea>
@@ -84,7 +85,7 @@
 
       <!-- CONDITIONS ACCEPTATION -->
       <div>
-        <h2 class="text-2xl font-bold text-orange-400 mb-4">✅︱Engagement</h2>
+        <h2 class="text-xl sm:text-2xl font-bold text-orange-400 mb-4">✅︱Engagement</h2>
         <select name="conditions" required class="p-3 rounded-lg bg-[#29293d] w-full">
           <option value="">Avez-vous lu et accepté les conditions ci-dessus ?</option>
           <option value="oui">Oui</option>
@@ -99,15 +100,16 @@
 
       <!-- BOUTON -->
       <div class="text-center">
-        <button type="submit" class="px-8 py-4 rounded-2xl font-bold text-white text-lg btn-gradient">
+        <button type="submit" class="w-full md:w-auto px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-bold text-white text-base sm:text-lg btn-gradient">
           📨 Envoyer ma candidature
         </button>
       </div>
+
     </form>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-[#29293d] text-center py-6 mt-12">
+  <footer class="bg-[#29293d] text-center py-6 mt-8 text-sm sm:text-base">
     <p>✨ Merci d’avoir pris le temps de remplir ce formulaire !</p>
     <p>Notre équipe analysera votre candidature rapidement.</p>
   </footer>
