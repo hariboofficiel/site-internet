@@ -120,8 +120,8 @@
 
   <script src="global.js"></script>
 </body>
-<!-- Notification discrète -->
-<div id="notification" class="fixed bottom-4 right-4 bg-[#1e1e2f] border border-pink-500 text-white px-4 py-2 rounded-lg shadow-lg cursor-pointer hover:bg-[#29293d] transition z-50">
+<!-- Notification discrète animée -->
+<div id="notification" class="fixed bottom-4 right-4 bg-[#1e1e2f] border border-pink-500 text-white px-4 py-2 rounded-lg shadow-lg cursor-pointer z-50">
   🔔 Nouvelle mise à jour !
 </div>
 
@@ -156,19 +156,29 @@
     popupMessage.classList.add('opacity-100');
   });
 
-  // Fermer le popup avec le bouton
+  // Fermer le popup
   closePopup.addEventListener('click', () => {
     popupMessage.classList.add('opacity-0');
     setTimeout(() => popupMessage.classList.add('invisible'), 300);
   });
 
-  // Fermer si on clique en dehors du popup
   popupMessage.addEventListener('click', (e) => {
     if(e.target === popupMessage){
       popupMessage.classList.add('opacity-0');
       setTimeout(() => popupMessage.classList.add('invisible'), 300);
     }
   });
+
+  // Animation pour faire “slide out” et revenir
+  let hidden = false;
+  setInterval(() => {
+    if(!hidden){
+      notification.classList.add('slide-out');
+    } else {
+      notification.classList.remove('slide-out');
+    }
+    hidden = !hidden;
+  }, 4000); // toutes les 4 secondes
 </script>
 
 <style>
@@ -179,9 +189,21 @@
   .animate-fadeIn {
     animation: fadeIn 0.5s ease-out;
   }
+
+  /* Slide-out vers la droite */
+  .slide-out {
+    transform: translateX(120%);
+    transition: transform 0.8s ease-in-out;
+  }
+
+  #notification {
+    transition: transform 0.8s ease-in-out;
+  }
 </style>
 
+
 </html>
+
 
 
 
