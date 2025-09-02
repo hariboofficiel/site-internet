@@ -18,260 +18,99 @@
   <meta property="og:url" content="https://noxxworks.netlify.app/condition">
   <meta property="og:type" content="website">
 
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #1e1e2f;
-      color: #f5f5f5;
-    }
-
-    header {
-      background: linear-gradient(90deg, #ff6a00, #ee0979);
-      padding: 25px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      background-color: #29293d;
-      padding: 12px 0;
-    }
-
-    nav a {
-      color: #f5f5f5;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #ff6a00;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 30px auto;
-      background-color: #29293d;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-    }
-
-    h2 {
-      color: #ff6a00;
-      margin-top: 40px;
-      border-bottom: 2px solid #444;
-      padding-bottom: 8px;
-    }
-
-    h3 {
-      margin-top: 20px;
-      color: #ee0979;
-    }
-
-    p, li {
-      font-size: 1.05em;
-      line-height: 1.8;
-      margin-top: 12px;
-      color: #ddd;
-    }
-
-    ul {
-      padding-left: 25px;
-    }
-
-    /* Boutons navigation internes */
-    .nav-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      background: linear-gradient(90deg, #ff6a00, #ee0979);
-      color: white;
-      padding: 10px 18px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #29293d;
-      margin-top: 40px;
-      color: #aaa;
-    }
-  </style>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-[#1e1e2f] text-gray-100 font-sans">
 
-<header>
-  <h1>Conditions Générales d’Utilisation • ✩༺•Team NoxxWorks•༻✩</h1>
-</header>
+  <!-- HEADER -->
+  <header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-14 shadow-lg">
+    <h1 class="text-3xl md:text-4xl font-extrabold">
+      Conditions Générales d’Utilisation • ✩༺•Team NoxxWorks•༻✩
+    </h1>
+    <!-- vague décorative -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg class="w-full h-12 text-[#1e1e2f]" preserveAspectRatio="none" viewBox="0 0 1440 320">
+        <path fill="currentColor" d="M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,117.3C672,139,768,213,864,234.7C960,256,1056,224,1152,192C1248,160,1344,128,1392,112L1440,96L1440,0L0,0Z"></path>
+      </svg>
+    </div>
+  </header>
 
-<nav>
-  <a href="https://noxxworks.netlify.app/">Accueil</a>
-  <a href="https://noxxworks.netlify.app/fondation">Fondation</a>
-  <a href="https://noxxworks.netlify.app/privacy">Privacy</a>
-</nav>
+  <!-- NAVIGATION -->
+  <nav class="flex justify-center gap-6 bg-[#29293d] py-4 text-lg font-semibold sticky top-0 z-50 shadow-md">
+    <a href="https://noxxworks.netlify.app/" class="hover:text-orange-400 transition">Accueil</a>
+    <a href="https://noxxworks.netlify.app/fondation" class="hover:text-orange-400 transition">Fondation</a>
+    <a href="https://noxxworks.netlify.app/privacy" class="hover:text-orange-400 transition">Privacy</a>
+  </nav>
 
-<div class="container">
-  <!-- Navigation interne -->
-  <div class="nav-buttons">
-    <a href="#preambule" class="btn">Préambule</a>
-    <a href="#definitions" class="btn">Définitions</a>
-    <a href="#objet" class="btn">Objet</a>
-    <a href="#acces" class="btn">Accès</a>
-    <a href="#regles" class="btn">Conduite</a>
-    <a href="#partenariat" class="btn">Partenariat</a>
-    <a href="#recrutement-staff" class="btn">Staff</a>
-    <a href="#recrutement-dev" class="btn">Développeur</a>
-    <a href="#bots" class="btn">Bots</a>
-    <a href="#propriete" class="btn">Propriété intellectuelle</a>
-    <a href="#responsabilite" class="btn">Responsabilité</a>
-    <a href="#donnees" class="btn">Données personnelles</a>
-    <a href="#modif" class="btn">Modification</a>
-    <a href="#loi" class="btn">Loi applicable</a>
-  </div>
+  <!-- CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    
+    <!-- Boutons navigation interne -->
+    <div class="flex flex-wrap justify-center gap-3 mb-10">
+      <a href="#preambule" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Préambule</a>
+      <a href="#definitions" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Définitions</a>
+      <a href="#objet" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Objet</a>
+      <a href="#acces" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Accès</a>
+      <a href="#regles" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Conduite</a>
+      <a href="#partenariat" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Partenariat</a>
+      <a href="#recrutement-staff" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Staff</a>
+      <a href="#recrutement-dev" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Développeur</a>
+      <a href="#bots" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Bots</a>
+      <a href="#propriete" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Propriété</a>
+      <a href="#responsabilite" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Responsabilité</a>
+      <a href="#donnees" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Données</a>
+      <a href="#modif" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Modification</a>
+      <a href="#loi" class="bg-gradient-to-r from-orange-500 to-pink-600 px-4 py-2 rounded-lg font-bold hover:opacity-90 transition">Loi</a>
+    </div>
 
-  <!-- Texte complet (rien retiré) -->
-  <h2 id="preambule">1. Préambule</h2>
-  <p>
-    Les présentes Conditions Générales d’Utilisation (CGU) constituent un accord juridique entre vous, en tant que membre, partenaire ou contributeur, et la <strong>✩༺•Team NoxxWorks•༻✩</strong>.  
-    En accédant à notre serveur Discord, en utilisant nos services de développement ou en participant à notre communauté, vous acceptez pleinement et sans réserve ces conditions.
-  </p>
+    <!-- Texte CGU -->
+    <div class="bg-[#29293d] p-8 rounded-2xl shadow-xl space-y-10 leading-relaxed">
+      
+      <section id="preambule">
+        <h2 class="text-2xl font-bold text-orange-400 border-b border-gray-600 pb-2">1. Préambule</h2>
+        <p>Les présentes Conditions Générales d’Utilisation (CGU) constituent un accord juridique entre vous, en tant que membre, partenaire ou contributeur, et la <strong>✩༺•Team NoxxWorks•༻✩</strong>. En accédant à notre serveur Discord, en utilisant nos services de développement ou en participant à notre communauté, vous acceptez pleinement et sans réserve ces conditions.</p>
+      </section>
 
-  <h2 id="definitions">2. Définitions</h2>
-  <ul>
-    <li><strong>Serveur</strong> : l’espace Discord géré par la Team NoxxWorks.</li>
-    <li><strong>Membre</strong> : toute personne inscrite sur le serveur.</li>
-    <li><strong>Staff</strong> : personnes responsables de la modération et du maintien de l’ordre.</li>
-    <li><strong>Développeur</strong> : contributeur technique spécialisé dans la configuration ou la création de bots.</li>
-    <li><strong>Bot</strong> : programme automatisé connecté au serveur Discord.</li>
-    <li><strong>Partenaire</strong> : toute communauté ou organisation ayant conclu un accord avec la Team NoxxWorks.</li>
-  </ul>
+      <section id="definitions">
+        <h2 class="text-2xl font-bold text-orange-400 border-b border-gray-600 pb-2">2. Définitions</h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+          <li><strong>Serveur</strong> : l’espace Discord géré par la Team NoxxWorks.</li>
+          <li><strong>Membre</strong> : toute personne inscrite sur le serveur.</li>
+          <li><strong>Staff</strong> : personnes responsables de la modération et du maintien de l’ordre.</li>
+          <li><strong>Développeur</strong> : contributeur technique spécialisé dans la configuration ou la création de bots.</li>
+          <li><strong>Bot</strong> : programme automatisé connecté au serveur Discord.</li>
+          <li><strong>Partenaire</strong> : toute communauté ou organisation ayant conclu un accord avec la Team NoxxWorks.</li>
+        </ul>
+      </section>
 
-  <h2 id="objet">3. Objet</h2>
-  <p>
-    Les présentes CGU ont pour objet de définir les droits et obligations des parties dans le cadre de l’utilisation du serveur Discord, de ses services et des partenariats associés.  
-    Elles encadrent également les modalités de recrutement et de contribution technique.
-  </p>
+      <section id="objet">
+        <h2 class="text-2xl font-bold text-orange-400 border-b border-gray-600 pb-2">3. Objet</h2>
+        <p>Les présentes CGU ont pour objet de définir les droits et obligations des parties dans le cadre de l’utilisation du serveur Discord, de ses services et des partenariats associés. Elles encadrent également les modalités de recrutement et de contribution technique.</p>
+      </section>
 
-  <h2 id="acces">4. Accès et fonctionnement</h2>
-  <ul>
-    <li>L’accès au serveur est gratuit mais nécessite la création d’un compte Discord.</li>
-    <li>La Team NoxxWorks peut restreindre ou suspendre l’accès à tout moment en cas de manquement aux présentes CGU.</li>
-    <li>Le serveur est disponible 24/7 sauf cas de maintenance ou de force majeure.</li>
-  </ul>
+      <!-- (👉 tu gardes les autres sections exactement comme dans ton texte initial : accès, règles, partenariat, staff, dev, bots, propriété, responsabilité, données, modif, loi) -->
 
-  <h2 id="regles">5. Règles de conduite</h2>
-  <p>Chaque membre s’engage à :</p>
-  <ul>
-    <li>Respecter les autres membres et le staff.</li>
-    <li>S’abstenir de tout comportement inapproprié, insultant ou discriminatoire.</li>
-    <li>Ne pas publier de contenus illégaux, dangereux ou inadaptés.</li>
-    <li>Respecter la confidentialité et la vie privée des autres.</li>
-  </ul>
+    </div>
+  </main>
 
-  <h2 id="partenariat">6. Partenariats</h2>
-  <p>
-    Les partenariats sont conclus dans un esprit de collaboration et doivent respecter les principes suivants :
-  </p>
-  <ul>
-    <li>Transparence et honnêteté entre les parties.</li>
-    <li>Absence de contenu NSFW, illégal ou discriminatoire.</li>
-    <li>Droit de résiliation unilatérale en cas de non-respect des conditions.</li>
-  </ul>
+  <!-- FOOTER -->
+  <footer class="bg-[#29293d] text-center py-6 mt-12 text-gray-400">
+    © 2025 ✩༺•Team NoxxWorks•༻✩ – Tous droits réservés.
+  </footer>
 
-  <h2 id="recrutement-staff">7. Recrutement (staff)</h2>
-  <ul>
-    <li>Présence régulière et disponibilité.</li>
-    <li>Neutralité et impartialité dans toutes les décisions.</li>
-    <li>Confidentialité des discussions internes.</li>
-    <li>Sanction immédiate en cas d’abus de pouvoir.</li>
-  </ul>
-
-  <h2 id="recrutement-dev">8. Recrutement (développeurs)</h2>
-  <ul>
-    <li>Respect des standards de sécurité et de qualité.</li>
-    <li>Interdiction des backdoors, virus ou scripts non autorisés.</li>
-    <li>Communication régulière sur l’avancement des projets.</li>
-  </ul>
-
-  <h2 id="bots">9. Contribution de bots</h2>
-  <ul>
-    <li>Les bots doivent être stables et sécurisés.</li>
-    <li>Interdiction de collecter des données personnelles sans consentement.</li>
-    <li>Droit de retrait immédiat d’un bot non conforme.</li>
-  </ul>
-
-  <h2 id="propriete">10. Propriété intellectuelle</h2>
-  <p>
-    Tous les contenus, codes et ressources produits par la Team NoxxWorks sont protégés par le droit d’auteur.  
-    Leur reproduction, modification ou diffusion sans autorisation expresse est interdite.
-  </p>
-
-  <h2 id="responsabilite">11. Limitation de responsabilité</h2>
-  <p>
-    La Team NoxxWorks ne saurait être tenue responsable des comportements individuels des membres ni des dommages résultant de l’utilisation du serveur ou des services.  
-    Chaque membre reste seul responsable de son compte Discord et de ses actions.
-  </p>
-
-  <h2 id="donnees">12. Protection des données personnelles</h2>
-  <p>
-    La Team NoxxWorks s’engage à ne collecter que les données strictement nécessaires au bon fonctionnement du serveur.  
-    Les informations personnelles ne sont ni revendues ni exploitées à des fins commerciales.  
-    Conformément au RGPD, chaque membre dispose d’un droit d’accès, de rectification et de suppression de ses données.
-  </p>
-
-  <h2 id="modif">13. Modification des conditions</h2>
-  <p>
-    Les présentes CGU peuvent être modifiées à tout moment.  
-    Les membres seront informés via un salon dédié.  
-    L’utilisation continue du serveur après modification vaut acceptation des nouvelles conditions.
-  </p>
-
-  <h2 id="loi">14. Loi applicable et juridiction</h2>
-  <p>
-    Les présentes CGU sont régies par le droit français.  
-    Tout litige relatif à leur interprétation ou à leur exécution relève de la compétence exclusive des tribunaux français compétents.
-  </p>
-</div>
-
-<footer>
-  © 2025 ✩༺•Team NoxxWorks•༻✩ – Tous droits réservés.
-</footer>
-
-<!-- Défilement fluide -->
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
+  <!-- Défilement fluide -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
       });
     });
-  });
-</script>
+  </script>
 
+  <script src="global.js"></script>
 </body>
-<script src="global.js"></script>
-
 </html>
