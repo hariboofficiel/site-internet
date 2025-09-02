@@ -120,12 +120,17 @@
 
   <script src="global.js"></script>
 </body>
-<!-- Popup Mise à jour longue et centrale -->
-<div id="updatePopup" class="fixed inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 z-50 px-4 pointer-events-none">
-  <div class="bg-[#1e1e2f] rounded-3xl p-6 md:p-10 w-full max-w-lg text-center shadow-2xl border-4 border-pink-500 animate-fadeIn pointer-events-auto relative">
+<!-- Notification discrète -->
+<div id="notification" class="fixed bottom-4 right-4 bg-[#1e1e2f] border border-pink-500 text-white px-4 py-2 rounded-lg shadow-lg cursor-pointer hover:bg-[#29293d] transition z-50">
+  🔔 Nouvelle mise à jour !
+</div>
+
+<!-- Popup central caché au départ -->
+<div id="popupMessage" class="fixed inset-0 bg-[#0f0f1a]/90 flex justify-center items-center opacity-0 invisible transition-opacity duration-300 z-50 px-4">
+  <div class="bg-[#1e1e2f] rounded-3xl p-6 md:p-10 w-full max-w-lg text-center shadow-2xl border-4 border-pink-500 animate-fadeIn relative">
     <h2 class="text-3xl md:text-4xl font-extrabold text-orange-400 mb-6 drop-shadow-lg">🚀 Mise à jour majeure !</h2>
-    <p class="text-gray-100 mb-4 text-left md:text-center text-sm md:text-base">
-      Bonjour à tous ! Une mise à jour importante a été effectuée cette nuit sur <span class="text-pink-400 font-bold">Team NoxxWorks</span>.  
+    <p class="text-gray-100 mb-4 text-sm md:text-base">
+      Bonjour ! Une mise à jour importante a été effectuée cette nuit sur <span class="text-pink-400 font-bold">Team NoxxWorks</span>.  
       Découvrez les nouveautés :
     </p>
     <ul class="text-gray-100 mb-6 text-left list-disc list-inside space-y-1 text-sm md:text-base">
@@ -136,38 +141,33 @@
       <li>✅ Correction de bugs mineurs pour une meilleure expérience utilisateur.</li>
     </ul>
     <p class="text-gray-100 mb-4 text-sm md:text-base">Profitez pleinement des nouvelles fonctionnalités et explorez le site !</p>
-    <button id="closeUpdatePopup" class="px-8 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition">Fermer</button>
+    <button id="closePopup" class="px-8 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition">Fermer</button>
   </div>
 </div>
 
 <script>
-  const updatePopup = document.getElementById('updatePopup');
-  const closeUpdatePopup = document.getElementById('closeUpdatePopup');
+  const notification = document.getElementById('notification');
+  const popupMessage = document.getElementById('popupMessage');
+  const closePopup = document.getElementById('closePopup');
 
-  // Vérifier la date de première apparition
-  const firstVisit = localStorage.getItem('updatePopupFirstVisit');
-  const now = new Date().getTime();
-  const twoDays = 2 * 24 * 60 * 60 * 1000; // 2 jours en ms
-
-  if (!firstVisit) {
-    // Première visite : enregistrer la date
-    localStorage.setItem('updatePopupFirstVisit', now);
-    showPopup();
-  } else if (now - firstVisit < twoDays) {
-    // Toujours dans les 2 jours : afficher le popup
-    showPopup();
-  }
-
-  function showPopup() {
-    window.addEventListener('load', () => {
-      updatePopup.classList.remove('opacity-0');
-      updatePopup.classList.add('opacity-100');
-    });
-  }
+  // Quand on clique sur la notification
+  notification.addEventListener('click', () => {
+    popupMessage.classList.remove('invisible');
+    popupMessage.classList.add('opacity-100');
+  });
 
   // Fermer le popup avec le bouton
-  closeUpdatePopup.addEventListener('click', () => {
-    updatePopup.classList.add('opacity-0');
+  closePopup.addEventListener('click', () => {
+    popupMessage.classList.add('opacity-0');
+    setTimeout(() => popupMessage.classList.add('invisible'), 300);
+  });
+
+  // Fermer si on clique en dehors du popup
+  popupMessage.addEventListener('click', (e) => {
+    if(e.target === popupMessage){
+      popupMessage.classList.add('opacity-0');
+      setTimeout(() => popupMessage.classList.add('invisible'), 300);
+    }
   });
 </script>
 
@@ -180,7 +180,9 @@
     animation: fadeIn 0.5s ease-out;
   }
 </style>
+
 </html>
+
 
 
 
