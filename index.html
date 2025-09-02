@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Team NoxxWorks</title>
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="favicon.png" />
-
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
@@ -15,27 +12,45 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-/* Global */
-body { font-family: 'Roboto', sans-serif; background-color: #0f0f1a; color: #f0f0f0; overflow-x: hidden; }
-a { text-decoration: none; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #0f0f1a;
+  color: #f0f0f0;
+  overflow-x: hidden;
+}
 
-/* Header gradient animé */
-@keyframes gradientMove {
+/* Background dynamique */
+@keyframes bgGradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-.animated-header {
-  background: linear-gradient(270deg, #ff6a00, #ee0979, #ff6a00);
+.bg-animated {
+  background: linear-gradient(270deg, #ff6a00, #ee0979, #ff2d95, #ff6a00);
   background-size: 600% 600%;
-  animation: gradientMove 15s ease infinite;
+  animation: bgGradient 20s ease infinite;
 }
 
-/* Hover cards effet glow */
-.hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+/* Header neon */
+.header-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ff6a00;
+  text-shadow: 0 0 5px #ff6a00, 0 0 10px #ee0979, 0 0 20px #ff2d95;
+  animation: neonGlow 2s ease-in-out infinite alternate;
+}
+@keyframes neonGlow {
+  from { text-shadow: 0 0 5px #ff6a00, 0 0 10px #ee0979, 0 0 20px #ff2d95; }
+  to { text-shadow: 0 0 10px #ff6a00, 0 0 20px #ee0979, 0 0 30px #ff2d95; }
+}
+
+/* Cartes hover */
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 .hover-card:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 0 20px #ee0979aa, 0 0 40px #ff6a00aa;
+  box-shadow: 0 0 20px #ee0979aa, 0 0 40px #ff6a00aa, 0 0 60px #ff2d95aa;
 }
 
 /* Boutons pulsants */
@@ -48,7 +63,18 @@ a { text-decoration: none; }
   100% { transform: scale(1); box-shadow: 0 0 10px #ee0979; }
 }
 
-/* Notification */
+/* Sections animées fade+slide */
+.fade-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+.fade-slide.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Notification discrète */
 #notification {
   position: fixed; bottom: 1rem; right: 1rem;
   background-color: #1e1e2f; border: 2px solid #ee0979;
@@ -68,12 +94,12 @@ a { text-decoration: none; }
 }
 .vibrate { animation: vibrate 0.8s ease-in-out; }
 
-/* Popup */
+/* Popup central */
 #popupMessage { transition: opacity 0.3s ease; }
 .animate-fadeIn { animation: fadeIn 0.5s ease-out; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Particules animées */
+/* Particules flottantes */
 .particles { position: absolute; width: 100%; height: 100%; top:0; left:0; z-index:0; pointer-events:none; }
 .particle {
   position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #ee0979;
@@ -86,7 +112,8 @@ a { text-decoration: none; }
 }
 </style>
 </head>
-<body class="relative">
+
+<body class="bg-animated relative overflow-x-hidden">
 
 <!-- Particules background -->
 <div class="particles">
@@ -97,97 +124,79 @@ a { text-decoration: none; }
 </div>
 
 <!-- HEADER -->
-<header class="animated-header relative text-center py-14 md:py-24 shadow-xl z-10">
-  <h1 class="text-3xl md:text-5xl font-extrabold drop-shadow-lg">✩༺• Team NoxxWorks •༻✩</h1>
+<header class="relative text-center py-16 md:py-24 z-10">
+  <h1 class="header-title drop-shadow-lg">✩༺• Team NoxxWorks •༻✩</h1>
   <p class="mt-3 text-sm md:text-lg">Une communauté fun & créative autour de Discord et TikTok</p>
   <div class="mt-6 flex flex-wrap justify-center gap-3">
-    <a href="https://discord.gg/AR2KeVtx7X" class="px-4 md:px-6 py-2 md:py-3 text-white rounded-lg font-bold shadow-lg btn-gradient pulse-btn text-sm md:text-base">🚀 Rejoindre</a>
-    <a href="https://www.tiktok.com/@teamnoxxworks" class="px-4 md:px-6 py-2 md:py-3 bg-white/20 hover:bg-white/40 text-white rounded-lg font-bold shadow-lg transition text-sm md:text-base">🎥 TikTok</a>
-    <a href="https://noxxworks.netlify.app/fondation" class="px-4 md:px-6 py-2 md:py-3 text-white rounded-lg font-bold shadow-lg btn-gradient text-sm md:text-base">🏛 Fondation</a>
+    <a href="https://discord.gg/AR2KeVtx7X" class="px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold text-white shadow-lg btn-gradient pulse-btn">🚀 Rejoindre</a>
+    <a href="https://www.tiktok.com/@teamnoxxworks" class="px-6 py-3 md:px-8 md:py-4 bg-white/20 hover:bg-white/40 text-white rounded-xl font-bold shadow-lg transition">🎥 TikTok</a>
+    <a href="https://noxxworks.netlify.app/fondation" class="px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold text-white shadow-lg btn-gradient">🏛 Fondation</a>
   </div>
 </header>
 
 <!-- NAV -->
 <nav class="flex flex-wrap justify-center gap-4 bg-[#29293d] py-3 text-sm md:text-lg font-semibold sticky top-0 z-50 shadow-md">
-  <a href="https://noxxworks.netlify.app/condition" class="hover:text-orange-400 transition">Conditions</a>
-  <a href="https://noxxworks.netlify.app/privacy" class="hover:text-orange-400 transition">Confidentialité</a>
-  <a href="https://noxxworks.netlify.app/fondation" class="hover:text-orange-400 transition">Fondation</a>
+  <a href="#" class="hover:text-orange-400 transition">Conditions</a>
+  <a href="#" class="hover:text-orange-400 transition">Confidentialité</a>
+  <a href="#" class="hover:text-orange-400 transition">Fondation</a>
 </nav>
 
 <!-- FEATURES -->
-<section class="max-w-6xl mx-auto p-6 grid md:grid-cols-3 gap-4 text-center z-10 relative">
-  <div class="p-4 md:p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card">
-    <h3 class="text-lg md:text-2xl font-bold text-orange-400 mb-2">⚡ Développement Discord</h3>
+<section class="max-w-6xl mx-auto p-6 grid md:grid-cols-3 gap-6 text-center z-10 relative">
+  <div class="p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card fade-slide">
+    <h3 class="text-xl md:text-2xl font-bold text-orange-400 mb-2">⚡ Développement Discord</h3>
     <p class="text-sm md:text-base">Systèmes Roleplay & serveurs complets créés sur mesure.</p>
   </div>
-  <div class="p-4 md:p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card">
-    <h3 class="text-lg md:text-2xl font-bold text-pink-400 mb-2">🎥 TikTok & YouTube</h3>
+  <div class="p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card fade-slide">
+    <h3 class="text-xl md:text-2xl font-bold text-pink-400 mb-2">🎥 TikTok & YouTube</h3>
     <p class="text-sm md:text-base">Des vidéos fun, des tutos et du divertissement exclusif.</p>
   </div>
-  <div class="p-4 md:p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card">
-    <h3 class="text-lg md:text-2xl font-bold text-orange-400 mb-2">🤝 Communauté Active</h3>
+  <div class="p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card fade-slide">
+    <h3 class="text-xl md:text-2xl font-bold text-orange-400 mb-2">🤝 Communauté Active</h3>
     <p class="text-sm md:text-base">Un lieu d’échange, d’entraide et de créativité.</p>
   </div>
 </section>
 
 <!-- VISION -->
-<section class="bg-gradient-to-r from-pink-600 to-orange-500 py-12 md:py-20 text-center px-4 z-10 relative">
+<section class="bg-gradient-to-r from-pink-600 to-orange-500 py-16 md:py-24 text-center px-4 z-10 relative fade-slide">
   <h2 class="text-xl md:text-3xl font-bold mb-4">🌟 Notre Vision</h2>
   <p class="max-w-2xl mx-auto text-sm md:text-lg">Faire de NoxxWorks un espace unique où la créativité prend vie, où chacun peut montrer ses talents, et où l’esprit d’équipe prime.</p>
 </section>
 
-<!-- REASONS -->
-<section class="max-w-5xl mx-auto py-12 md:py-20 px-4 text-center z-10 relative">
-  <h2 class="text-xl md:text-3xl font-bold text-orange-400 mb-6">🔥 Pourquoi nous rejoindre ?</h2>
-  <ul class="grid md:grid-cols-2 gap-4 text-left text-sm md:text-base">
-    <li class="bg-[#1e1e2f] p-4 rounded-lg shadow hover-card">✅ Développement pro & gratuit</li>
-    <li class="bg-[#1e1e2f] p-4 rounded-lg shadow hover-card">✅ Une équipe passionnée et dispo</li>
-    <li class="bg-[#1e1e2f] p-4 rounded-lg shadow hover-card">✅ Une communauté vivante</li>
-    <li class="bg-[#1e1e2f] p-4 rounded-lg shadow hover-card">✅ Contenus exclusifs TikTok / YouTube</li>
-  </ul>
-</section>
-
 <!-- CALL TO ACTION -->
-<section class="bg-[#1e1e2f] py-12 md:py-20 text-center px-4 z-10 relative">
+<section class="bg-[#1e1e2f] py-16 text-center px-4 z-10 relative fade-slide">
   <h2 class="text-xl md:text-3xl font-bold text-pink-400 mb-4">🚀 Rejoins-nous dès aujourd'hui</h2>
-  <a href="https://discord.gg/AR2KeVtx7X" class="px-5 md:px-8 py-2 md:py-4 rounded-xl font-bold text-white text-sm md:text-lg shadow-xl btn-gradient pulse-btn">Rejoindre le Discord</a>
+  <a href="https://discord.gg/AR2KeVtx7X" class="px-8 py-4 rounded-xl font-bold text-white text-lg shadow-xl btn-gradient pulse-btn">Rejoindre le Discord</a>
 </section>
 
-<!-- FORM -->
-<section class="text-center my-10 px-4 z-10 relative">
-  <a href="https://noxxworks.netlify.app/formulaire" 
-     class="px-5 md:px-8 py-2 md:py-4 rounded-xl font-bold text-white text-sm md:text-lg shadow-xl btn-gradient pulse-btn">
-    📜 Formulaires
-  </a>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-[#29293d] text-center py-4 md:py-6 mt-8 text-xs md:text-base z-10 relative">
-  <p>© 2025 Team NoxxWorks. Tous droits réservés.</p>
-</footer>
-
-<!-- Notification discrète -->
+<!-- Notification -->
 <div id="notification">🔔 Nouvelle mise à jour !</div>
 
-<!-- Popup central -->
+<!-- Popup -->
 <div id="popupMessage" class="fixed inset-0 bg-[#0f0f1a]/90 flex justify-center items-center opacity-0 invisible z-50 px-4">
-  <div class="bg-[#1e1e2f] rounded-3xl p-6 md:p-10 w-full max-w-lg text-center shadow-2xl border-4 border-pink-500 animate-fadeIn relative">
+  <div class="bg-[#1e1e2f] rounded-3xl p-8 w-full max-w-lg text-center shadow-2xl border-4 border-pink-500 animate-fadeIn">
     <h2 class="text-3xl md:text-4xl font-extrabold text-orange-400 mb-6 drop-shadow-lg">🚀 Mise à jour majeure !</h2>
-    <p class="text-gray-100 mb-4 text-sm md:text-base">Bonjour ! Une mise à jour importante a été effectuée cette nuit sur <span class="text-pink-400 font-bold">Team NoxxWorks</span>. Découvrez les nouveautés :</p>
-    <ul class="text-gray-100 mb-6 text-left list-disc list-inside space-y-1 text-sm md:text-base">
-      <li>✅ Tous les liens fonctionnels</li>
-      <li>✅ Optimisation mobile et tablette</li>
-      <li>✅ Chargement rapide et animations fluides</li>
-      <li>✅ Design sombre néon</li>
-      <li>✅ Correction de bugs mineurs</li>
+    <p class="text-gray-100 mb-4 text-base">Bonjour ! Une mise à jour importante a été effectuée cette nuit sur <span class="text-pink-400 font-bold">Team NoxxWorks</span>.</p>
+    <ul class="text-gray-100 mb-6 text-left list-disc list-inside space-y-1 text-base">
+      <li>✅ Tous les liens sont fonctionnels.</li>
+      <li>✅ Optimisation complète pour téléphones et tablettes.</li>
+      <li>✅ Performance et animations fluides.</li>
+      <li>✅ Design modernisé avec touches néon.</li>
     </ul>
-    <p class="text-gray-100 mb-4 text-sm md:text-base">Profitez pleinement des nouvelles fonctionnalités et explorez le site !</p>
-    <button id="closePopup" class="px-8 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition">Fermer</button>
+    <button id="closePopup" class="px-8 py-3 rounded-2xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition">Fermer</button>
   </div>
 </div>
 
 <script>
-// Notification click
+// Sections animation on scroll
+const faders = document.querySelectorAll('.fade-slide');
+const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('show'); observer.unobserve(entry.target); }});
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+
+// Notification popup
 const notification = document.getElementById('notification');
 const popupMessage = document.getElementById('popupMessage');
 const closePopup = document.getElementById('closePopup');
@@ -202,7 +211,14 @@ closePopup.addEventListener('click', () => {
   setTimeout(() => popupMessage.classList.add('invisible'), 300);
 });
 
-// Notification slide + vibration
+popupMessage.addEventListener('click', (e) => {
+  if(e.target === popupMessage){
+    popupMessage.classList.add('opacity-0');
+    setTimeout(() => popupMessage.classList.add('invisible'), 300);
+  }
+});
+
+// Notification slide and vibrate
 let hidden = false;
 setInterval(() => {
   if(!hidden){
