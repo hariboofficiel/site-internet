@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Erreur 404 - Service Indisponible</title>
   <style>
     body {
@@ -62,10 +61,11 @@
 
     function checkPassword() {
       const input = document.getElementById("password").value;
-      const secret = "teste"; // <-- mets ton mot de passe ici
+      const secret = "monmotdepasse"; // <-- change ici ton mot de passe
 
       if (input === secret) {
-        window.location.href = "https://noxxworks.netlify.app/developpementdiscord";
+        // Redirige vers la vraie page AVEC le token unlocked=1
+        window.location.href = "https://noxxworks.netlify.app/developpementdiscord?unlocked=1";
       } else {
         alert("Mot de passe incorrect ❌");
       }
