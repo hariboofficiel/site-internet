@@ -1,4 +1,3 @@
-// netlify/functions/send-to-discord.js
 const fetch = require('node-fetch');
 
 exports.handler = async function(event, context) {
@@ -8,22 +7,29 @@ exports.handler = async function(event, context) {
 
   const data = JSON.parse(event.body);
 
-  // Construire le message Discord
-  let message = "**Nouveau formulaire de partenariat :**\n";
-  for (let key in data) {
-    message += `**${key}** : ${data[key]}\n`;
-  }
+  // Construire les champs de l'embed
+  const embedFields = Object.keys(data).map(key => ({
+    name: key.replace(/_/g, ' '), // remplace "_" par espace
+    value: data[key] || "Non renseigné",
+    inline: false
+  }));
 
-  // URL du webhook Discord
   const webhookURL = process.env.DISCORD_WEBHOOK;
 
-  // Envoyer le message
+  const body = {
+    embeds: [{
+      title: "📌 Nouveau formulaire de partenariat",
+      color: 0xff6a00, // couleur orange
+      fields: embedFields,
+      timestamp: new Date().toISOString()
+    }]
+  };
+
   await fetch(webhookURL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content: message })
+    body: JSON.stringify(body)
   });
 
-  return { statusCode: 200, body: "Formulaire envoyé sur Discord !" };
+  return { statusCode: 200, body: "Formulaire envoyé sur Discord avec embed !" };
 };
-
