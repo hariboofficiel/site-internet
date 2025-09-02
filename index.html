@@ -120,6 +120,63 @@
 
   <script src="global.js"></script>
 </body>
+<!-- Popup Mise à jour longue -->
+<div id="updatePopup" class="fixed inset-0 bg-[#0f0f1a]/90 flex justify-center items-center opacity-0 invisible transition-opacity duration-300 z-50">
+  <div class="bg-[#1e1e2f] rounded-3xl p-10 max-w-lg text-center shadow-2xl border-4 border-pink-500 animate-fadeIn">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-orange-400 mb-6 drop-shadow-lg">🚀 Mise à jour majeure !</h2>
+    <p class="text-gray-100 mb-4 text-left md:text-center">
+      Bonjour à tous ! Nous sommes ravis de vous annoncer qu'une mise à jour importante a été effectuée cette nuit sur <span class="text-pink-400 font-bold">Team NoxxWorks</span>.  
+      Voici ce qui a changé :  
+    </p>
+    <ul class="text-gray-100 mb-6 text-left list-disc list-inside space-y-2">
+      <li>✅ Tous les liens du site sont maintenant pleinement fonctionnels et redirigent correctement vers Discord, TikTok, Fondation et Formulaires.</li>
+      <li>✅ Le site a été entièrement optimisé pour les téléphones et tablettes : navigation fluide, affichage parfait sur tous les écrans.</li>
+      <li>✅ Amélioration des performances : chargement plus rapide et animations plus fluides.</li>
+      <li>✅ Design modernisé avec des touches néon et un style sombre cohérent avec notre identité visuelle.</li>
+      <li>✅ Correction de petits bugs et ajustements pour une meilleure expérience utilisateur.</li>
+    </ul>
+    <p class="text-gray-100 mb-6">Nous espérons que vous apprécierez ces améliorations ! Continuez à explorer le site et profitez pleinement des nouvelles fonctionnalités.</p>
+    <button id="closeUpdatePopup" class="px-8 py-3 rounded-2xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition">Fermer</button>
+  </div>
+</div>
+
+<script>
+  const updatePopup = document.getElementById('updatePopup');
+  const closeUpdatePopup = document.getElementById('closeUpdatePopup');
+
+  // Afficher le popup à l'arrivée sur le site
+  window.addEventListener('load', () => {
+    updatePopup.classList.remove('invisible');
+    updatePopup.classList.add('opacity-100');
+  });
+
+  // Fermer le popup avec le bouton
+  closeUpdatePopup.addEventListener('click', () => {
+    updatePopup.classList.add('opacity-0');
+    setTimeout(() => updatePopup.classList.add('invisible'), 300);
+  });
+
+  // Fermer si on clique en dehors du popup
+  updatePopup.addEventListener('click', (e) => {
+    if(e.target === updatePopup) {
+      updatePopup.classList.add('opacity-0');
+      setTimeout(() => updatePopup.classList.add('invisible'), 300);
+    }
+  });
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+</style>
+
 </html>
+
 
 
