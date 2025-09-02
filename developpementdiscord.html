@@ -4,12 +4,18 @@
   <meta charset="UTF-8">
   <title>Redirection</title>
   <script>
-    // Redirige immédiatement vers la page de maintenance
-    window.location.href = "https://noxxworks.netlify.app/404";
+    // Vérifie si l'accès est débloqué
+    const params = new URLSearchParams(window.location.search);
+    const unlocked = params.get("unlocked");
+
+    if (unlocked !== "1") {
+      // Si pas débloqué -> redirection vers la page 404
+      window.location.href = "https://noxxworks.netlify.app/404";
+    }
   </script>
 </head>
 <body>
-  <p>Redirection en cours...</p>
+  <p>Bienvenue sur la vraie page !</p>
 </body>
 </html>
 
