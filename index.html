@@ -121,7 +121,7 @@
   <script src="global.js"></script>
 </body>
 <!-- Notification discrète animée -->
-<div id="notification" class="fixed bottom-4 right-4 bg-[#1e1e2f] border border-pink-500 text-white px-4 py-2 rounded-lg shadow-lg cursor-pointer z-50">
+<div id="notification" class="fixed bottom-4 right-4 bg-[#1e1e2f] border border-pink-500 text-white px-4 py-2 rounded-lg shadow-lg cursor-pointer z-50 flex items-center gap-2 animate-bell">
   🔔 Nouvelle mise à jour !
 </div>
 
@@ -169,7 +169,7 @@
     }
   });
 
-  // Animation pour faire “slide out” et revenir
+  // Slide in/out
   let hidden = false;
   setInterval(() => {
     if(!hidden){
@@ -198,11 +198,29 @@
 
   #notification {
     transition: transform 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Animation “cloche qui bouge” */
+  @keyframes bell {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(15deg); }
+    30% { transform: rotate(-10deg); }
+    45% { transform: rotate(15deg); }
+    60% { transform: rotate(-10deg); }
+    75% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  .animate-bell {
+    animation: bell 1s infinite;
   }
 </style>
 
 
 </html>
+
 
 
 
