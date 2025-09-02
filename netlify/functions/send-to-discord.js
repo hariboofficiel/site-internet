@@ -29,9 +29,9 @@ exports.handler = async function(event, context) {
     description = "Un membre souhaite rejoindre l'équipe du staff !";
     pingRole = "<@&1403730494159323176>"; // Ping le rôle staff (même rôle ou un autre)
   } else {
-    title = "📄 Nouveau formulaire inconnu";
-    description = "Un formulaire a été soumis mais son type est inconnu.";
-    pingRole = ""; // Pas de ping
+    title = "📌 Nouveau formulaire de partenariat";
+    description = "Un nouveau serveur souhaite rejoindre notre réseau !";
+    pingRole = "<@&1403730494159323176>"; // Pas de ping
   }
 
   // Créer des fields pour l'embed
