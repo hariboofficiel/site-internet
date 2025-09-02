@@ -17,50 +17,25 @@
       color: #000000;
       text-align: center;
     }
-    .container {
-      max-width: 700px;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 80px;
-      margin-bottom: 20px;
-      font-weight: normal;
-    }
-    h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      font-weight: normal;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #333333;
-      margin-bottom: 30px;
-    }
-    input {
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      padding: 10px 15px;
-      margin-left: 10px;
-      font-size: 16px;
-      border: none;
-      background: #000;
-      color: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      opacity: 0.8;
-    }
-    .contact {
+    .container { max-width: 700px; padding: 20px; }
+    h1 { font-size: 80px; margin-bottom: 20px; font-weight: normal; }
+    h2 { font-size: 28px; margin-bottom: 20px; font-weight: normal; }
+    p { font-size: 18px; line-height: 1.6; color: #333333; margin-bottom: 30px; }
+    a.secret-link {
+      display: inline-block;
       margin-top: 20px;
-      font-size: 16px;
-      color: #555555;
+      font-size: 14px;
+      color: #777;
+      cursor: pointer;
+      text-decoration: underline;
     }
+    #admin-form {
+      display: none; /* caché au départ */
+      margin-top: 20px;
+    }
+    input, button { padding: 10px; font-size: 16px; }
+    button { margin-left: 10px; background: #000; color: #fff; border: none; cursor: pointer; border-radius: 6px; }
+    button:hover { opacity: 0.8; }
   </style>
 </head>
 <body>
@@ -70,37 +45,30 @@
     <p>Le service que vous tentez d’accéder n’est actuellement pas disponible.<br>
     Nous vous présentons nos excuses pour ce désagrément et vous invitons à revenir ultérieurement.</p>
 
-    <!-- Formulaire mot de passe -->
-    <div>
+    <!-- Lien discret -->
+    <a class="secret-link" onclick="showForm()">Administration</a>
+
+    <!-- Formulaire mot de passe (caché au départ) -->
+    <div id="admin-form">
       <input type="password" id="password" placeholder="Mot de passe">
       <button onclick="checkPassword()">Entrer</button>
-    </div>
-
-    <div class="contact">
-      Pour toute assistance, vous pouvez nous rejoindre sur notre serveur Discord.
     </div>
   </div>
 
   <script>
+    function showForm() {
+      document.getElementById("admin-form").style.display = "block";
+    }
+
     function checkPassword() {
       const input = document.getElementById("password").value;
-      const secret = "teste"; // <-- change ici ton mot de passe
+      const secret = "teste"; // <-- mets ton mot de passe ici
 
       if (input === secret) {
-        // Redirection vers l’URL demandée à l’origine
-        const redirectUrl = window.location.pathname; 
-        window.location.href = redirectUrl + "?unlocked=1";
+        window.location.href = "https://noxxworks.netlify.app/developpementdiscord";
       } else {
         alert("Mot de passe incorrect ❌");
       }
-    }
-
-    // Empêcher la boucle infinie : si on a déjà déverrouillé, on laisse passer
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("unlocked") === "1") {
-      // Ici tu peux afficher le vrai contenu ou rediriger vers ton vrai site
-      // Exemple : rediriger vers la vraie version hébergée ailleurs
-      window.location.href = "/index.html"; 
     }
   </script>
 </body>
