@@ -120,40 +120,27 @@
 
   <script src="global.js"></script>
 </body>
-<!-- Popup Mise à jour optimisé mobile -->
-<div id="updatePopup" class="fixed inset-0 bg-[#0f0f1a]/90 flex justify-center items-center opacity-0 invisible transition-opacity duration-300 z-50 px-4">
-  <div class="bg-[#1e1e2f] rounded-3xl p-6 md:p-10 w-full max-w-md text-center shadow-2xl border-4 border-pink-500 animate-fadeIn">
-    <h2 class="text-2xl md:text-3xl font-extrabold text-orange-400 mb-4 drop-shadow-lg">🚀 Mise à jour majeure !</h2>
-    <p class="text-gray-100 mb-4 text-left md:text-center text-sm md:text-base">
-      Bonjour à tous ! Une mise à jour importante a été effectuée cette nuit sur <span class="text-pink-400 font-bold">Team NoxxWorks</span>.  
-      Découvrez les nouveautés :
-    </p>
-    <ul class="text-gray-100 mb-6 text-left list-disc list-inside space-y-1 text-sm md:text-base">
-      <li>✅ Tous les liens sont maintenant fonctionnels (Discord, TikTok, Fondation, Formulaires).</li>
-      <li>✅ Optimisation complète pour téléphones et tablettes : navigation fluide et responsive.</li>
-      <li>✅ Performance améliorée : chargement rapide et animations fluides.</li>
-      <li>✅ Design modernisé avec style sombre et touches néon cohérentes.</li>
-      <li>✅ Correction de bugs mineurs pour une meilleure expérience utilisateur.</li>
-    </ul>
-    <p class="text-gray-100 mb-4 text-sm md:text-base">Profitez pleinement des nouvelles fonctionnalités et explorez le site !</p>
-    <button id="closeUpdatePopup" class="px-6 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-white shadow-lg btn-gradient hover:scale-105 transition w-full md:w-auto">Fermer</button>
-  </div>
-</div>
-
 <script>
   const updatePopup = document.getElementById('updatePopup');
   const closeUpdatePopup = document.getElementById('closeUpdatePopup');
 
-  // Afficher le popup à l'arrivée sur le site
-  window.addEventListener('load', () => {
-    updatePopup.classList.remove('invisible');
-    updatePopup.classList.add('opacity-100');
-  });
+  // Vérifier si l'utilisateur a déjà vu le popup
+  const hasSeenPopup = localStorage.getItem('seenUpdatePopup');
+
+  if (!hasSeenPopup) {
+    // Afficher le popup
+    window.addEventListener('load', () => {
+      updatePopup.classList.remove('invisible');
+      updatePopup.classList.add('opacity-100');
+    });
+  }
 
   // Fermer le popup avec le bouton
   closeUpdatePopup.addEventListener('click', () => {
     updatePopup.classList.add('opacity-0');
     setTimeout(() => updatePopup.classList.add('invisible'), 300);
+    // Marquer que l'utilisateur a vu le popup
+    localStorage.setItem('seenUpdatePopup', 'true');
   });
 
   // Fermer si on clique en dehors du popup
@@ -161,23 +148,14 @@
     if(e.target === updatePopup) {
       updatePopup.classList.add('opacity-0');
       setTimeout(() => updatePopup.classList.add('invisible'), 300);
+      localStorage.setItem('seenUpdatePopup', 'true');
     }
   });
 </script>
 
-<style>
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 0.5s ease-out;
-  }
-</style>
-
 
 </html>
+
 
 
 
