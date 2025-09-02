@@ -18,26 +18,58 @@
       transform: translateY(-2px) scale(1.05);
       box-shadow: 0 10px 25px rgba(238, 9, 121, 0.5);
     }
+    pre { font-family: 'Roboto', monospace; }
   </style>
 </head>
 <body class="bg-[#0f0f1a] text-gray-100">
-  
+
+  <!-- HEADER -->
   <header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-20 shadow-xl">
     <h1 class="text-5xl font-extrabold drop-shadow-lg">📌︱Formulaire de Partenariat</h1>
     <p class="mt-4 text-lg">Merci de remplir ce formulaire pour que notre équipe analyse votre demande.</p>
   </header>
 
+  <!-- NAVIGATION -->
+  <nav class="flex justify-center gap-6 bg-[#29293d] py-4 text-lg font-semibold sticky top-0 z-50 shadow-md">
+    <a href="/" class="hover:text-orange-400 transition">Accueil</a>
+    <a href="/formulaire" class="hover:text-orange-400 transition">Formulaires</a>
+    <a href="/fondation" class="hover:text-orange-400 transition">Fondation</a>
+  </nav>
+
+  <!-- CONDITIONS -->
+  <section class="max-w-4xl mx-auto p-8 mt-12 bg-[#1e1e2f] rounded-2xl shadow-lg">
+    <h2 class="text-2xl font-bold text-orange-400 mb-4">👑︱Conditions</h2>
+    <pre class="text-gray-300 whitespace-pre-wrap">
+╭━━━ 👑︱**CONDITIONS**
+┃ 🔹 Votre serveur doit compter **au minimum 50 membres**
+┃ 🔹 Le **propriétaire du serveur** doit rester présent dans notre serveur
+┃ 🔹 L’équipe du staff doit avoir un âge minimum de **14–15 ans**
+┃ 🔹 Aucun contenu **NSFW, illégal ou toxique** n’est accepté
+┃ 🔹 Le serveur doit être **actif et organisé** (salons clairs, règles, staff identifiable)
+┃ 🔹 Pas de **spam, pub abusive ou serveur “farm à membres”**
+┃ 🔹 Le lien d’invitation doit être **permanent et valide**
+┃ 🔹 Le partenariat doit rester **visible et respecté** (rupture → prévenir **3 jours à l’avance**)
+┃ 🔹 En cas de **changement de propriétaire**, le partenariat doit être confirmé à nouveau
+╰━━━━━━━━━━━━━━━━━━━
+    </pre>
+    <select name="conditions" required class="p-3 rounded-lg bg-[#29293d] w-full mt-4">
+      <option value="">✅ J’ai lu et accepté toutes les conditions ci-dessus</option>
+      <option value="oui">Oui</option>
+      <option value="non">Non</option>
+    </select>
+  </section>
+
+  <!-- FORMULAIRE -->
   <section class="max-w-4xl mx-auto p-8 mt-12 bg-[#1e1e2f] rounded-2xl shadow-lg">
     <form id="partenariat-form" class="space-y-8">
-      <input type="hidden" name="form_type" value="partenariat">
 
-      <!-- Informations sur le serveur -->
+      <!-- INFORMATIONS SUR LE SERVEUR -->
       <div>
         <h2 class="text-2xl font-bold text-pink-400 mb-4">📝︱Informations sur le serveur</h2>
         <div class="grid md:grid-cols-2 gap-4">
           <input type="text" name="nom_serveur" placeholder="🏷️ Nom du serveur" required class="p-3 rounded-lg bg-[#29293d] w-full">
           <input type="text" name="theme" placeholder="🎨 Thème du serveur" required class="p-3 rounded-lg bg-[#29293d] w-full">
-          <input type="date" name="date_creation" class="p-3 rounded-lg bg-[#29293d] w-full">
+          <input type="date" name="date_creation" placeholder="📅 Date de création" class="p-3 rounded-lg bg-[#29293d] w-full">
           <input type="number" name="membres_total" placeholder="👥 Nombre total de membres" required class="p-3 rounded-lg bg-[#29293d] w-full">
           <input type="text" name="membres_actifs" placeholder="🔔 Nombre de membres actifs" class="p-3 rounded-lg bg-[#29293d] w-full">
           <input type="text" name="langue" placeholder="🌍 Langue principale du serveur" required class="p-3 rounded-lg bg-[#29293d] w-full">
@@ -51,7 +83,7 @@
         </div>
       </div>
 
-      <!-- Informations sur le staff -->
+      <!-- INFORMATIONS SUR LE PROPRIÉTAIRE / STAFF -->
       <div>
         <h2 class="text-2xl font-bold text-orange-400 mb-4">👤︱Informations sur le propriétaire / staff</h2>
         <div class="grid md:grid-cols-2 gap-4">
@@ -64,15 +96,10 @@
           <input type="text" name="experience" placeholder="🧩 Expérience du staff" class="p-3 rounded-lg bg-[#29293d] w-full">
           <input type="text" name="motivation" placeholder="💭 Pourquoi souhaitez-vous un partenariat ?" required class="p-3 rounded-lg bg-[#29293d] w-full">
           <input type="text" name="contact_secondaire" placeholder="📞 Contact secondaire" class="p-3 rounded-lg bg-[#29293d] w-full">
-          <select name="conditions" required class="p-3 rounded-lg bg-[#29293d] w-full">
-            <option value="">✅ Avez-vous lu et accepté les conditions ?</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
         </div>
       </div>
 
-      <!-- Engagement & ajout -->
+      <!-- FIN DU FORMULAIRE -->
       <div>
         <h2 class="text-2xl font-bold text-pink-400 mb-4">🔚︱Fin du formulaire</h2>
         <select name="engagement" required class="p-3 rounded-lg bg-[#29293d] w-full mb-4">
@@ -83,20 +110,35 @@
         <textarea name="ajout" placeholder="✦ Souhaitez-vous ajouter quelque chose ?" rows="4" class="p-3 rounded-lg bg-[#29293d] w-full"></textarea>
       </div>
 
+      <!-- BOUTON -->
       <div class="text-center">
         <button type="submit" class="px-8 py-4 rounded-2xl font-bold text-white text-lg btn-gradient">
           📨 Envoyer ma demande
         </button>
       </div>
+
     </form>
   </section>
 
+  <!-- FOOTER -->
+  <footer class="bg-[#29293d] text-center py-6 mt-12">
+    <p>✨ Merci d’avoir pris le temps de remplir ce formulaire !</p>
+    <p>Notre équipe analysera votre demande dans les plus brefs délais.</p>
+  </footer>
+
+  <!-- SCRIPT ENVOI VIA NETLIFY FUNCTION -->
   <script>
     document.getElementById("partenariat-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       const form = e.target;
       const data = {};
       new FormData(form).forEach((value, key) => data[key] = value);
+
+      // Vérifier que les conditions sont acceptées
+      if(data.conditions !== "oui"){
+        alert("❌ Vous devez accepter les conditions pour envoyer le formulaire !");
+        return;
+      }
 
       const res = await fetch("/.netlify/functions/send-to-discord", {
         method: "POST",
@@ -111,5 +153,6 @@
       }
     });
   </script>
+
 </body>
 </html>
