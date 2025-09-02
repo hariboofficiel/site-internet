@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candidature Staff • Team NoxxWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Roboto', sans-serif; background: #0f0f1a; color: #e0e0e0; }
+    .btn-gradient {
+      background: linear-gradient(90deg, #ff69b4, #ff1493);
+      box-shadow: 0 8px 20px rgba(255,20,147,0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-gradient:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(255,20,147,0.5);
+    }
+    input, textarea, select {
+      background: #29293d;
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+      width: 100%;
+      color: #e0e0e0;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="text-center py-16 bg-gradient-to-r from-pink-500 to-purple-600 shadow-xl">
+    <h1 class="text-5xl font-extrabold drop-shadow-lg">👤 Candidature Staff</h1>
+    <p class="mt-4 text-lg">Remplissez ce formulaire pour rejoindre notre équipe Staff.</p>
+  </header>
+
+  <!-- FORMULAIRE -->
+  <section class="max-w-4xl mx-auto p-8 mt-12 bg-[#1e1e2f] rounded-2xl shadow-lg">
+    <form id="staff-form" class="space-y-8">
+
+      <!-- INFORMATIONS DE BASE -->
+      <div>
+        <h2 class="text-2xl font-bold text-purple-400 mb-4">📝 Informations personnelles</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <input type="text" name="pseudo" placeholder="Pseudo Discord" required>
+          <input type="text" name="identifiant" placeholder="Identifiant Discord (#1234)" required>
+          <input type="number" name="age" placeholder="Âge" required>
+          <input type="text" name="disponibilite" placeholder="Disponibilités (jours/heures)">
+        </div>
+      </div>
+
+      <!-- EXPÉRIENCE -->
+      <div>
+        <h2 class="text-2xl font-bold text-pink-400 mb-4">💼 Expérience</h2>
+        <div class="grid gap-4">
+          <textarea name="experience" placeholder="Décrivez votre expérience en modération ou administration de serveurs" rows="3"></textarea>
+          <textarea name="role_precedent" placeholder="Avez-vous été Staff sur d'autres serveurs ? Si oui, quels rôles et responsabilités ?" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- MOTIVATION -->
+      <div>
+        <h2 class="text-2xl font-bold text-purple-400 mb-4">💭 Motivation</h2>
+        <textarea name="motivation" placeholder="Pourquoi souhaitez-vous devenir Staff chez NoxxWorks ?" rows="3" required></textarea>
+      </div>
+
+      <!-- SCÉNARIOS -->
+      <div>
+        <h2 class="text-2xl font-bold text-pink-400 mb-4">🛡️ Scénarios de modération</h2>
+        <textarea name="scenario_1" placeholder="Que feriez-vous si un membre spamme dans un salon principal ?" rows="3"></textarea>
+        <textarea name="scenario_2" placeholder="Que feriez-vous si un membre enfreint les règles mais s’excuse après ?" rows="3"></textarea>
+        <textarea name="scenario_3" placeholder="Comment géreriez-vous un conflit entre deux membres ?" rows="3"></textarea>
+      </div>
+
+      <!-- CONDITIONS ET ENGAGEMENT -->
+      <div>
+        <h2 class="text-2xl font-bold text-purple-400 mb-4">✅ Conditions et engagement</h2>
+        <select name="conditions" required>
+          <option value="">Avez-vous lu et accepté les règles Staff ?</option>
+          <option value="oui">Oui</option>
+          <option value="non">Non</option>
+        </select>
+        <select name="engagement" required>
+          <option value="">Vous engagez-vous à être actif et respecter votre rôle de Staff ?</option>
+          <option value="oui">Oui</option>
+          <option value="non">Non</option>
+        </select>
+      </div>
+
+      <!-- BOUTON -->
+      <div class="text-center">
+        <button type="submit" class="px-8 py-4 rounded-2xl font-bold text-white text-lg btn-gradient">
+          📨 Envoyer ma candidature
+        </button>
+      </div>
+
+    </form>
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    document.getElementById("staff-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = {};
+      new FormData(form).forEach((value, key) => data[key] = value);
+
+      // Ajouter type pour différencier formulaire
+      data.type = "staff";
+
+      const res = await fetch("/.netlify/functions/send-to-discord", {
+        method: "POST",
+        body: JSON.stringify(data)
+      });
+
+      if(res.ok){
+        alert("✅ Candidature envoyée avec succès !");
+        form.reset();
+      } else {
+        alert("❌ Une erreur est survenue !");
+      }
+    });
+  </script>
+
+</body>
+</html>
