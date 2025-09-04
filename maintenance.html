@@ -63,32 +63,25 @@
     50% { transform: translateY(-10px); }
   }
 
-  /* Message carousel */
-  .carousel {
-    height: 120px; /* espace pour des messages plus longs */
-    overflow: hidden;
+  /* Slideshow (diapo) */
+  .slideshow {
     position: relative;
-  }
-  .carousel-inner {
+    height: 140px;
     display: flex;
-    flex-direction: column;
-    animation: scroll 24s infinite;
+    justify-content: center;
+    align-items: center;
   }
-  .carousel-inner p {
-    margin: 0;
-    padding: 15px 0;
+  .slide {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     font-size: 1.1rem;
     line-height: 1.6rem;
     color: #f3f4f6;
+    max-width: 90%;
   }
-
-  @keyframes scroll {
-    0%, 15% { transform: translateY(0); }
-    20%, 35% { transform: translateY(-120px); }
-    40%, 55% { transform: translateY(-240px); }
-    60%, 75% { transform: translateY(-360px); }
-    80%, 95% { transform: translateY(-480px); }
-    100% { transform: translateY(0); }
+  .slide.active {
+    opacity: 1;
   }
 </style>
 </head>
@@ -105,15 +98,13 @@
     🔒 Réévaluation en cours 🔒
   </h1>
   
-  <!-- Messages qui scrollent -->
-  <div class="carousel">
-    <div class="carousel-inner">
-      <p>Nous procédons actuellement à une réévaluation complète de nos systèmes internes afin de renforcer la stabilité, la performance et la fiabilité de nos services.</p>
-      <p>Cette phase de maintenance approfondie inclut une vérification des infrastructures techniques, une mise à jour des outils de sécurité ainsi qu’une optimisation des processus.</p>
-      <p>L’objectif de cette démarche est d’assurer à l’ensemble de nos utilisateurs une expérience plus fluide, sécurisée et adaptée aux évolutions futures de notre plateforme.</p>
-      <p>Nous vous remercions sincèrement pour votre patience et votre compréhension durant cette période. Des informations complémentaires seront communiquées sur nos canaux officiels.</p>
-      <p>Pour rester informés en temps réel et poser vos questions, nous vous invitons à rejoindre notre communauté sur Discord, où notre équipe reste disponible.</p>
-    </div>
+  <!-- Diaporama de messages -->
+  <div class="slideshow">
+    <p class="slide active">Nous procédons actuellement à une réévaluation complète de nos systèmes internes afin de renforcer la stabilité, la performance et la fiabilité de nos services.</p>
+    <p class="slide">Cette phase de maintenance approfondie inclut une vérification des infrastructures techniques, une mise à jour des outils de sécurité ainsi qu’une optimisation des processus.</p>
+    <p class="slide">Notre objectif est de garantir une expérience utilisateur améliorée, plus fluide et adaptée aux évolutions futures de la plateforme.</p>
+    <p class="slide">Nous vous remercions sincèrement pour votre patience et votre compréhension durant cette période. Des informations complémentaires seront communiquées prochainement.</p>
+    <p class="slide">Pour toute question ou suivi en temps réel, nous vous invitons à rejoindre notre communauté sur Discord, où notre équipe reste disponible.</p>
   </div>
 
   <a href="https://discord.gg/AR2KeVtx7X" target="_blank" class="inline-block px-8 py-4 font-bold rounded-xl text-white text-lg shadow-lg transition-transform transform hover:scale-105 bg-gradient-to-r from-orange-500 to-pink-600 bounce mt-6">
@@ -124,6 +115,20 @@
     📢 L’équipe NoxxWorks — Vers une amélioration continue.
   </div>
 </div>
+
+<script>
+  const slides = document.querySelectorAll(".slide");
+  let index = 0;
+
+  function showSlide() {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+    index = (index + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 5000); // change de message toutes les 5 secondes
+</script>
 
 </body>
 <script src="global.js"></script>
