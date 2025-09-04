@@ -107,7 +107,7 @@
   }
 </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-4 relative space-y-8">
+<body class="flex flex-col items-center justify-center min-h-screen p-4 relative">
 
 <!-- Animated circles in background -->
 <div class="circle w-20 h-20 left-8 top-1/4"></div>
@@ -116,7 +116,7 @@
 <div class="circle w-32 h-32 left-1/4 top-3/4 bg-orange-500/20"></div>
 
 <!-- Première carte : Message principal -->
-<div class="card bg-[#29293d] rounded-2xl shadow-2xl p-10 max-w-md w-full text-center relative z-10">
+<div class="card bg-[#29293d] rounded-2xl shadow-2xl p-10 max-w-md w-full text-center relative z-10 mb-6">
   <h1 class="text-3xl md:text-5xl font-extrabold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-pink-600 mb-6 pulse">
     🔒 Réévaluation en cours 🔒
   </h1>
@@ -139,10 +139,13 @@
   </div>
 </div>
 
-<!-- Deuxième carte : Suivi -->
+<!-- Suivi de la réévaluation (juste en dessous) -->
 <div class="card bg-[#1e1e2f] rounded-xl shadow-xl p-6 max-w-md w-full text-center relative z-10">
   <h2 class="text-xl md:text-2xl font-bold text-orange-400 mb-3">📊 Suivi de la réévaluation</h2>
-  <p class="text-gray-200 text-sm md:text-base">Analyse des services en cours...<br>Les différents modules et fonctionnalités font actuellement l’objet d’un examen approfondi afin d’identifier les axes d’amélioration.</p>
+  <p class="text-gray-200 text-sm md:text-base">
+    Analyse des services en cours...<br>
+    Nos équipes examinent actuellement chaque module afin de garantir une optimisation complète et une meilleure fiabilité.
+  </p>
 </div>
 
 <script>
