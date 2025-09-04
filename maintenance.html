@@ -1,166 +1,173 @@
 <!DOCTYPE html> 
-<html lang="fr"> 
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Réévaluation en cours - NoxxWorks</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réévaluation en cours - NoxxWorks</title>
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="favicon.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-<!-- Open Graph / Discord Preview -->
-<meta property="og:title" content="Réévaluation en cours - NoxxWorks">
-<meta property="og:description" content="Le site NoxxWorks est temporairement indisponible dans le cadre d’une réévaluation complète de nos systèmes et services.">
-<meta property="og:image" content="https://example.com/preview-image.png">
-<meta property="og:type" content="website">
+  <!-- Open Graph / Discord Embed -->
+  <meta property="og:title" content="🔒 Réévaluation en cours - NoxxWorks">
+  <meta property="og:description" content="Le site NoxxWorks est temporairement indisponible dans le cadre d’une réévaluation complète de nos systèmes et services. Analyse des services en cours...">
+  <meta property="og:image" content="https://noxxworks.netlify.app/preview.png">
+  <meta property="og:url" content="https://noxxworks.netlify.app/maintenance">
+  <meta property="og:type" content="website">
 
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <!-- Twitter Card (meilleure compatibilité) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🔒 Réévaluation en cours - NoxxWorks">
+  <meta name="twitter:description" content="Nos équipes réalisent actuellement une réévaluation des systèmes et services afin d’améliorer stabilité, sécurité et performance.">
+  <meta name="twitter:image" content="https://noxxworks.netlify.app/preview.png">
 
-<style>
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #0f0f1a, #1e1e2f);
-    overflow-x: hidden;
-  }
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  /* Background animation (floating circles) */
-  .circle {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 106, 0, 0.3);
-    animation: float 10s linear infinite;
-  }
-  @keyframes float {
-    0% { transform: translateY(100vh) scale(0); opacity: 0; }
-    50% { opacity: 0.7; }
-    100% { transform: translateY(-100vh) scale(1); opacity: 0; }
-  }
-
-  .card {
-    animation: fadeInUp 1s ease-out;
-  }
-  @keyframes fadeInUp {
-    from {opacity: 0; transform: translateY(30px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
-
-  /* Floating text animation */
-  .pulse {
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-
-  /* Bounce arrow */
-  .bounce {
-    animation: bounce 1.5s infinite;
-  }
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  /* Slideshow (diapo) */
-  .slideshow {
-    position: relative;
-    height: 110px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .slide {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    font-size: 1rem;
-    line-height: 1.4rem;
-    color: #f3f4f6;
-    max-width: 95%;
-    padding: 0 10px;
-  }
-  .slide.active {
-    opacity: 1;
-  }
-
-  /* Responsive tweaks */
-  @media (max-width: 640px) {
-    h1 {
-      font-size: 1.8rem !important;
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f0f1a, #1e1e2f);
+      overflow-x: hidden;
     }
+
+    /* Background animation (floating circles) */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 106, 0, 0.3);
+      animation: float 10s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      50% { opacity: 0.7; }
+      100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+    }
+
+    .card {
+      animation: fadeInUp 1s ease-out;
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Floating text animation */
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Bounce arrow */
+    .bounce {
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Slideshow (diapo) */
     .slideshow {
-      height: 130px;
+      position: relative;
+      height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .slide {
-      font-size: 0.95rem;
-      line-height: 1.35rem;
-    }
-    .card {
-      padding: 1.5rem;
-    }
-    .card a {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
       font-size: 1rem;
-      padding: 0.75rem 1.5rem;
+      line-height: 1.4rem;
+      color: #f3f4f6;
+      max-width: 95%;
+      padding: 0 10px;
     }
-  }
-</style>
+    .slide.active {
+      opacity: 1;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 1.8rem !important;
+      }
+      .slideshow {
+        height: 130px;
+      }
+      .slide {
+        font-size: 0.95rem;
+        line-height: 1.35rem;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      .card a {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 relative">
 
-<!-- Animated circles in background -->
-<div class="circle w-20 h-20 left-8 top-1/4"></div>
-<div class="circle w-28 h-28 left-3/4 top-1/3 bg-pink-500/30"></div>
-<div class="circle w-14 h-14 left-1/2 top-1/2 bg-white/20"></div>
-<div class="circle w-32 h-32 left-1/4 top-3/4 bg-orange-500/20"></div>
+  <!-- Animated circles in background -->
+  <div class="circle w-20 h-20 left-8 top-1/4"></div>
+  <div class="circle w-28 h-28 left-3/4 top-1/3 bg-pink-500/30"></div>
+  <div class="circle w-14 h-14 left-1/2 top-1/2 bg-white/20"></div>
+  <div class="circle w-32 h-32 left-1/4 top-3/4 bg-orange-500/20"></div>
 
-<!-- Première carte : Message principal -->
-<div class="card bg-[#29293d] rounded-2xl shadow-2xl p-10 max-w-md w-full text-center relative z-10 mb-6">
-  <h1 class="text-3xl md:text-5xl font-extrabold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-pink-600 mb-6 pulse">
-    🔒 Réévaluation en cours 🔒
-  </h1>
-  
-  <!-- Diaporama de messages -->
-  <div class="slideshow">
-    <p class="slide active">Nous procédons actuellement à une réévaluation complète de nos systèmes afin de renforcer la stabilité, la performance et la fiabilité de nos services.</p>
-    <p class="slide">Cette phase de maintenance approfondie inclut une vérification des infrastructures techniques, une mise à jour des outils de sécurité et une optimisation des processus internes.</p>
-    <p class="slide">Notre objectif est d’assurer une expérience plus fluide, sécurisée et adaptée aux besoins futurs de nos utilisateurs.</p>
-    <p class="slide">Nous vous remercions pour votre patience et votre compréhension. Des informations complémentaires seront partagées prochainement.</p>
-    <p class="slide">Pour toute question ou suivi en temps réel, rejoignez notre communauté sur Discord où notre équipe reste disponible.</p>
+  <!-- Première carte : Message principal -->
+  <div class="card bg-[#29293d] rounded-2xl shadow-2xl p-10 max-w-md w-full text-center relative z-10 mb-6">
+    <h1 class="text-3xl md:text-5xl font-extrabold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-pink-600 mb-6 pulse">
+      🔒 Réévaluation en cours 🔒
+    </h1>
+    
+    <!-- Diaporama de messages -->
+    <div class="slideshow">
+      <p class="slide active">Nous procédons actuellement à une réévaluation complète de nos systèmes afin de renforcer la stabilité, la performance et la fiabilité de nos services.</p>
+      <p class="slide">Cette phase de maintenance approfondie inclut une vérification des infrastructures techniques, une mise à jour des outils de sécurité et une optimisation des processus internes.</p>
+      <p class="slide">Notre objectif est d’assurer une expérience plus fluide, sécurisée et adaptée aux besoins futurs de nos utilisateurs.</p>
+      <p class="slide">Nous vous remercions pour votre patience et votre compréhension. Des informations complémentaires seront partagées prochainement.</p>
+      <p class="slide">Pour toute question ou suivi en temps réel, rejoignez notre communauté sur Discord où notre équipe reste disponible.</p>
+    </div>
+
+    <a href="https://discord.gg/AR2KeVtx7X" target="_blank" class="inline-block mt-6 px-6 py-3 font-bold rounded-xl text-white text-base md:text-lg shadow-lg transition-transform transform hover:scale-105 bg-gradient-to-r from-orange-500 to-pink-600 bounce">
+      Rejoindre notre Discord
+    </a>
+
+    <div class="mt-6 text-gray-400 text-xs md:text-sm">
+      📢 L’équipe NoxxWorks — Vers une amélioration continue.
+    </div>
   </div>
 
-  <a href="https://discord.gg/AR2KeVtx7X" target="_blank" class="inline-block mt-6 px-6 py-3 font-bold rounded-xl text-white text-base md:text-lg shadow-lg transition-transform transform hover:scale-105 bg-gradient-to-r from-orange-500 to-pink-600 bounce">
-    Rejoindre notre Discord
-  </a>
-
-  <div class="mt-6 text-gray-400 text-xs md:text-sm">
-    📢 La Team NoxxWorks — Vers une amélioration continue.
+  <!-- Suivi de la réévaluation (juste en dessous) -->
+  <div class="card bg-[#1e1e2f] rounded-xl shadow-xl p-6 max-w-md w-full text-center relative z-10">
+    <h2 class="text-xl md:text-2xl font-bold text-orange-400 mb-3">📊 Suivi de la réévaluation</h2>
+    <p class="text-gray-200 text-sm md:text-base">
+      Analyse des services en cours...<br>
+      Nos équipes examinent actuellement chaque module afin de garantir une optimisation complète et une meilleure fiabilité.
+    </p>
   </div>
-</div>
 
-<!-- Suivi de la réévaluation (juste en dessous) -->
-<div class="card bg-[#1e1e2f] rounded-xl shadow-xl p-6 max-w-md w-full text-center relative z-10">
-  <h2 class="text-xl md:text-2xl font-bold text-orange-400 mb-3">📊 Suivi de la réévaluation</h2>
-  <p class="text-gray-200 text-sm md:text-base">
-    Analyse des services en cours...<br>
-    Nos équipes examinent actuellement chaque module afin de garantir une optimisation complète et une meilleure fiabilité.
-  </p>
-</div>
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
 
-<script>
-  const slides = document.querySelectorAll(".slide");
-  let index = 0;
+    function showSlide() {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+      index = (index + 1) % slides.length;
+    }
 
-  function showSlide() {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
-    index = (index + 1) % slides.length;
-  }
-
-  setInterval(showSlide, 5000); // change toutes les 5 secondes
-</script>
+    setInterval(showSlide, 5000); // change toutes les 5 secondes
+  </script>
 
 </body>
 <script src="global.js"></script>
