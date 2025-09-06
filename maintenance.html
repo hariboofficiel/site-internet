@@ -11,46 +11,48 @@
       background-color: #1a0000;
       color: white;
       text-align: center;
-      padding: 50px;
+      padding: 20px;
     }
     .container {
       border: 3px solid red;
       border-radius: 15px;
-      padding: 40px;
+      padding: 30px;
       background: linear-gradient(145deg, #330000, #220000);
       box-shadow: 0 0 25px red;
       display: inline-block;
       max-width: 700px;
+      width: 100%;
       animation: pulse 2s infinite;
     }
     h1 {
-      font-size: 2.8em;
+      font-size: 2.2em;
       color: #ff1a1a;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       text-transform: uppercase;
       text-shadow: 0 0 15px #ff0000, 0 0 30px #ff3333;
       animation: blink 1.2s infinite alternate;
     }
     h2 {
-      font-size: 1.5em;
+      font-size: 1.3em;
       color: #ff4d4d;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     p {
-      font-size: 1.1em;
-      line-height: 1.6;
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 10px 0;
     }
     .warning {
       font-weight: bold;
       color: #ff0000;
-      font-size: 1.3em;
-      margin: 30px 0;
+      font-size: 1.2em;
+      margin: 20px 0;
       text-transform: uppercase;
       animation: blink 0.8s infinite alternate;
     }
     footer {
-      margin-top: 40px;
-      font-size: 0.9em;
+      margin-top: 25px;
+      font-size: 0.8em;
       color: #cccccc;
     }
 
@@ -63,6 +65,25 @@
       0% { box-shadow: 0 0 15px red; }
       50% { box-shadow: 0 0 35px red; }
       100% { box-shadow: 0 0 15px red; }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+      h2 {
+        font-size: 1.1em;
+      }
+      p, .warning {
+        font-size: 0.95em;
+      }
     }
   </style>
 </head>
