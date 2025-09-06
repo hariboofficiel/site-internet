@@ -3,50 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⚠️ Site en quarantaine</title>
+  <title>⚠️ URGENCE – Site en quarantaine ⚠️</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #1a0000;
+      background: linear-gradient(135deg, #1a0000, #330000);
       color: white;
       text-align: center;
       padding: 50px;
+      overflow-x: hidden;
     }
+    /* Bandeau défilant */
+    .marquee {
+      width: 100%;
+      background: red;
+      color: white;
+      font-weight: bold;
+      padding: 10px 0;
+      font-size: 1.2em;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 10s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
     .container {
-      border: 3px solid red;
+      margin-top: 80px;
+      border: 4px solid red;
       border-radius: 15px;
       padding: 40px;
       background: linear-gradient(145deg, #330000, #220000);
-      box-shadow: 0 0 25px red;
+      box-shadow: 0 0 40px red;
       display: inline-block;
-      max-width: 700px;
-      animation: pulse 2s infinite;
+      max-width: 750px;
+      animation: pulse 1.5s infinite;
     }
     h1 {
-      font-size: 2.8em;
+      font-size: 3em;
       color: #ff1a1a;
       margin-bottom: 20px;
       text-transform: uppercase;
       text-shadow: 0 0 15px #ff0000, 0 0 30px #ff3333;
-      animation: blink 1.2s infinite alternate;
+      animation: blink 0.8s infinite alternate;
     }
     h2 {
-      font-size: 1.5em;
+      font-size: 1.8em;
       color: #ff4d4d;
       margin-bottom: 20px;
     }
     p {
-      font-size: 1.1em;
+      font-size: 1.2em;
       line-height: 1.6;
     }
     .warning {
       font-weight: bold;
       color: #ff0000;
-      font-size: 1.3em;
+      font-size: 1.4em;
       margin: 30px 0;
       text-transform: uppercase;
-      animation: blink 0.8s infinite alternate;
+      animation: blink 0.5s infinite alternate;
     }
     footer {
       margin-top: 40px;
@@ -57,28 +83,33 @@
     /* Animations */
     @keyframes blink {
       from { opacity: 1; }
-      to { opacity: 0.4; }
+      to { opacity: 0.2; }
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 15px red; }
-      50% { box-shadow: 0 0 35px red; }
-      100% { box-shadow: 0 0 15px red; }
+      0% { box-shadow: 0 0 20px red; }
+      50% { box-shadow: 0 0 50px red; }
+      100% { box-shadow: 0 0 20px red; }
     }
   </style>
 </head>
 <body>
+  <!-- Bandeau défilant -->
+  <div class="marquee">
+    <span>🚨 ALERTE DE SÉCURITÉ – SITE EN QUARANTAINE – ACCÈS INTERDIT 🚨</span>
+  </div>
+
   <div class="container">
     <h1>⚠️ Site en quarantaine ⚠️</h1>
-    <h2>Accès temporairement suspendu</h2>
+    <h2>Accès suspendu en urgence</h2>
     <p>
-      Pour des raisons de <strong>sécurité informatique</strong>, ce site a été
-      mis en quarantaine suite à la détection d’une anomalie potentiellement
-      dangereuse.
+      Pour des raisons de <strong>sécurité informatique critique</strong>, ce site a été
+      immédiatement mis en quarantaine suite à la détection d’une activité
+      malveillante.
     </p>
-    <p class="warning">🚨 Veuillez ne pas tenter d’accéder aux services habituels 🚨</p>
+    <p class="warning">🚨 URGENCE : NE PAS TENTER D’ACCÉDER AUX SERVICES 🚨</p>
     <p>
-      Une enquête technique est en cours afin d’identifier et de résoudre le problème.
-      Le site sera rétabli dès que la sécurité pourra être garantie.
+      Une intervention technique est en cours afin de restaurer l’intégrité et la sécurité
+      du système. Merci de revenir plus tard.
     </p>
     <footer>© 2025 – Équipe technique | Tous droits réservés</footer>
   </div>
