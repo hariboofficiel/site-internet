@@ -21,13 +21,15 @@
       box-shadow: 0 0 25px red;
       display: inline-block;
       max-width: 700px;
+      animation: pulse 2s infinite;
     }
     h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
       color: #ff1a1a;
       margin-bottom: 20px;
       text-transform: uppercase;
-      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff3333;
+      text-shadow: 0 0 15px #ff0000, 0 0 30px #ff3333;
+      animation: blink 1.2s infinite alternate;
     }
     h2 {
       font-size: 1.5em;
@@ -44,11 +46,23 @@
       font-size: 1.3em;
       margin: 30px 0;
       text-transform: uppercase;
+      animation: blink 0.8s infinite alternate;
     }
     footer {
       margin-top: 40px;
       font-size: 0.9em;
       color: #cccccc;
+    }
+
+    /* Animations */
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.4; }
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 15px red; }
+      50% { box-shadow: 0 0 35px red; }
+      100% { box-shadow: 0 0 15px red; }
     }
   </style>
 </head>
@@ -61,12 +75,12 @@
       mis en quarantaine suite à la détection d’une anomalie potentiellement
       dangereuse.
     </p>
-    <p class="warning">Veuillez ne pas tenter d’accéder aux services habituels.</p>
+    <p class="warning">🚨 Veuillez ne pas tenter d’accéder aux services habituels 🚨</p>
     <p>
       Une enquête technique est en cours afin d’identifier et de résoudre le problème.
       Le site sera rétabli dès que la sécurité pourra être garantie.
     </p>
-    <footer>© 2025 – Équipe technique de la Team Noxxworks™| Tous droits réservés</footer>
+    <footer>© 2025 – Équipe technique | Tous droits réservés</footer>
   </div>
 </body>
 </html>
