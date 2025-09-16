@@ -5,12 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🛠️ Site en maintenance</title>
   <style>
-    /* Global */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: 'Arial', sans-serif;
       background: linear-gradient(135deg, #1b1b2f, #0f0f1f);
@@ -22,7 +17,6 @@
       overflow: hidden;
     }
 
-    /* Fond animé */
     .background {
       position: absolute;
       width: 200%;
@@ -37,24 +31,22 @@
       100% { transform: translate(0,0) rotate(360deg); }
     }
 
-    /* Conteneur principal */
     .container {
-      background: rgba(30, 30, 50, 0.95);
+      background: rgba(30,30,50,0.95);
       padding: 40px 30px;
       border-radius: 20px;
-      box-shadow: 0 0 60px rgba(255, 170, 0, 0.5);
+      box-shadow: 0 0 60px rgba(255,170,0,0.5);
       max-width: 90%;
       width: 600px;
       text-align: center;
       animation: pulse 3s infinite;
     }
 
-    /* Titres */
     h1 {
       font-size: 2.5em;
       color: #ffcc00;
       margin-bottom: 15px;
-      text-shadow: 0 0 20px #ffcc00, 0 0 40px #ffaa00;
+      text-shadow: 0 0 20px #ffcc00,0 0 40px #ffaa00;
     }
     h2 {
       font-size: 1.5em;
@@ -62,66 +54,53 @@
       margin-bottom: 25px;
       animation: blink 1.5s infinite alternate;
     }
-
-    /* Texte */
-    p {
-      font-size: 1.05em;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
+    p { font-size: 1.05em; line-height:1.6; margin-bottom: 15px; }
 
     /* Engrenages */
-    .icons {
-      margin: 20px 0;
-    }
+    .icons { margin: 20px 0; }
     .icon {
       font-size: 4em;
       margin: 0 15px;
       display: inline-block;
       animation: spin 4s linear infinite;
     }
-    .icon:nth-child(2) {
-      animation-duration: 5s;
+    .icon:nth-child(2) { animation-duration:5s; }
+
+    /* Barre de progression circulaire */
+    .progress-container {
+      margin: 25px auto;
+      width: 120px;
+      height: 120px;
+      position: relative;
+    }
+    .progress-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(#ffcc00 0%, #ffaa00 25%, #ffcc00 50%, #ffaa00 75%, #ffcc00 100%);
+      animation: spin 2s linear infinite;
+    }
+    .progress-text {
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      font-weight: bold;
+      color:#ffd633;
     }
 
-    /* Footer */
-    footer {
-      margin-top: 30px;
-      font-size: 0.85em;
-      color: #cccccc;
-    }
+    footer { margin-top: 30px; font-size:0.85em; color:#cccccc; }
 
-    /* Animations */
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0.4; }
-      100% { opacity: 1; }
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 20px #ffaa00; }
-      50% { box-shadow: 0 0 50px #ffcc00; }
-      100% { box-shadow: 0 0 20px #ffaa00; }
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+    @keyframes blink { 0%{opacity:1;}50%{opacity:0.4;}100%{opacity:1;} }
+    @keyframes pulse { 0%{box-shadow:0 0 20px #ffaa00;}50%{box-shadow:0 0 50px #ffcc00;}100%{box-shadow:0 0 20px #ffaa00;} }
+    @keyframes spin { 0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      .container {
-        padding: 30px 20px;
-      }
-      h1 {
-        font-size: 2em;
-      }
-      h2 {
-        font-size: 1.2em;
-      }
-      .icon {
-        font-size: 3em;
-        margin: 0 10px;
-      }
+    @media (max-width:600px){
+      .container{padding:30px 20px;}
+      h1{font-size:2em;}
+      h2{font-size:1.2em;}
+      .icon{font-size:3em;margin:0 10px;}
+      .progress-container{width:90px;height:90px;}
     }
   </style>
 </head>
@@ -137,10 +116,17 @@
     </div>
     <p>
       Notre équipe technique effectue actuellement une <strong>mise à jour importante</strong>
-      afin d’améliorer la sécurité et les performances du site.
+      pour améliorer la sécurité et les performances du site.
     </p>
+
+    <!-- Barre de progression circulaire -->
+    <div class="progress-container">
+      <div class="progress-circle"></div>
+      <div class="progress-text">🔄</div>
+    </div>
+
     <p>
-      Merci pour votre patience 🙏. Le site sera de nouveau disponible sous peu.
+      Merci pour votre patience 🙏. Le site sera disponible sous peu.
     </p>
     <footer>© 2025 – Équipe technique Team NoxxWorks | Tous droits réservés</footer>
   </div>
