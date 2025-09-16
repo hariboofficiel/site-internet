@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
-  branch: main # ou master selon ton dépôt
+  branch: main
+  site_url: "https://tonsite.netlify.app/admin/" # ou master selon ton dépôt
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
