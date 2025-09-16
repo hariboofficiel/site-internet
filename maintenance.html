@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⚠️ Site en quarantaine</title>
+  <title>🛠️ Site en maintenance</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #1a0000;
+      background: linear-gradient(135deg, #1a1a1a, #000000);
       color: white;
       text-align: center;
       padding: 20px;
     }
     .container {
-      border: 3px solid red;
+      border: 3px solid #ffaa00;
       border-radius: 15px;
       padding: 30px;
-      background: linear-gradient(145deg, #330000, #220000);
-      box-shadow: 0 0 25px red;
+      background: linear-gradient(145deg, #262626, #1a1a1a);
+      box-shadow: 0 0 25px #ffaa00;
       display: inline-block;
       max-width: 700px;
       width: 100%;
@@ -26,29 +26,27 @@
     }
     h1 {
       font-size: 2.2em;
-      color: #ff1a1a;
+      color: #ffcc00;
       margin-bottom: 15px;
       text-transform: uppercase;
-      text-shadow: 0 0 15px #ff0000, 0 0 30px #ff3333;
-      animation: blink 1.2s infinite alternate;
+      text-shadow: 0 0 15px #ffcc00, 0 0 30px #ffaa00;
     }
     h2 {
       font-size: 1.3em;
-      color: #ff4d4d;
-      margin-bottom: 15px;
+      color: #ffd633;
+      margin-bottom: 20px;
+      animation: blink 1.5s infinite alternate;
     }
     p {
       font-size: 1em;
       line-height: 1.5;
       margin: 10px 0;
     }
-    .warning {
-      font-weight: bold;
-      color: #ff0000;
-      font-size: 1.2em;
-      margin: 20px 0;
-      text-transform: uppercase;
-      animation: blink 0.8s infinite alternate;
+    .icon {
+      font-size: 3em;
+      margin: 15px;
+      display: inline-block;
+      animation: spin 4s linear infinite;
     }
     footer {
       margin-top: 25px;
@@ -62,9 +60,13 @@
       to { opacity: 0.4; }
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 15px red; }
-      50% { box-shadow: 0 0 35px red; }
-      100% { box-shadow: 0 0 15px red; }
+      0% { box-shadow: 0 0 15px #ffaa00; }
+      50% { box-shadow: 0 0 35px #ffcc00; }
+      100% { box-shadow: 0 0 15px #ffaa00; }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     /* Responsive */
@@ -81,7 +83,7 @@
       h2 {
         font-size: 1.1em;
       }
-      p, .warning {
+      p {
         font-size: 0.95em;
       }
     }
@@ -89,19 +91,21 @@
 </head>
 <body>
   <div class="container">
-    <h1>⚠️ Site en quarantaine ⚠️</h1>
-    <h2>Accès temporairement suspendu</h2>
+    <h1>🛠️ Site en maintenance 🛠️</h1>
+    <h2>Nous revenons très bientôt !</h2>
+    <div>
+      <span class="icon">⚙️</span>
+      <span class="icon">🔧</span>
+      <span class="icon">⚙️</span>
+    </div>
     <p>
-      Pour des raisons de <strong>sécurité informatique</strong>, ce site a été
-      mis en quarantaine suite à la détection d’une anomalie potentiellement
-      dangereuse.
+      Notre équipe technique procède actuellement à une <strong>mise à jour importante</strong> afin
+      d’améliorer la sécurité et les performances du site.
     </p>
-    <p class="warning">🚨 Veuillez ne pas tenter d’accéder aux services habituels 🚨</p>
     <p>
-      Une enquête technique est en cours afin d’identifier et de résoudre le problème.
-      Le site sera rétabli dès que la sécurité pourra être garantie.
+      Merci pour votre patience 🙏. Le site sera de nouveau disponible sous peu.
     </p>
-    <footer>© 2025 – Équipe technique | Tous droits réservés</footer>
+    <footer>© 2025 – Équipe technique Team NoxxWorks | Tous droits réservés</footer>
   </div>
 </body>
 </html>
