@@ -5,64 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🛠️ Site en maintenance</title>
   <style>
-    body {
+    /* Global */
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #000000);
+      padding: 0;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1b1b2f, #0f0f1f);
       color: white;
-      text-align: center;
-      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
+
+    /* Fond animé */
+    .background {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, #2a2a40, #0f0f1f);
+      animation: moveBg 20s linear infinite;
+      z-index: -1;
+    }
+    @keyframes moveBg {
+      0% { transform: translate(0,0) rotate(0deg); }
+      50% { transform: translate(-20%, -20%) rotate(180deg); }
+      100% { transform: translate(0,0) rotate(360deg); }
+    }
+
+    /* Conteneur principal */
     .container {
-      border: 3px solid #ffaa00;
-      border-radius: 15px;
-      padding: 30px;
-      background: linear-gradient(145deg, #262626, #1a1a1a);
-      box-shadow: 0 0 25px #ffaa00;
-      display: inline-block;
-      max-width: 700px;
-      width: 100%;
-      animation: pulse 2s infinite;
+      background: rgba(30, 30, 50, 0.95);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 60px rgba(255, 170, 0, 0.5);
+      max-width: 90%;
+      width: 600px;
+      text-align: center;
+      animation: pulse 3s infinite;
     }
+
+    /* Titres */
     h1 {
-      font-size: 2.2em;
+      font-size: 2.5em;
       color: #ffcc00;
       margin-bottom: 15px;
-      text-transform: uppercase;
-      text-shadow: 0 0 15px #ffcc00, 0 0 30px #ffaa00;
+      text-shadow: 0 0 20px #ffcc00, 0 0 40px #ffaa00;
     }
     h2 {
-      font-size: 1.3em;
+      font-size: 1.5em;
       color: #ffd633;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       animation: blink 1.5s infinite alternate;
     }
+
+    /* Texte */
     p {
-      font-size: 1em;
-      line-height: 1.5;
-      margin: 10px 0;
+      font-size: 1.05em;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* Engrenages */
+    .icons {
+      margin: 20px 0;
     }
     .icon {
-      font-size: 3em;
-      margin: 15px;
+      font-size: 4em;
+      margin: 0 15px;
       display: inline-block;
       animation: spin 4s linear infinite;
     }
+    .icon:nth-child(2) {
+      animation-duration: 5s;
+    }
+
+    /* Footer */
     footer {
-      margin-top: 25px;
-      font-size: 0.8em;
+      margin-top: 30px;
+      font-size: 0.85em;
       color: #cccccc;
     }
 
     /* Animations */
     @keyframes blink {
-      from { opacity: 1; }
-      to { opacity: 0.4; }
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 15px #ffaa00; }
-      50% { box-shadow: 0 0 35px #ffcc00; }
-      100% { box-shadow: 0 0 15px #ffaa00; }
+      0% { box-shadow: 0 0 20px #ffaa00; }
+      50% { box-shadow: 0 0 50px #ffcc00; }
+      100% { box-shadow: 0 0 20px #ffaa00; }
     }
     @keyframes spin {
       0% { transform: rotate(0deg); }
@@ -71,36 +109,35 @@
 
     /* Responsive */
     @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
       .container {
-        padding: 20px;
+        padding: 30px 20px;
       }
       h1 {
-        font-size: 1.8em;
+        font-size: 2em;
       }
       h2 {
-        font-size: 1.1em;
+        font-size: 1.2em;
       }
-      p {
-        font-size: 0.95em;
+      .icon {
+        font-size: 3em;
+        margin: 0 10px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="background"></div>
   <div class="container">
     <h1>🛠️ Site en maintenance 🛠️</h1>
     <h2>Nous revenons très bientôt !</h2>
-    <div>
+    <div class="icons">
       <span class="icon">⚙️</span>
       <span class="icon">🔧</span>
       <span class="icon">⚙️</span>
     </div>
     <p>
-      Notre équipe technique procède actuellement à une <strong>mise à jour importante</strong> afin
-      d’améliorer la sécurité et les performances du site.
+      Notre équipe technique effectue actuellement une <strong>mise à jour importante</strong>
+      afin d’améliorer la sécurité et les performances du site.
     </p>
     <p>
       Merci pour votre patience 🙏. Le site sera de nouveau disponible sous peu.
