@@ -47,30 +47,7 @@
     <!-- Lien discret -->
     <a class="secret-link" onclick="showForm()">Administration</a>
 
-    <!-- Formulaire mot de passe (caché au départ) -->
-    <div id="admin-form">
-      <input type="password" id="password" placeholder="Mot de passe">
-      <button onclick="checkPassword()">Entrer</button>
-    </div>
-  </div>
-
-  <script>
-    function showForm() {
-      document.getElementById("admin-form").style.display = "block";
-    }
-
-    function checkPassword() {
-      const input = document.getElementById("password").value;
-      const secret = "TeamNoxxWorks25"; // <-- change ici ton mot de passe
-
-      if (input === secret) {
-        // Redirige vers la vraie page AVEC le token unlocked=1
-        window.location.href = "https://noxxworks.netlify.app/developpementdiscord?unlocked=1";
-      } else {
-        alert("Mot de passe incorrect ❌");
-      }
-    }
-  </script>
+   
   <script src="global.js"></script>
 </body>
 </html>
