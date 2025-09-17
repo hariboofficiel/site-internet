@@ -2,28 +2,6 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Développement Discord</title>
-  <script>
-    // Vérifie si l’accès est débloqué
-    const params = new URLSearchParams(window.location.search);
-    const unlocked = params.get("unlocked");
-
-    if (unlocked !== "1") {
-      // Si pas débloqué -> redirection vers la page 404
-      window.location.href = "https://noxxworks.netlify.app/404";
-    }
-  </script>
-</head>
-<body>
-  <h1>Bienvenue sur la vue administrateur</h1>
-  <p>Seul toi avec le mot de passe peux voir cette page.</p>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Développement Discord • Team NoxxWorks</title>
   <link rel="icon" type="image/png" href="favicon.png" />
