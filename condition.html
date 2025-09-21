@@ -20,6 +20,13 @@
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Pour éviter que les titres soient cachés par la navbar sticky */
+    section {
+      scroll-margin-top: 100px; /* hauteur de la navbar */
+    }
+  </style>
 </head>
 <body class="bg-[#1e1e2f] text-gray-100 font-sans">
 
@@ -92,6 +99,7 @@
         <h2 class="text-2xl font-bold text-orange-400 border-b border-gray-600 pb-2">4. Accès et fonctionnement</h2>
         <ul class="list-disc pl-6 space-y-2 text-gray-300">
           <li>L’accès au serveur est gratuit mais nécessite un compte Discord.</li>
+          <li>L’accès est strictement réservé aux personnes âgées de 13 ans et plus (conformément aux règles de Discord).</li>
           <li>La Team NoxxWorks peut restreindre ou suspendre l’accès à tout moment en cas de manquement aux CGU.</li>
           <li>Le serveur est disponible 24/7 sauf maintenance ou force majeure.</li>
         </ul>
@@ -182,13 +190,16 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        const target = document.querySelector(this.getAttribute('href'));
+        const offset = 90; // hauteur de la navbar
+        const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - offset,
           behavior: 'smooth'
         });
       });
     });
   </script>
-
 
 </body>
 </html>
