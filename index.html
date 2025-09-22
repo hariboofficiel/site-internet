@@ -145,7 +145,7 @@
   <!-- SCRIPT -->
   <script>
     // --- DISCORD ---
-    const discordServerID = "TON_ID_SERVEUR"; // remplace par ton ID Discord
+    const discordServerID = "1377633416941670625"; // remplace par ton ID Discord
     function updateDiscord() {
       fetch(`https://discord.com/api/guilds/${discordServerID}/widget.json`)
         .then(res => res.json())
@@ -163,7 +163,7 @@
 
     // --- YOUTUBE ---
     const ytChannelID = "UC2rWVf96BPWKt0UfNwEfZng"; // ton Channel ID
-    const ytAPIKey = "TA_CLE_API"; // remplace par ta clé API Google
+    const ytAPIKey = "AIzaSyAT4gQfyuVyWzZRxkSsa4wr7C4x6MvRVO0"; // remplace par ta clé API Google
     function updateYouTube() {
       fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${ytChannelID}&key=${ytAPIKey}`)
         .then(res => res.json())
@@ -269,6 +269,7 @@
   <script src="global.js"></script>
 </body>
 </html>
+
 
 
 
