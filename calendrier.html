@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendrier • Team NoxxWorks</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f0f1a;
+      color: #eee;
+    }
+    h1, h2 {
+      text-shadow: 0 0 5px #ff6a00, 0 0 10px #ee0979, 0 0 20px #ff6a00;
+    }
+    .frame-container {
+      background: #1e1e2f;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(238, 9, 121, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .frame-container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(255, 106, 0, 0.6), 0 0 50px rgba(238, 9, 121, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="text-center py-10 bg-gradient-to-r from-orange-500 to-pink-600 shadow-xl">
+    <h1 class="text-3xl md:text-5xl font-extrabold">📅 Calendrier Team NoxxWorks</h1>
+    <p class="mt-3 text-sm md:text-lg">Tous nos événements Discord, TikTok et Twitch en direct</p>
+  </header>
+
+  <!-- CALENDRIER -->
+  <section class="max-w-6xl mx-auto p-6 text-center">
+    <h2 class="text-2xl md:text-4xl font-bold text-orange-400 mb-6">Événements à venir</h2>
+    <div class="frame-container">
+      <iframe 
+        src="https://calendar.google.com/calendar/embed?src=teamnoxxworks%40gmail.com&ctz=America%2FToronto" 
+        style="border:0" 
+        width="100%" 
+        height="600" 
+        frameborder="0" 
+        scrolling="no"
+        class="rounded-lg w-full">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#29293d] text-center py-4 md:py-6 mt-8 text-xs md:text-base">
+    <p>© 2025 Team NoxxWorks. Tous droits réservés.</p>
+  </footer>
+
+</body>
+</html>
