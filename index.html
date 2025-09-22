@@ -78,25 +78,82 @@
       <a href="https://www.tiktok.com/@teamnoxxworks" class="px-4 md:px-6 py-2 rounded-lg font-bold bg-white/20 hover:bg-white/40 text-white shadow-lg text-sm md:text-base">🎥 TikTok</a>
       <a href="https://noxxworks.netlify.app/Direction" class="px-4 md:px-6 py-2 rounded-lg font-bold text-white shadow-lg btn-gradient text-sm md:text-base">🏛 Direction</a>
     </div>
-    <!-- COMPTEURS EN TEMPS RÉEL -->
-    <section class="mt-6 flex flex-wrap justify-center gap-6 text-center text-white">
-      <div class="bg-[#1e1e2f] p-4 rounded-xl shadow-lg w-40">
-        <h3 class="font-bold text-lg">Discord</h3>
-        <p id="discord-count">...</p>
-      </div>
-      <div class="bg-[#1e1e2f] p-4 rounded-xl shadow-lg w-40">
-        <h3 class="font-bold text-lg">YouTube</h3>
-        <p id="yt-subs">...</p>
-      </div>
-      <div class="bg-[#1e1e2f] p-4 rounded-xl shadow-lg w-40">
-        <h3 class="font-bold text-lg">Twitch</h3>
-        <p id="twitch-followers">...</p>
-      </div>
-      <div class="bg-[#1e1e2f] p-4 rounded-xl shadow-lg w-40">
-        <h3 class="font-bold text-lg">TikTok</h3>
-        <p id="tiktok-followers">...</p>
-      </div>
-    </section>
+<!-- COMPTEURS EN TEMPS RÉEL -->
+<section class="mt-6 flex flex-wrap justify-center gap-6 text-center text-white">
+  <div class="bg-[#1e1e2f] p-4 rounded-xl shadow-lg w-40">
+    <h3 class="font-bold text-lg">Discord</h3>
+    <p id="discord-count">...</p>
+  </div>
+  <div class="bg-[#1e1e2f] p-4 rounded-xl shadow-lg w-40">
+    <h3 class="font-bold text-lg">YouTube</h3>
+    <p id="yt-subs">...</p>
+  </div>
+  <div class="bg-[#1e1e2f] p-4 rounded-xl shadow-lg w-40">
+    <h3 class="font-bold text-lg">Twitch</h3>
+    <p id="twitch-followers">...</p>
+  </div>
+  <div class="bg-[#1e1e2f] p-4 rounded-xl shadow-lg w-40">
+    <h3 class="font-bold text-lg">TikTok</h3>
+    <p id="tiktok-followers">...</p>
+  </div>
+</section>
+
+<script>
+  // --- DISCORD ---
+  const discordServerID = "1377633416941670625"; // remplace par ton ID Discord
+  fetch(`https://discord.com/api/guilds/${discordServerID}/widget.json`)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("discord-count").innerText = 
+        data.presence_count + " en ligne / " + data.members.length + " membres";
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById("discord-count").innerText = "Impossible";
+    });
+
+ // --- YOUTUBE ---
+const ytChannelID = "UC2rWVf96BPWKt0UfNwEfZng"; // Ton Channel ID
+const ytAPIKey = "AIzaSyAT4gQfyuVyWzZRxkSsa4wr7C4x6MvRVO0"; // Remplace par ta clé API Google
+fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${ytChannelID}&key=${ytAPIKey}`)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("yt-subs").innerText = 
+      data.items[0].statistics.subscriberCount + " abonnés";
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("yt-subs").innerText = "Impossible";
+  });
+
+
+  // --- TWITCH ---
+  const twitchUser = "TON_PSEUDO"; // ton pseudo Twitch
+  const twitchClientID = "TON_CLIENT_ID"; // Client ID Twitch
+  const twitchToken = "TON_TOKEN"; // Token OAuth Twitch
+  fetch(`https://api.twitch.tv/helix/users?login=${twitchUser}`, {
+    headers: {
+      'Client-ID': twitchClientID,
+      'Authorization': 'Bearer ' + twitchToken
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("twitch-followers").innerText = 
+      data.data[0].view_count + " followers";
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("twitch-followers").innerText = "Impossible";
+  });
+
+  // --- TIKTOK ---
+  const tiktokUser = "teamnoxxworks"; // pseudo TikTok
+  // TikTok n’a pas d’API officielle, on met juste un lien
+  document.getElementById("tiktok-followers").innerHTML = 
+    `<a href="https://www.tiktok.com/@${tiktokUser}" target="_blank">Voir sur TikTok</a>`;
+</script>
+
 
 
     <div class="absolute bottom-0 left-0 right-0">
@@ -156,4 +213,5 @@
   <script src="global.js"></script>
 </body>
 </html>
+
 
