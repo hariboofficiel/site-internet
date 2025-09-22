@@ -99,18 +99,7 @@
 </section>
 
 <script>
-  // --- DISCORD ---
-  const discordServerID = "1377633416941670625"; // remplace par ton ID Discord
-  fetch(`https://discord.com/api/guilds/${discordServerID}/widget.json`)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("discord-count").innerText = 
-        data.presence_count + " en ligne / " + data.members.length + " membres";
-    })
-    .catch(err => {
-      console.error(err);
-      document.getElementById("discord-count").innerText = "Impossible";
-    });
+<iframe src="https://discord.com/widget?id=1377633416941670625&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
  // --- YOUTUBE ---
 const ytChannelID = "UC2rWVf96BPWKt0UfNwEfZng"; // Ton Channel ID
@@ -213,5 +202,6 @@ fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${ytCha
   <script src="global.js"></script>
 </body>
 </html>
+
 
 
