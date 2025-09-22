@@ -14,9 +14,10 @@ if (maintenanceMode) {
   }
 }
 <script>
+  
   // --- DISCORD ---
-  const discordServerID = "TON_ID_SERVEUR"; // remplace par ton ID Discord
-  fetch(`https://discord.com/api/guilds/${discordServerID}/widget.json`)
+  const discordServerID = "1377633416941670625"; // remplace par ton ID Discord
+  fetch(`https://discord.com/api/guilds/${1377633416941670625}/widget.json`)
     .then(res => res.json())
     .then(data => {
       document.getElementById("discord-count").innerText = data.presence_count + " en ligne / " + data.members.length + " membres";
