@@ -1,101 +1,23 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assistant IA NoxxWorks</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0d1117;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-    }
-    #chat {
-      width: 90%;
-      max-width: 600px;
-      background: #161b22;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 20px #0ff;
-    }
-    #messages {
-      height: 300px;
-      overflow-y: auto;
-      border-bottom: 1px solid #333;
-      margin-bottom: 10px;
-      padding: 10px;
-    }
-    .msg { margin: 5px 0; }
-    .user { color: #0ff; }
-    .bot { color: #0f0; }
-    input {
-      width: 80%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px;
-      border: none;
-      background: #0ff;
-      color: #000;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover { background: #0cc; }
-  </style>
-</head>
-<body>
-  <h1>🤖 Assistant IA NoxxWorks</h1>
-  <div id="chat">
-    <div id="messages"></div>
-    <input id="userInput" placeholder="Pose ta question ici...">
-    <button onclick="sendMessage()">Envoyer</button>
-  </div>
+<h1>Assistant IA NoxxWorks</h1>
+<div id="messages"></div>
+<input id="input" placeholder="Écris ta question...">
+<button onclick="sendMessage()">Envoyer</button>
 
-  <script>
-    const messagesDiv = document.getElementById("messages");
+<script>
+  async function sendMessage() {
+    const input = document.getElementById("input");
+    const message = input.value;
+    input.value = "";
 
-    // Réponses prédéfinies (exemple gratuit sans IA payante)
-    function getBotResponse(userMsg) {
-      userMsg = userMsg.toLowerCase();
+    document.getElementById("messages").innerHTML += "<p><b>👤 :</b> " + message + "</p>";
 
-      if (userMsg.includes("bot discord") && userMsg.includes("débutant")) {
-        return "Voici ton plan débutant pour créer un bot Discord :\n1. Installer Node.js\n2. Créer une application Discord sur le portail développeur\n3. Utiliser discord.js pour coder un bot simple\n4. Le lancer et le tester\n👉 Astuce : commence par une commande !ping";
-      } 
-      if (userMsg.includes("tiktok")) {
-        return "Plan TikTok :\n1. Choisir une niche (gaming, humour, tuto...)\n2. Publier régulièrement (1 vidéo/jour si possible)\n3. Utiliser des musiques tendances\n4. Optimiser la description avec hashtags\n5. Analyser les stats et ajuster.";
-      }
+    const res = await fetch("/.netlify/functions/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
+    });
 
-      return "Désolé, je n’ai pas compris 😅. Essaie avec : 'Je veux créer un bot Discord débutant' ou 'Je veux grandir sur TikTok'.";
-    }
-
-    function sendMessage() {
-      const input = document.getElementById("userInput");
-      const userMsg = input.value;
-      if (!userMsg) return;
-
-      // Affiche message utilisateur
-      const userDiv = document.createElement("div");
-      userDiv.className = "msg user";
-      userDiv.textContent = "👤 " + userMsg;
-      messagesDiv.appendChild(userDiv);
-
-      // Réponse du bot
-      const botDiv = document.createElement("div");
-      botDiv.className = "msg bot";
-      botDiv.textContent = "🤖 " + getBotResponse(userMsg);
-      messagesDiv.appendChild(botDiv);
-
-      input.value = "";
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
-  </script>
-</body>
-</html>
+    const data = await res.json();
+    document.getElementById("messages").innerHTML += "<p><b>🤖 :</b> " + data.reply + "</p>";
+  }
+</script>
