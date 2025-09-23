@@ -115,7 +115,7 @@ fetch(`https://discord.com/api/guilds/${discordServerID}/widget.json`)
   .then(res => res.json())
   .then(data => {
     document.getElementById("discord-count").innerText = 
-      data.presence_count + " en ligne / 92 membres"; // 91 fixé manuellement
+      data.presence_count + " en ligne / 91 membres"; // 91 fixé manuellement
   })
   .catch(err => {
     console.error(err);
