@@ -1,23 +1,176 @@
-<h1>Assistant IA NoxxWorks</h1>
-<div id="messages"></div>
-<input id="input" placeholder="Écris ta question...">
-<button onclick="sendMessage()">Envoyer</button>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant IA NoxxWorks</title>
+  <style>
+    /* ===== Style général ===== */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0d1117, #161b22);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
 
-<script>
-  async function sendMessage() {
+    h1 {
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+      margin-bottom: 20px;
+    }
+
+    /* ===== Chat box ===== */
+    #chat-container {
+      background: #1c1f26;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #0ff6;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #messages {
+      padding: 15px;
+      height: 400px;
+      overflow-y: auto;
+      border-bottom: 2px solid #0ff4;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      padding: 10px 15px;
+      border-radius: 15px;
+      max-width: 80%;
+      line-height: 1.4;
+      word-wrap: break-word;
+    }
+
+    .user {
+      background: #0ff3;
+      color: #000;
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .bot {
+      background: #0f0a3c;
+      border: 1px solid #0ff;
+      color: #0ff;
+      align-self: flex-start;
+      text-align: left;
+    }
+
+    /* ===== Input area ===== */
+    #input-container {
+      display: flex;
+      padding: 10px;
+      background: #161b22;
+    }
+
+    #input {
+      flex: 1;
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: 1px solid #0ff;
+      background: #0d1117;
+      color: #fff;
+      outline: none;
+      font-size: 16px;
+    }
+
+    #send-btn {
+      margin-left: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #0ff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #send-btn:hover {
+      background: #0cc;
+    }
+
+    /* ===== Scrollbar stylée ===== */
+    #messages::-webkit-scrollbar {
+      width: 8px;
+    }
+    #messages::-webkit-scrollbar-track {
+      background: #161b22;
+    }
+    #messages::-webkit-scrollbar-thumb {
+      background: #0ff6;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🤖 Assistant IA NoxxWorks</h1>
+
+  <div id="chat-container">
+    <div id="messages"></div>
+    <div id="input-container">
+      <input type="text" id="input" placeholder="Écris ta question..." onkeydown="if(event.key==='Enter'){sendMessage()}">
+      <button id="send-btn" onclick="sendMessage()">Envoyer</button>
+    </div>
+  </div>
+
+  <script>
+    const messagesDiv = document.getElementById("messages");
     const input = document.getElementById("input");
-    const message = input.value;
-    input.value = "";
 
-    document.getElementById("messages").innerHTML += "<p><b>👤 :</b> " + message + "</p>";
+    async function sendMessage() {
+      const message = input.value.trim();
+      if (!message) return;
+      input.value = "";
 
-    const res = await fetch("/.netlify/functions/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
-    });
+      // Ajouter message utilisateur
+      const userMsg = document.createElement("div");
+      userMsg.className = "message user";
+      userMsg.textContent = message;
+      messagesDiv.appendChild(userMsg);
 
-    const data = await res.json();
-    document.getElementById("messages").innerHTML += "<p><b>🤖 :</b> " + data.reply + "</p>";
-  }
-</script>
+      // Scroll automatique
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+      // Appel à la fonction Netlify
+      try {
+        const res = await fetch("/.netlify/functions/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await res.json();
+        const botMsg = document.createElement("div");
+        botMsg.className = "message bot";
+        botMsg.textContent = data.reply || "Je n'ai pas compris 😅";
+        messagesDiv.appendChild(botMsg);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      } catch (err) {
+        console.error(err);
+        const botMsg = document.createElement("div");
+        botMsg.className = "message bot";
+        botMsg.textContent = "Erreur de communication avec le serveur 😓";
+        messagesDiv.appendChild(botMsg);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
+    }
+  </script>
+
+</body>
+</html>
