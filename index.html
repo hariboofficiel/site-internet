@@ -109,18 +109,18 @@
 </section>
 
 <script>
-  // --- DISCORD ---
-  const discordServerID = "1377633416941670625"; // remplace par ton ID Discord
-  fetch(`https://discord.com/api/guilds/${discordServerID}/widget.json`)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("discord-count").innerText = 
-        data.presence_count + " en ligne / " + data.members.length + " membres";
-    })
-    .catch(err => {
-      console.error(err);
-      document.getElementById("discord-count").innerText = "Impossible";
-    });
+// --- Discord---
+ const discordServerID = "1377633416941670625"; 
+fetch(`https://discord.com/api/guilds/${discordServerID}/widget.json`)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("discord-count").innerText = 
+      data.presence_count + " en ligne / 92 membres"; // 91 fixé manuellement
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("discord-count").innerText = "Impossible";
+  });
 
   // --- YOUTUBE ---
   const ytChannelID = "UC2rWVf96BPWKt0UfNwEfZng"; // remplace par ton ID YouTube
@@ -224,6 +224,7 @@
   <script src="global.js"></script>
 </body>
 </html>
+
 
 
 
