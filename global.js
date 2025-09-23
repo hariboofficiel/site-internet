@@ -13,4 +13,3 @@ if (maintenanceMode) {
     window.location.href = "https://noxxworks.netlify.app/";
   }
 }
-<script>
