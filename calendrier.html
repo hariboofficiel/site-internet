@@ -2,14 +2,13 @@
 <html lang="fr">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWLEDWLK7Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TWLEDWLK7Z');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWLEDWLK7Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TWLEDWLK7Z');
+  </script>
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +16,7 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <meta property="og:title" content="Calendrier Team NoxxWorks">
   <meta property="og:description" content="Consulte le calendrier officiel de la Team NoxxWorks et ne rate aucun événement !">
   <meta property="og:image" content="https://noxxworks.netlify.app/preview-image.png">
@@ -29,6 +29,7 @@
       background-color: #0f0f1a;
       color: #eee;
       text-align: center;
+      transition: background 0.3s, color 0.3s;
     }
 
     .calendar-container {
@@ -50,6 +51,16 @@
       border: 0;
     }
 
+    /* mode clair */
+    .light {
+      background: #fdfdfd;
+      color: #111;
+    }
+
+    .light .calendar-container {
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
     /* responsive */
     @media (max-width: 768px) {
       .calendar-container {
@@ -66,21 +77,86 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header class="bg-gradient-to-r from-orange-500 to-pink-600 py-6 shadow-lg">
-    <h1 class="text-2xl md:text-4xl font-extrabold neon-text">📅 Calendrier Team NoxxWorks</h1>
+    <h1 class="text-2xl md:text-4xl font-extrabold">📅 Calendrier Team NoxxWorks</h1>
     <p class="mt-2 text-sm md:text-base">Ne manque aucun événement de la Team 🚀</p>
   </header>
 
+  <!-- Outils -->
+  <section class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <!-- Boutons -->
+    <div class="flex gap-3">
+      <button id="toggleTheme" class="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition">
+        🌙/☀️ Mode
+      </button>
+      <a href="https://calendar.google.com/calendar/u/0/r?cid=teamnoxxworks@gmail.com" target="_blank"
+         class="px-4 py-2 rounded-lg bg-orange-500 hover:bg-orange-600 transition">
+        ➕ Ajouter à Google Agenda
+      </a>
+    </div>
+
+    <!-- Recherche -->
+    <form onsubmit="searchEvent(event)" class="flex items-center gap-2">
+      <input id="searchInput" type="text" placeholder="Rechercher un événement..."
+             class="px-3 py-2 rounded-lg border border-gray-500 bg-gray-800 text-sm w-60 focus:outline-none focus:ring-2 focus:ring-orange-400">
+      <button type="submit" class="px-3 py-2 rounded-lg bg-pink-500 hover:bg-pink-600 transition">
+        🔍
+      </button>
+    </form>
+  </section>
+
+  <!-- Calendrier -->
   <main class="max-w-6xl mx-auto px-4 py-8">
     <div class="calendar-container">
-      <iframe src="https://calendar.google.com/calendar/embed?src=teamnoxxworks%40gmail.com&ctz=America%2FToronto"></iframe>
+      <iframe id="calendarFrame" 
+              src="https://calendar.google.com/calendar/embed?src=teamnoxxworks%40gmail.com&ctz=America%2FToronto&mode=MONTH"
+              loading="lazy"></iframe>
+    </div>
+
+    <!-- Choix de vue -->
+    <div class="flex justify-center gap-3 mt-4">
+      <button onclick="changeView('MONTH')" class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded">Mois</button>
+      <button onclick="changeView('WEEK')" class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded">Semaine</button>
+      <button onclick="changeView('AGENDA')" class="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded">Agenda</button>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="bg-[#29293d] text-center py-4 text-xs md:text-base">
     <p>© 2025 Team NoxxWorks. Tous droits réservés.</p>
   </footer>
 
-  <script src="global.js"></script>
+  <!-- Script -->
+  <script>
+    // --- Mode sombre/clair ---
+    const toggleBtn = document.getElementById("toggleTheme");
+    const body = document.body;
+
+    if(localStorage.getItem("theme") === "light"){
+      body.classList.add("light");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("light");
+      localStorage.setItem("theme", body.classList.contains("light") ? "light" : "dark");
+    });
+
+    // --- Changer la vue du calendrier ---
+    function changeView(view) {
+      const iframe = document.getElementById("calendarFrame");
+      iframe.src = `https://calendar.google.com/calendar/embed?src=teamnoxxworks%40gmail.com&ctz=America%2FToronto&mode=${view}`;
+    }
+
+    // --- Recherche d’événement (redirige vers Google Agenda avec query) ---
+    function searchEvent(e) {
+      e.preventDefault();
+      const query = document.getElementById("searchInput").value;
+      if(query.trim() !== ""){
+        window.open(`https://calendar.google.com/calendar/u/0/r/search?q=${encodeURIComponent(query)}`, "_blank");
+      }
+    }
+  </script>
+
 </body>
 </html>
