@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Google tag -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWLEDWLK7Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -13,152 +13,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team NoxxWorks</title>
-  <link rel="icon" href="favicon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Team NoxxWorks : fun, créativité, développement Discord et contenu TikTok. Rejoins-nous !"> <!-- NEW -->
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- SEO -->
-  <meta name="description" content="Team NoxxWorks : Communauté Discord & TikTok créative 🚀">
-  <meta name="keywords" content="NoxxWorks, Discord, TikTok, communauté, développement">
   <meta property="og:title" content="Team NoxxWorks">
   <meta property="og:description" content="Rejoins la Team NoxxWorks pour du fun, du développement Discord et du contenu TikTok !">
   <meta property="og:image" content="https://noxxworks.netlify.app/preview-image.png">
   <meta property="og:url" content="https://noxxworks.netlify.app/">
+  <meta property="og:type" content="website">
 
   <style>
-    body { font-family: 'Roboto', sans-serif; background:#0f0f1a; color:#eee; transition:background 0.3s, color 0.3s; }
-    .light { background:#fafafa; color:#111; }
-    .hover-card { transition:transform 0.3s, box-shadow 0.3s; }
-    .hover-card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 8px 22px rgba(0,0,0,0.4); }
-    .btn-gradient { background:linear-gradient(90deg,#ff6a00,#ee0979); }
-    .btn-gradient:hover { transform:scale(1.05); }
-    .neon-text { text-shadow:0 0 5px #ff6a00, 0 0 10px #ee0979; }
-    .scroll-progress { position:fixed; top:0; left:0; height:4px; background:#ff6a00; width:0%; z-index:50; }
-    .fade-in { opacity:0; transform:translateY(20px); transition:all 0.8s ease-out; }
-    .fade-in.show { opacity:1; transform:translateY(0); }
-    #backToTop { position:fixed; bottom:20px; right:20px; display:none; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f0f1a;
+      color: #eee;
+      transition: background 0.3s, color 0.3s;
+    }
+    /* Mode clair */
+    body.light {
+      background: #f7f7f7;
+      color: #222;
+    }
+    .hover-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+    .btn-gradient {
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      box-shadow: 0 6px 14px rgba(238, 9, 121, 0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-gradient:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(238, 9, 121, 0.5);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .animate-fadeIn { animation: fadeIn 0.8s ease-out; }
+    .neon-text { color: #fff; text-shadow: 0 0 5px #ff6a00, 0 0 10px #ee0979, 0 0 20px #ff6a00; }
+    .neon-btn { color: #fff; text-shadow: 0 0 5px #00ff88, 0 0 10px #00ff88, 0 0 20px #00ff88; }
+    /* Bouton retour haut */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 20px; right: 20px;
+      background: linear-gradient(90deg,#ff6a00,#ee0979);
+      color: white; padding: 10px 14px;
+      border-radius: 50%; cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+    #backToTop:hover { transform: scale(1.1);}
   </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-14 md:py-24 shadow-xl">
+    <h1 class="text-3xl md:text-5xl font-extrabold drop-shadow-lg">✩༺• Team NoxxWorks •༻✩</h1>
+    <p class="mt-3 text-sm md:text-lg">Une communauté fun & créative autour de Discord et TikTok</p>
 
-<div class="scroll-progress" id="scrollProgress"></div>
+    <!-- Switch thème -->
+    <button id="themeToggle" class="mt-4 px-4 py-2 rounded-lg bg-black/40 hover:bg-black/60 text-white font-bold">
+      🌙/☀️ Thème
+    </button>
+  </header>
 
-<!-- HEADER -->
-<header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-16 shadow-lg">
-  <h1 class="text-4xl md:text-5xl font-extrabold neon-text">✩༺• Team NoxxWorks •༻✩</h1>
-  <p class="mt-3 text-lg">Une communauté fun & créative autour de Discord et TikTok 🚀</p>
-  <button id="toggleTheme" class="mt-4 px-4 py-2 rounded bg-white/20 hover:bg-white/40">🌙 Mode</button>
-</header>
+  <!-- NAV -->
+  <nav class="flex flex-wrap justify-center gap-4 bg-[#29293d] py-3 text-sm md:text-lg font-semibold sticky top-0 z-50 shadow-md">
+    <a href="https://noxxworks.netlify.app/condition" class="hover:text-orange-400">Conditions</a>
+    <a href="https://noxxworks.netlify.app/privacy" class="hover:text-orange-400">Confidentialité</a>
+    <a href="https://noxxworks.netlify.app/Direction" class="hover:text-orange-400">Direction</a>
+  </nav>
 
-<!-- NAV -->
-<nav class="flex justify-center gap-6 bg-[#29293d] py-3 sticky top-0 z-40 shadow-md">
-  <a href="#" class="hover:text-orange-400">Accueil</a>
-  <a href="#team" class="hover:text-orange-400">Équipe</a>
-  <a href="#faq" class="hover:text-orange-400">FAQ</a>
-  <a href="#contact" class="hover:text-orange-400">Contact</a>
-</nav>
+  <!-- SECTION EXEMPLE -->
+  <section class="max-w-6xl mx-auto p-6 grid md:grid-cols-3 gap-4 text-center mt-6">
+    <a href="https://noxxworks.netlify.app/developpementdiscord" class="block p-4 md:p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card transition animate-fadeIn">
+      <h3 class="text-lg md:text-2xl font-bold text-orange-400 mb-2">⚡ Développement Discord</h3>
+      <p>Un espace avec projets, scripts et nouveautés pour améliorer ton expérience Discord.</p>
+    </a>
+    <a href="https://noxxworks.netlify.app/social" class="block p-4 md:p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card transition animate-fadeIn">
+      <h3 class="text-lg md:text-2xl font-bold text-pink-400 mb-2">🎥 TikTok & YouTube</h3>
+      <p>Des vidéos fun, des tutos et du contenu exclusif.</p>
+    </a>
+    <a href="https://noxxworks.netlify.app/communauty" class="block p-4 md:p-6 bg-[#1e1e2f] rounded-xl shadow-lg hover-card transition animate-fadeIn">
+      <h3 class="text-lg md:text-2xl font-bold text-orange-400 mb-2">🤝 Communauté Active</h3>
+      <p>Un lieu d’échange, d’entraide et de créativité.</p>
+    </a>
+  </section>
 
-<!-- CARDS -->
-<section class="max-w-6xl mx-auto p-6 grid md:grid-cols-3 gap-6 text-center mt-8">
-  <div class="hover-card p-6 bg-[#1e1e2f] rounded-xl fade-in">
-    <h3 class="text-2xl font-bold text-orange-400">⚡ Discord</h3>
-    <p class="mt-2">Des projets innovants pour améliorer ton expérience Discord.</p>
-  </div>
-  <div class="hover-card p-6 bg-[#1e1e2f] rounded-xl fade-in">
-    <h3 class="text-2xl font-bold text-pink-400">🎥 TikTok</h3>
-    <p class="mt-2">Des vidéos fun, des tutos et du contenu exclusif.</p>
-  </div>
-  <div class="hover-card p-6 bg-[#1e1e2f] rounded-xl fade-in">
-    <h3 class="text-2xl font-bold text-green-400">🤝 Communauté</h3>
-    <p class="mt-2">Un lieu d’échange, d’entraide et de créativité.</p>
-  </div>
-</section>
+  <!-- Compteur événement -->
+  <section class="text-center py-10">
+    <h2 class="text-xl md:text-3xl font-bold mb-4">⏳ Prochain Événement</h2>
+    <p id="countdown" class="text-lg md:text-2xl font-extrabold text-orange-400"></p>
+  </section>
 
-<!-- TEAM -->
-<section id="team" class="bg-gradient-to-r from-pink-600 to-orange-500 py-12 mt-12 text-center fade-in">
-  <h2 class="text-3xl font-bold mb-6">👑 Notre Équipe</h2>
-  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-    <div class="p-6 bg-[#1e1e2f] rounded-xl hover-card">
-      <h3 class="text-xl font-bold">🔥 Noxx</h3>
-      <p>Fondateur & Développeur</p>
-    </div>
-    <div class="p-6 bg-[#1e1e2f] rounded-xl hover-card">
-      <h3 class="text-xl font-bold">🎨 Alex</h3>
-      <p>Designer & Créatif</p>
-    </div>
-    <div class="p-6 bg-[#1e1e2f] rounded-xl hover-card">
-      <h3 class="text-xl font-bold">🎤 Sam</h3>
-      <p>Community Manager</p>
-    </div>
-  </div>
-</section>
+  <!-- FOOTER -->
+  <footer class="bg-[#29293d] text-center py-4 md:py-6 mt-8 text-xs md:text-base">
+    <p>© 2025 Team NoxxWorks. Tous droits réservés.</p>
+  </footer>
 
-<!-- FAQ -->
-<section id="faq" class="max-w-4xl mx-auto py-12 px-6 fade-in">
-  <h2 class="text-3xl font-bold text-orange-400 text-center mb-6">❓ FAQ</h2>
-  <details class="mb-4 bg-[#1e1e2f] p-4 rounded">
-    <summary class="font-bold cursor-pointer">Comment rejoindre la Team ?</summary>
-    <p class="mt-2">Clique sur 🚀 Rejoindre en haut et suis les instructions.</p>
-  </details>
-  <details class="mb-4 bg-[#1e1e2f] p-4 rounded">
-    <summary class="font-bold cursor-pointer">Faut-il être créateur pour participer ?</summary>
-    <p class="mt-2">Non, tout le monde est le bienvenu !</p>
-  </details>
-</section>
+  <!-- Bouton retour haut -->
+  <button id="backToTop">↑</button>
 
-<!-- CONTACT -->
-<section id="contact" class="bg-[#29293d] py-12 text-center fade-in">
-  <h2 class="text-3xl font-bold mb-6">📩 Contact</h2>
-  <form class="max-w-md mx-auto space-y-4" method="POST" data-netlify="true">
-    <input type="text" name="name" placeholder="Votre nom" class="w-full p-3 rounded bg-[#1e1e2f]">
-    <input type="email" name="email" placeholder="Votre email" class="w-full p-3 rounded bg-[#1e1e2f]">
-    <textarea name="message" rows="4" placeholder="Votre message" class="w-full p-3 rounded bg-[#1e1e2f]"></textarea>
-    <button type="submit" class="btn-gradient px-6 py-3 rounded-lg text-white font-bold">Envoyer</button>
-  </form>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-[#1e1e2f] py-6 text-center mt-12">
-  <p>© 2025 Team NoxxWorks. Tous droits réservés.</p>
-</footer>
-
-<!-- BACK TO TOP -->
-<button id="backToTop" class="px-4 py-2 bg-orange-500 rounded text-white">⬆️ Haut</button>
-
-<script>
-  // Progress bar scroll
-  const progress = document.getElementById("scrollProgress");
-  window.addEventListener("scroll", () => {
-    let h = document.documentElement.scrollHeight - window.innerHeight;
-    let sc = window.scrollY;
-    progress.style.width = `${(sc / h) * 100}%`;
-  });
-
-  // Back to top
-  const backBtn = document.getElementById("backToTop");
-  window.addEventListener("scroll", () => {
-    backBtn.style.display = window.scrollY > 300 ? "block" : "none";
-  });
-  backBtn.onclick = () => window.scrollTo({top:0, behavior:"smooth"});
-
-  // Dark/Light mode
-  const body = document.body;
-  const themeBtn = document.getElementById("toggleTheme");
-  if(localStorage.getItem("theme") === "light") body.classList.add("light");
-  themeBtn.addEventListener("click", () => {
-    body.classList.toggle("light");
-    localStorage.setItem("theme", body.classList.contains("light") ? "light" : "dark");
-  });
-
-  // Animations au scroll
-  const faders = document.querySelectorAll(".fade-in");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){ entry.target.classList.add("show"); }
+  <script>
+    // --- Mode clair/sombre ---
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
     });
-  }, {threshold:0.2});
-  faders.forEach(f => observer.observe(f));
-</script>
+    if(localStorage.getItem("theme") === "light"){ document.body.classList.add("light"); }
 
+    // --- Retour en haut ---
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 200 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+
+    // --- Compte à rebours ---
+    const targetDate = new Date("2025-12-31T23:59:59"); // à modifier
+    setInterval(() => {
+      const now = new Date();
+      const diff = targetDate - now;
+      if(diff <= 0){ document.getElementById("countdown").innerText = "C'est parti 🚀"; return; }
+      const d = Math.floor(diff/(1000*60*60*24));
+      const h = Math.floor((diff/(1000*60*60))%24);
+      const m = Math.floor((diff/(1000*60))%60);
+      const s = Math.floor((diff/1000)%60);
+      document.getElementById("countdown").innerText = `${d}j ${h}h ${m}m ${s}s`;
+    },1000);
+  </script>
 </body>
 </html>
