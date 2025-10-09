@@ -1,156 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Team NoxxWorks — Bot Musical</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoxxWorks Bot Musical | Outil Interne</title>
+  <meta name="description" content="Bot musical privé de la Team NoxxWorks : musique, radio, IA et sécurité avancée pour les serveurs internes." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    /* Palette inspirée du site principal (ton sombre, néon) */
-    :root{
-      --bg:#0b0f14;
-      --panel:#0f1720;
-      --muted:#9aa7b2;
-      --accent:#7c3aed; /* violet néon */
-      --glow: 0 8px 30px rgba(124,58,237,0.12);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f0f1a;
+      color: #eee;
+      scroll-behavior: smooth;
     }
-    body{background:linear-gradient(180deg,#04060a 0%, var(--bg) 100%); color:#e6eef6}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); box-shadow:var(--glow)}
-    .accent{color:var(--accent)}
-    .dot{width:10px;height:10px;background:var(--accent);border-radius:999px;display:inline-block;margin-right:8px;box-shadow:0 6px 18px rgba(124,58,237,0.22)}
-    a.btn{background:linear-gradient(90deg, rgba(124,58,237,0.95), rgba(99,102,241,0.95)); padding:10px 16px;border-radius:12px;color:white;font-weight:600;display:inline-flex;gap:8px;align-items:center;text-decoration:none}
-    /* Responsive image block */
-    .hero-art{border-radius:16px;overflow:hidden;min-height:220px;display:flex;align-items:center;justify-content:center;background:linear-gradient(120deg, rgba(124,58,237,0.12), rgba(59,130,246,0.06));}
-    /* Feature grid */
-    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    footer{opacity:0.85;color:var(--muted)}
+    .hover-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+    .hover-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
+    .btn-gradient { background: linear-gradient(90deg, #ff6a00, #ee0979); box-shadow: 0 6px 14px rgba(238, 9, 121, 0.4); transition: all 0.3s ease; }
+    .btn-gradient:hover { transform: scale(1.07); box-shadow: 0 12px 26px rgba(238, 9, 121, 0.6); }
+    .neon-text { color: #fff; text-shadow: 0 0 7px #ff6a00, 0 0 15px #ee0979, 0 0 30px #ff6a00; }
+    .glass { background: rgba(30, 30, 47, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
   </style>
 </head>
 <body>
-  <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
-    <div class="flex items-center gap-4">
-      <div class="p-2 rounded-lg" style="background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03)">
-        <img src="/logo-noxx.png" alt="NoxxWorks" width="46" height="46"/> 
-      </div>
-      <div>
-        <h1 class="text-2xl font-semibold">NoxxWorks — Bot musical</h1>
-        <p class="text-sm text-gray-400">Bot interne | Accès : <span class="font-medium">Équipe seulement</span></p>
-      </div>
-    </div>
-    <nav class="text-sm text-gray-300 flex items-center gap-4">
-      <span class="px-3 py-1 rounded-md text-xs" style="border:1px solid rgba(255,255,255,0.03);">Dashboard</span>
-      <span class="px-3 py-1 rounded-md text-xs">Docs</span>
-      <span class="px-3 py-1 rounded-md text-xs">Support</span>
-    </nav>
+  <header class="relative bg-gradient-to-r from-orange-500 to-pink-600 text-center py-14 md:py-20 shadow-xl">
+    <h1 class="text-3xl md:text-5xl font-extrabold drop-shadow-xl neon-text">🎵 NoxxWorks Bot Musical</h1>
+    <p class="mt-3 text-sm md:text-lg opacity-90">Bot Discord privé — réservé à la Team NoxxWorks</p>
   </header>
 
-  <main class="max-w-6xl mx-auto p-6 space-y-6">
-    <!-- Hero -->
-    <section class="grid md:grid-cols-2 gap-6 items-center">
-      <div>
-        <span class="dot"></span>
-        <h2 class="text-3xl font-bold mt-3">Bot Discord Musical — Team NoxxWorks</h2>
-        <p class="mt-4 text-gray-300">Un bot musical puissant construit en Python pour usage interne — YouTube, Spotify &amp; Deezer, radio intégrée, IA d'assistance, système de sécurité et modération professionnel. Conçu pour rester en ligne 24/7 et donner le meilleur contrôle aux modérateurs.</p>
+  <main class="max-w-6xl mx-auto p-6 text-center">
+    <section class="animate-fadeIn">
+      <h2 class="text-2xl md:text-3xl font-bold text-orange-400 mb-4">Présentation du Bot</h2>
+      <p class="text-gray-300 max-w-3xl mx-auto mb-8">Développé en Python, ce bot musical interne gère la lecture depuis YouTube, Spotify et Deezer, propose des commandes slash, une IA intégrée, une radio mondiale, et un système de sécurité et modération complet. Aucun accès externe n’est autorisé.</p>
+    </section>
 
-        <div class="mt-6 flex gap-3 items-center">
-          <!-- No invite button as requested -->
-          <span class="px-3 py-2 rounded-md text-xs bg-white/3">Bot privé — accès restreint</span>
-          <a class="btn" href="#panel">Ouvrir le panneau</a>
-        </div>
+    <section class="grid md:grid-cols-2 gap-6 text-left">
+      <div class="glass p-6 rounded-xl hover-card">
+        <h3 class="text-xl font-bold text-orange-400 mb-2">🎧 Musique & Radio</h3>
+        <p class="text-gray-300 text-sm">Lecture multi‑plateformes (YouTube, Spotify, Deezer), file d’attente, boucle, lecture continue, et radios internationales via Radio‑Browser API.</p>
+      </div>
+      <div class="glass p-6 rounded-xl hover-card">
+        <h3 class="text-xl font-bold text-pink-400 mb-2">🤖 Intelligence Artificielle</h3>
+        <p class="text-gray-300 text-sm">Assistant IA intégré basé sur Gemini, capable de comprendre le contexte du serveur et de répondre aux membres avec cohérence.</p>
+      </div>
+      <div class="glass p-6 rounded-xl hover-card">
+        <h3 class="text-xl font-bold text-orange-400 mb-2">🛡️ Sécurité & Modération</h3>
+        <p class="text-gray-300 text-sm">Anti‑raid, anti‑spam, logs détaillés et sanctions persistantes. Toutes les actions sont journalisées avec des embeds pro.</p>
+      </div>
+      <div class="glass p-6 rounded-xl hover-card">
+        <h3 class="text-xl font-bold text-pink-400 mb-2">🧠 Développement interne</h3>
+        <p class="text-gray-300 text-sm">Système modulaire, maintenance simplifiée et commandes réservées aux développeurs de la Team.</p>
+      </div>
+    </section>
 
-        <ul class="mt-6 text-sm text-gray-400 space-y-2">
-          <li>• Lecture YouTube / Spotify / Deezer</li>
-          <li>• Radio (Radio‑Browser) &amp; pré‑configs France</li>
-          <li>• Autocompletion intelligente &amp; panels interactifs</li>
+    <section class="mt-12 animate-fadeIn">
+      <h2 class="text-2xl md:text-3xl font-bold text-orange-400 mb-4">Technologies & Dépendances</h2>
+      <div class="glass p-6 rounded-xl text-left max-w-3xl mx-auto">
+        <ul class="list-disc list-inside text-gray-300 text-sm space-y-2">
+          <li>discord.py[voice] — Gestion du bot et commandes vocales</li>
+          <li>yt-dlp — Extraction audio YouTube</li>
+          <li>spotipy — API Spotify</li>
+          <li>deezer-python — API Deezer</li>
+          <li>PyNaCl — Transmission audio sécurisée</li>
+          <li>aiohttp — Requêtes asynchrones pour la radio et l’IA</li>
         </ul>
       </div>
-
-      <div class="hero-art card p-6">
-        <div class="w-full">
-          <img src="/bot-artwork.png" alt="Artwork bot" class="w-full object-cover rounded-lg" />
-        </div>
-      </div>
     </section>
 
-    <!-- Features -->
-    <section id="panel" class="card p-6 rounded-2xl">
-      <h3 class="text-xl font-semibold">Fonctionnalités principales</h3>
-      <p class="text-sm text-gray-400 mt-2">Résumé rapide des modules intégrés.</p>
-
-      <div class="mt-4 features-grid">
-        <div class="p-4 rounded-lg" style="border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01),transparent)">
-          <h4 class="font-semibold">Lecture & File d'attente</h4>
-          <p class="text-sm text-gray-300 mt-2">YouTube (yt-dlp), conversion Spotify/Deezer -> YouTube, queue, shuffle, loop, autoplay et 24/7.</p>
-        </div>
-
-        <div class="p-4 rounded-lg" style="border:1px solid rgba(255,255,255,0.03);">
-          <h4 class="font-semibold">Radio</h4>
-          <p class="text-sm text-gray-300 mt-2">Intégration Radio‑Browser (30k+ stations). Panels dédiés, recherches par pays, favoris FR préconfigurés.</p>
-        </div>
-
-        <div class="p-4 rounded-lg">
-          <h4 class="font-semibold">Assistant IA</h4>
-          <p class="text-sm text-gray-300 mt-2">Assistant (Gemini-like) contextualisé au serveur, multi‑tour, mémoires et configuration persistante.</p>
-        </div>
-
-        <div class="p-4 rounded-lg">
-          <h4 class="font-semibold">Sécurité & Modération</h4>
-          <p class="text-sm text-gray-300 mt-2">Anti‑raid / anti‑spam / sanctions persistantes / logs détaillés / systeme de sanctions avec IDs.</p>
-        </div>
-
-        <div class="p-4 rounded-lg">
-          <h4 class="font-semibold">Dev Tools & Logs</h4>
-          <p class="text-sm text-gray-300 mt-2">Commandes développeur restreintes, système de logs (embed), diagnostics et analytics.</p>
-        </div>
-
-        <div class="p-4 rounded-lg">
-          <h4 class="font-semibold">Autocompletion</h4>
-          <p class="text-sm text-gray-300 mt-2">Autocompletion intelligente pour musique (Deezer/YouTube) et radios (API live).</p>
-        </div>
+    <section class="mt-12 animate-fadeIn">
+      <h2 class="text-2xl md:text-3xl font-bold text-pink-400 mb-4">Notes internes</h2>
+      <div class="glass p-6 rounded-xl text-left max-w-3xl mx-auto">
+        <ul class="list-disc list-inside text-gray-300 text-sm space-y-2">
+          <li>Bot strictement privé — non disponible à l’invitation publique.</li>
+          <li>Ne pas modifier le dossier <code>Z</code> ni le fichier <code>Y</code>.</li>
+          <li>Projet maintenu par la direction de NoxxWorks.</li>
+        </ul>
       </div>
-    </section>
-
-    <!-- Tech -->
-    <section class="card p-6 rounded-2xl">
-      <h3 class="text-xl font-semibold">Tech & dépendances</h3>
-      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <ul class="text-sm text-gray-300 space-y-2">
-            <li><strong>Langage :</strong> Python 3.11+</li>
-            <li><strong>Libs :</strong> discord.py[voice], yt-dlp, spotipy, deezer-python, PyNaCl, aiohttp</li>
-            <li><strong>Stockage :</strong> SQLite / PostgreSQL (optionnel)</li>
-          </ul>
-        </div>
-        <div>
-          <p class="text-sm text-gray-300">Le projet est pensé pour être modulaire : modules séparés pour musique, radio, IA, sécurité et modération afin de faciliter les mises à jour sans interruption.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Notes privées -->
-    <section class="p-4 rounded-lg" style="border:1px dashed rgba(255,255,255,0.04);">
-      <h4 class="font-semibold">Notes internes</h4>
-      <ul class="text-sm text-gray-400 mt-2">
-        <li>• Pas de bouton d'invitation — bot privé pour la Team NoxxWorks.</li>
-        <li>• Ne pas toucher au dossier <code>Z</code> ni au fichier <code>Y</code> (préférence utilisateur).</li>
-        <li>• Page prête à être ajoutée sur Netlify : déposer ces fichiers dans le dépôt et publier.</li>
-      </ul>
     </section>
   </main>
 
-  <footer class="max-w-6xl mx-auto p-6 flex items-center justify-between">
-    <div>
-      <strong>NoxxWorks</strong>
-      <div class="text-sm">© Team NoxxWorks — Usage interne seulement</div>
-    </div>
-    <div class="text-sm text-gray-400">Conçu pour la Team — Besoin d'un changement ? Dis‑moi.</div>
+  <footer class="bg-[#29293d] text-center py-4 md:py-6 mt-8 text-xs md:text-base">
+    <p>© 2025 Team NoxxWorks. Bot interne — Tous droits réservés.</p>
   </footer>
-
-  <!-- Optional: small script to show local time or interactive bits later -->
-  <script>
-    // Placeholder: on-demand enhancements (panels, dark toggles, live status) can être ajoutés.
-  </script>
 </body>
 </html>
