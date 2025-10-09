@@ -1,173 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Conditions d'utilisation • ✩༺•Team NoxxWorks•༻✩</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Open Graph pour Discord / réseaux sociaux -->
-  <meta property="og:title" content="Conditions d'utilisation • ✩༺•Team NoxxWorks•༻✩">
-  <meta property="og:description" content="Ce serveur est communautaire et propose des Discord gratuits, propres, sans arnaque avec un bot incroyable !">
-  <meta property="og:image" content="https://tonsite.com/preview.png"> <!-- image qui apparaîtra dans Discord -->
-  <meta property="og:url" content="https://tonsite.com/conditions.html">
-  <meta property="og:type" content="website">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Team NoxxWorks — Bot Musical</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #FFD3A5, #FD6585);
-      color: #222;
-      overflow-x: hidden;
+    /* Palette inspirée du site principal (ton sombre, néon) */
+    :root{
+      --bg:#0b0f14;
+      --panel:#0f1720;
+      --muted:#9aa7b2;
+      --accent:#7c3aed; /* violet néon */
+      --glow: 0 8px 30px rgba(124,58,237,0.12);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-
-    .container {
-      max-width: 950px;
-      margin: 60px auto;
-      background: white;
-      padding: 50px;
-      border-radius: 18px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 1s ease-out;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      text-align: center;
-      animation: slideDown 0.8s ease-out;
-    }
-
-    h2 {
-      margin-top: 30px;
-      font-size: 1.6em;
-      color: #444;
-    }
-
-    p, li {
-      font-size: 1.1em;
-      line-height: 1.7;
-      opacity: 0;
-      animation: fadeInUp 1s forwards;
-      animation-delay: 0.3s;
-    }
-
-    ul {
-      padding-left: 20px;
-      margin-top: 10px;
-    }
-
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #666;
-    }
-
-    a {
-      color: #5865F2;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      color: #4752c4;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0 }
-      to { opacity: 1 }
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
+    body{background:linear-gradient(180deg,#04060a 0%, var(--bg) 100%); color:#e6eef6}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); box-shadow:var(--glow)}
+    .accent{color:var(--accent)}
+    .dot{width:10px;height:10px;background:var(--accent);border-radius:999px;display:inline-block;margin-right:8px;box-shadow:0 6px 18px rgba(124,58,237,0.22)}
+    a.btn{background:linear-gradient(90deg, rgba(124,58,237,0.95), rgba(99,102,241,0.95)); padding:10px 16px;border-radius:12px;color:white;font-weight:600;display:inline-flex;gap:8px;align-items:center;text-decoration:none}
+    /* Responsive image block */
+    .hero-art{border-radius:16px;overflow:hidden;min-height:220px;display:flex;align-items:center;justify-content:center;background:linear-gradient(120deg, rgba(124,58,237,0.12), rgba(59,130,246,0.06));}
+    /* Feature grid */
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    footer{opacity:0.85;color:var(--muted)}
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Conditions d'utilisation du serveur Discord</h1>
+  <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="p-2 rounded-lg" style="background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03)">
+        <img src="/logo-noxx.png" alt="NoxxWorks" width="46" height="46"/> 
+      </div>
+      <div>
+        <h1 class="text-2xl font-semibold">NoxxWorks — Bot musical</h1>
+        <p class="text-sm text-gray-400">Bot interne | Accès : <span class="font-medium">Équipe seulement</span></p>
+      </div>
+    </div>
+    <nav class="text-sm text-gray-300 flex items-center gap-4">
+      <span class="px-3 py-1 rounded-md text-xs" style="border:1px solid rgba(255,255,255,0.03);">Dashboard</span>
+      <span class="px-3 py-1 rounded-md text-xs">Docs</span>
+      <span class="px-3 py-1 rounded-md text-xs">Support</span>
+    </nav>
+  </header>
 
-    <p>
-      Bienvenue sur le serveur officiel de <strong>✩༺•Team NoxxWorks•༻✩</strong> !  
-      Ce serveur est communautaire et propose des Discord <strong>gratuits, propres et sans arnaque</strong>, avec un bot incroyable pour améliorer l’expérience.  
-      Vous pouvez rejoindre notre serveur ici : <a href="https://discord.gg/tonlien" target="_blank">https://discord.gg/tonlien</a>
-    </p>
+  <main class="max-w-6xl mx-auto p-6 space-y-6">
+    <!-- Hero -->
+    <section class="grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <span class="dot"></span>
+        <h2 class="text-3xl font-bold mt-3">Bot Discord Musical — Team NoxxWorks</h2>
+        <p class="mt-4 text-gray-300">Un bot musical puissant construit en Python pour usage interne — YouTube, Spotify &amp; Deezer, radio intégrée, IA d'assistance, système de sécurité et modération professionnel. Conçu pour rester en ligne 24/7 et donner le meilleur contrôle aux modérateurs.</p>
 
-    <h2>1. Respect et comportement</h2>
-    <p>
-      En rejoignant ce serveur, vous vous engagez à respecter les règles de Discord ainsi que la charte interne du serveur.  
-      Le respect, la bienveillance et la politesse sont essentiels pour que la communauté reste agréable.
-    </p>
-    <ul>
-      <li>Pas d’insultes, de propos discriminatoires ou toxiques</li>
-      <li>Pas de spam ni de flood dans les salons</li>
-      <li>Pas de contenu NSFW, illégal ou choquant</li>
-      <li>Respect de la vie privée des autres membres</li>
-    </ul>
+        <div class="mt-6 flex gap-3 items-center">
+          <!-- No invite button as requested -->
+          <span class="px-3 py-2 rounded-md text-xs bg-white/3">Bot privé — accès restreint</span>
+          <a class="btn" href="#panel">Ouvrir le panneau</a>
+        </div>
 
-    <h2>2. Utilisation des services proposés</h2>
-    <p>
-      Le serveur accompagne les membres dans la création de serveurs Discord personnalisés.  
-      L’aide et les développements proposés sont <strong>gratuits</strong> et ne doivent pas être détournés à des fins commerciales ou frauduleuses.
-    </p>
-    <ul>
-      <li>Il est interdit d’arnaquer ou de monnayer les services proposés gratuitement</li>
-      <li>Le code et les bots doivent être utilisés uniquement dans le cadre prévu</li>
-      <li>Toute tentative de vol, de copie ou de revente sera sanctionnée</li>
-    </ul>
+        <ul class="mt-6 text-sm text-gray-400 space-y-2">
+          <li>• Lecture YouTube / Spotify / Deezer</li>
+          <li>• Radio (Radio‑Browser) &amp; pré‑configs France</li>
+          <li>• Autocompletion intelligente &amp; panels interactifs</li>
+        </ul>
+      </div>
 
-    <h2>3. Responsabilité et sécurité</h2>
-    <p>
-      L’équipe de <strong>✩༺•Team NoxxWorks•༻✩</strong> s’engage à fournir un environnement sûr et fiable.  
-      Cependant, chaque membre est responsable de ses propres actions sur le serveur.
-    </p>
-    <ul>
-      <li>Les liens externes doivent être partagés avec précaution</li>
-      <li>Tout logiciel ou script non approuvé est interdit</li>
-      <li>La sécurité de votre compte Discord est de votre responsabilité (authentification à deux facteurs recommandée)</li>
-    </ul>
+      <div class="hero-art card p-6">
+        <div class="w-full">
+          <img src="/bot-artwork.png" alt="Artwork bot" class="w-full object-cover rounded-lg" />
+        </div>
+      </div>
+    </section>
 
-    <h2>4. Modération et sanctions</h2>
-    <p>
-      Les modérateurs sont là pour garantir le respect des règles.  
-      En cas de non-respect, différentes mesures peuvent être prises :
-    </p>
-    <ul>
-      <li>Avertissement écrit</li>
-      <li>Mute temporaire ou expulsion</li>
-      <li>Bannissement définitif en cas de récidive ou de faute grave</li>
-    </ul>
+    <!-- Features -->
+    <section id="panel" class="card p-6 rounded-2xl">
+      <h3 class="text-xl font-semibold">Fonctionnalités principales</h3>
+      <p class="text-sm text-gray-400 mt-2">Résumé rapide des modules intégrés.</p>
 
-    <h2>5. Modification des conditions</h2>
-    <p>
-      L’équipe se réserve le droit de modifier ces conditions à tout moment pour s’adapter à l’évolution du serveur et des services proposés.  
-      Toute mise à jour sera communiquée aux membres via un salon dédié.
-    </p>
+      <div class="mt-4 features-grid">
+        <div class="p-4 rounded-lg" style="border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01),transparent)">
+          <h4 class="font-semibold">Lecture & File d'attente</h4>
+          <p class="text-sm text-gray-300 mt-2">YouTube (yt-dlp), conversion Spotify/Deezer -> YouTube, queue, shuffle, loop, autoplay et 24/7.</p>
+        </div>
 
-    <footer>
-      © 2025 ✩༺•Team NoxxWorks•༻✩ – Tous droits réservés.
-    </footer>
-  </div>
+        <div class="p-4 rounded-lg" style="border:1px solid rgba(255,255,255,0.03);">
+          <h4 class="font-semibold">Radio</h4>
+          <p class="text-sm text-gray-300 mt-2">Intégration Radio‑Browser (30k+ stations). Panels dédiés, recherches par pays, favoris FR préconfigurés.</p>
+        </div>
+
+        <div class="p-4 rounded-lg">
+          <h4 class="font-semibold">Assistant IA</h4>
+          <p class="text-sm text-gray-300 mt-2">Assistant (Gemini-like) contextualisé au serveur, multi‑tour, mémoires et configuration persistante.</p>
+        </div>
+
+        <div class="p-4 rounded-lg">
+          <h4 class="font-semibold">Sécurité & Modération</h4>
+          <p class="text-sm text-gray-300 mt-2">Anti‑raid / anti‑spam / sanctions persistantes / logs détaillés / systeme de sanctions avec IDs.</p>
+        </div>
+
+        <div class="p-4 rounded-lg">
+          <h4 class="font-semibold">Dev Tools & Logs</h4>
+          <p class="text-sm text-gray-300 mt-2">Commandes développeur restreintes, système de logs (embed), diagnostics et analytics.</p>
+        </div>
+
+        <div class="p-4 rounded-lg">
+          <h4 class="font-semibold">Autocompletion</h4>
+          <p class="text-sm text-gray-300 mt-2">Autocompletion intelligente pour musique (Deezer/YouTube) et radios (API live).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech -->
+    <section class="card p-6 rounded-2xl">
+      <h3 class="text-xl font-semibold">Tech & dépendances</h3>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <ul class="text-sm text-gray-300 space-y-2">
+            <li><strong>Langage :</strong> Python 3.11+</li>
+            <li><strong>Libs :</strong> discord.py[voice], yt-dlp, spotipy, deezer-python, PyNaCl, aiohttp</li>
+            <li><strong>Stockage :</strong> SQLite / PostgreSQL (optionnel)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm text-gray-300">Le projet est pensé pour être modulaire : modules séparés pour musique, radio, IA, sécurité et modération afin de faciliter les mises à jour sans interruption.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notes privées -->
+    <section class="p-4 rounded-lg" style="border:1px dashed rgba(255,255,255,0.04);">
+      <h4 class="font-semibold">Notes internes</h4>
+      <ul class="text-sm text-gray-400 mt-2">
+        <li>• Pas de bouton d'invitation — bot privé pour la Team NoxxWorks.</li>
+        <li>• Ne pas toucher au dossier <code>Z</code> ni au fichier <code>Y</code> (préférence utilisateur).</li>
+        <li>• Page prête à être ajoutée sur Netlify : déposer ces fichiers dans le dépôt et publier.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+    <div>
+      <strong>NoxxWorks</strong>
+      <div class="text-sm">© Team NoxxWorks — Usage interne seulement</div>
+    </div>
+    <div class="text-sm text-gray-400">Conçu pour la Team — Besoin d'un changement ? Dis‑moi.</div>
+  </footer>
+
+  <!-- Optional: small script to show local time or interactive bits later -->
+  <script>
+    // Placeholder: on-demand enhancements (panels, dark toggles, live status) can être ajoutés.
+  </script>
 </body>
 </html>
