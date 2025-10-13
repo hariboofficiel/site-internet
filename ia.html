@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA intégrée — Bot NoxxVibes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #070b13;
+  --accent: #7b61ff;
+  --accent-2: #00d4ff;
+  --text: #e6eef8;
+  --card-bg: rgba(255,255,255,0.08);
+}
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Inter',sans-serif; background:var(--bg-dark); color:var(--text); overflow-x:hidden; min-height:100vh;}
+header {text-align:center; padding:80px 20px 50px; z-index:3;}
+header h1 {font-size:3rem; background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; color:transparent; font-weight:800;}
+header h2 {margin-top:10px; color:#b4bcc8; font-size:1.2rem;}
+main {padding:40px 10%; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; position:relative; z-index:2;}
+.card {background:var(--card-bg); border-radius:20px; padding:25px; backdrop-filter:blur(10px); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;}
+.card:hover {transform:translateY(-10px) scale(1.05); box-shadow:0 10px 30px rgba(123,97,255,0.5);}
+.card h3 {color:var(--accent); margin-bottom:10px;}
+.card p {color:#c0c7d2;}
+.controls {text-align:center; padding:40px;}
+.controls a {background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; border:none; border-radius:25px; padding:12px 26px; margin:8px; font-weight:600; text-decoration:none; display:inline-block; transition:transform 0.2s ease, box-shadow 0.2s ease;}
+.controls a:hover {transform:scale(1.08); box-shadow:0 0 15px var(--accent-2);}
+footer {text-align:center; padding:40px 0; color:#9aa4b2;}
+canvas#background {position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;}
+</style>
+</head>
+<body>
+<canvas id="background"></canvas>
+<header>
+<h1>Bot NoxxVibes</h1>
+<h2>IA intégrée</h2>
+</header>
+<main>
+<div class="card">
+<h3>Gemini AI</h3>
+<p>Assistant IA intégré avec mémoire contextuelle et multi-tours pour interactions intelligentes sur Discord.</p>
+</div>
+<div class="card">
+<h3>Personnalisation</h3>
+<p>Nom et prompt de l’IA personnalisables par serveur pour répondre parfaitement aux besoins de chaque communauté.</p>
+</div>
+<div class="card">
+<h3>Historique & Contexte</h3>
+<p>L’IA conserve le contexte des conversations et est consciente des informations des serveurs Discord pour des réponses pertinentes.</p>
+</div>
+<div class="card">
+<h3>Assistance Avancée</h3>
+<p>Automatisez des tâches ou créez des interactions dynamiques grâce à l’IA sur votre serveur.</p>
+</div>
+</main>
+<div class="controls">
+<a href="https://discord.com/oauth2/authorize?client_id=1426879662587641926" target="_blank">🚀 Inviter le bot</a>
+<a href="https://discord.gg/Ggz6PaQn" target="_blank">💬 Serveur Support</a>
+</div>
+<footer>&copy; 2025 NoxxWorks — Tous droits réservés.</footer>
+<script>
+const canvas = document.getElementById('background');
+const ctx = canvas.getContext('2d');
+let particles=[]; let mouse={x:0,y:0};
+function resize(){canvas.width=window.innerWidth; canvas.height=window.innerHeight;}
+window.addEventListener('resize',resize); resize();
+class Particle{constructor(){this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.size=Math.random()*3+1; this.speedX=Math.random()*2-1; this.speedY=Math.random()*2-1;} update(){this.x+=this.speedX; this.y+=this.speedY; const dx=mouse.x-this.x; const dy=mouse.y-this.y; const dist=Math.sqrt(dx*dx+dy*dy); if(dist<100){this.x-=dx/15; this.y-=dy/15;} if(this.x<0||this.x>canvas.width)this.speedX*=-1; if(this.y<0||this.y>canvas.height)this.speedY*=-1;} draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle='rgba(123,97,255,0.7)'; ctx.fill();}}
+function initParticles(){particles=[]; for(let i=0;i<150;i++) particles.push(new Particle());}
+function animate(){ctx.fillStyle='rgba(7,11,19,0.15)'; ctx.fillRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animate);}
+document.addEventListener('mousemove',e=>{mouse.x=e.x; mouse.y=e.y;});
+initParticles(); animate();
+</script>
+</body>
+</html>
