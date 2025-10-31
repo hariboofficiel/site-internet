@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance - NoxxVibes Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Effet de particules animées */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 107, 53, 0.3);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+
+        /* Conteneur principal */
+        .maintenance-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px;
+            max-width: 600px;
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                        0 0 40px rgba(255, 107, 53, 0.1);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Logo/Icône */
+        .maintenance-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Titre */
+        .maintenance-title {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Message */
+        .maintenance-message {
+            font-size: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Barre de progression */
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35);
+            background-size: 200% 100%;
+            animation: progressMove 2s linear infinite;
+            width: 70%;
+        }
+
+        @keyframes progressMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        /* Lien de retour */
+        .back-link {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+        }
+
+        /* Info footer */
+        .maintenance-footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Effet de souris */
+        .mouse-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .maintenance-container {
+                padding: 30px 20px;
+            }
+
+            .maintenance-icon {
+                font-size: 60px;
+            }
+
+            .maintenance-title {
+                font-size: 24px;
+            }
+
+            .maintenance-message {
+                font-size: 16px;
+            }
+        }
+
+        /* Logo NoxxWorks */
+        .noxx-logo {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .noxx-logo span {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <!-- Effet de souris -->
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <!-- Particules -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Conteneur principal -->
+    <div class="maintenance-container">
+        <div class="maintenance-icon">🔧</div>
+        <h1 class="maintenance-title" id="pageTitle">Maintenance en cours</h1>
+        <p class="maintenance-message" id="pageMessage">
+            Cette section du dashboard est actuellement en maintenance. 
+            Nous travaillons pour vous offrir la meilleure expérience possible.
+        </p>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+        <a href="/" class="back-link" id="backLink">
+            <span id="linkText">Retour à l'accueil</span>
+        </a>
+
+        <div class="maintenance-footer">
+            Nous serons de retour très bientôt ! Merci de votre patience.
+        </div>
+
+        <div class="noxx-logo">
+            Powered by <span>NoxxWorks</span>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - MODIFIE CES VALEURS SELON TES BESOINS
+        const CONFIG = {
+            pageTitle: "Maintenance en cours",
+            pageMessage: "Cette section du dashboard est actuellement en maintenance. Nous travaillons pour vous offrir la meilleure expérience possible.",
+            linkText: "Retour à l'accueil",
+            linkUrl: "/",
+            particleCount: 30
+        };
+
+        // Appliquer la configuration
+        document.getElementById('pageTitle').textContent = CONFIG.pageTitle;
+        document.getElementById('pageMessage').textContent = CONFIG.pageMessage;
+        document.getElementById('linkText').textContent = CONFIG.linkText;
+        document.getElementById('backLink').href = CONFIG.linkUrl;
+
+        // Lire les paramètres URL (ex: ?title=Dashboard&message=En maintenance&link=/dashboard)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('title')) {
+            document.getElementById('pageTitle').textContent = urlParams.get('title');
+        }
+        if (urlParams.get('message')) {
+            document.getElementById('pageMessage').textContent = urlParams.get('message');
+        }
+        if (urlParams.get('linkText')) {
+            document.getElementById('linkText').textContent = urlParams.get('linkText');
+        }
+        if (urlParams.get('linkUrl')) {
+            document.getElementById('backLink').href = urlParams.get('linkUrl');
+        }
+
+        // Effet de souris
+        const mouseGlow = document.getElementById('mouseGlow');
+        document.addEventListener('mousemove', (e) => {
+            mouseGlow.style.left = e.clientX + 'px';
+            mouseGlow.style.top = e.clientY + 'px';
+            mouseGlow.style.opacity = '1';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            mouseGlow.style.opacity = '0';
+        });
+
+        // Créer les particules animées
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < CONFIG.particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Animation du titre
+        setInterval(() => {
+            const title = document.getElementById('pageTitle');
+            title.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                title.style.transform = 'scale(1)';
+            }, 200);
+        }, 3000);
+    </script>
+</body>
+</html>
